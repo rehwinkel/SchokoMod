@@ -30,7 +30,7 @@ public class ItemSchokoBar extends ItemFood {
 	
 	@Override
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
-		//player.addPotionEffect(new PotionEffect(Potion.digSpeed.getId(), 10*20, 1));
+		player.addPotionEffect(new PotionEffect(SchokoMod.schokoPotion.id, 10*20, 1));
 		return super.onEaten(stack, world, player);
 	}
 
