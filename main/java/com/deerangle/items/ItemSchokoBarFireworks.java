@@ -13,6 +13,7 @@ import net.minecraft.item.ItemFireball;
 import net.minecraft.item.ItemFirework;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.World;
 
 public class ItemSchokoBarFireworks extends ItemSchokoBar {
@@ -23,23 +24,17 @@ public class ItemSchokoBarFireworks extends ItemSchokoBar {
 
 	@Override
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
-		ItemStack stack2 = new ItemStack(Items.fireworks);
-
+		ItemStack s = new ItemStack(Items.fireworks);
 		NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-		NBTTagCompound nbttagcompound2 = new NBTTagCompound();
+		NBTTagList nbttaglist = new NBTTagList();
+		NBTTagCompound explosions = new NBTTagCompound();
+		explosions.setByte("Type", (byte) 0);
+		explosions.setIntArray("Colors", new int[] { 9533525 });
+		nbttaglist.appendTag(explosions);
+		nbttagcompound1.setTag("Explosions", nbttaglist);
+		nbttagcompound1.setByte("Flight", (byte) 1);
+		world.makeFireworks(player.posX, player.posY, player.posZ, 0, 0, 0, nbttagcompound1);
 
-		nbttagcompound2.setIntArray("Colors", new int[] {9533525});
-		nbttagcompound2.setBoolean("Flicker", true);
-		nbttagcompound1.setTag("Explosion", nbttagcompound2);
-
-		stack2.setTagCompound(nbttagcompound1);
-
-		EntityFireworkRocket rocket = new EntityFireworkRocket(world, player.posX, player.posY, player.posZ, stack2);
-		world.spawnEntityInWorld(rocket);
-		
-		//world.makeFireworks(p_92088_1_, p_92088_3_, p_92088_5_, p_92088_7_, p_92088_9_, p_92088_11_, p_92088_13_);
-
-		// ItemFireworke
 		return super.onEaten(stack, world, player);
 	}
 
