@@ -52,6 +52,7 @@ public class ModItems {
 		schokoBarBlack = new ItemSchokoBar("black");
 		schokoBarWhite = new ItemSchokoBar("white");
 		schokoBarCookie = new ItemSchokoBar("cookie");
+		schokoBarFireworks = new ItemSchokoBarFireworks();
 		//TODO: 
 		schokoBarApple = new ItemSchokoBar("apple");
 		schokoBarCobble = new ItemSchokoBar("cobble");
@@ -60,7 +61,6 @@ public class ModItems {
 		schokoBarDoor = new ItemSchokoBar("door");
 		schokoBarDrawing = new ItemSchokoBar("drawing");
 		schokoBarFire = new ItemSchokoBar("fire");
-		schokoBarFireworks = new ItemSchokoBar("fireworks");
 		schokoBarFlower = new ItemSchokoBar("flower");
 		schokoBarGlass = new ItemSchokoBar("glass");
 		schokoBarGold = new ItemSchokoBar("gold");
