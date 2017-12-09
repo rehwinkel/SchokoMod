@@ -8,7 +8,7 @@ import net.minecraft.util.StatCollector;
 public class SchokoPotion extends Potion {
 
 	public SchokoPotion(int id) {
-		super(id, false, 16777215);
+		super(id, false, 9533525);
 	}
 	
 	@Override
