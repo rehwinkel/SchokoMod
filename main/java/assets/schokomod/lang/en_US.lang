@@ -1,2 +1,8 @@
-itemGroup.schoko=Schokolade!
-item.schokoBarNormal.name=Normale Schokoladentafel
+itemGroup.schoko=Chocolate!
+potion.schoko=Chocolate!
+item.schokoBarNormal.name=Normal Chocolate Bar
+item.schokoBarBlack.name=Dark Chocolate Bar
+item.schokoBarWhite.name=White Chocolate Bar
+item.schokoBarFull.name=Full Chocolate Bar
+item.schokoBarEnder.name=Ender Chocolate Bar
+item.schokoBarCow.name=Cow Chocolate Bar

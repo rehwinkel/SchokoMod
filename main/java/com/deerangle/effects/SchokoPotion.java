@@ -1,6 +1,9 @@
 package com.deerangle.effects;
 
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.potion.Potion;
+import net.minecraft.util.StatCollector;
 
 public class SchokoPotion extends Potion {
 
@@ -15,7 +18,7 @@ public class SchokoPotion extends Potion {
 	}
 	
 	@Override
-	public Potion setPotionName(String string) {
-		return super.setPotionName(string);
+	public String getName() {
+		return StatCollector.translateToLocal("potion.schoko");
 	}
 }

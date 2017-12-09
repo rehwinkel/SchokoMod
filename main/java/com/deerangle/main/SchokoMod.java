@@ -27,13 +27,13 @@ public class SchokoMod {
 			return ModItems.schokoBarNormal;
 		}
 	};
-	
+
 	public static Potion schokoPotion;
 
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
 		ModItems.load();
-		
+
 		loadPotions();
 	}
 
@@ -64,6 +64,6 @@ public class SchokoMod {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		schokoPotion = (new SchokoPotion(32)).setIconIndex(0, 0).setPotionName("schoko");
+		schokoPotion = (new SchokoPotion(32)).setIconIndex(0, 0);
 	}
 }

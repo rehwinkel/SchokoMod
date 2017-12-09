@@ -12,25 +12,32 @@ import net.minecraft.world.World;
 
 public class ItemSchokoBar extends ItemFood {
 
+	int effect = 0;
+
 	public ItemSchokoBar(String type, int food) {
-		super(food, true);
-		type = type.substring(0, 1).toUpperCase() + type.substring(1);
-		this.setUnlocalizedName("schokoBar" + type);
-		this.setCreativeTab(SchokoMod.tab);
-		this.setTextureName(SchokoMod.MODID + ":schokoBar" + type);
+		this(type, food, false, 0);
 	}
-	
+
 	public ItemSchokoBar(String type) {
-		super(4, true);
+		this(type, 4, false, 0);
+	}
+
+	public ItemSchokoBar(String type, int food, boolean wolf) {
+		this(type, food, wolf, 0);
+	}
+
+	public ItemSchokoBar(String type, int food, boolean wolf, int effect) {
+		super(food, wolf);
 		type = type.substring(0, 1).toUpperCase() + type.substring(1);
+		this.effect = effect;
 		this.setUnlocalizedName("schokoBar" + type);
 		this.setCreativeTab(SchokoMod.tab);
 		this.setTextureName(SchokoMod.MODID + ":bars/schokoBar" + type);
 	}
-	
+
 	@Override
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
-		player.addPotionEffect(new PotionEffect(SchokoMod.schokoPotion.id, 10*20, 1));
+		player.addPotionEffect(new PotionEffect(SchokoMod.schokoPotion.id, 10 * 20, effect));
 		return super.onEaten(stack, world, player);
 	}
 
