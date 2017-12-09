@@ -8,6 +8,7 @@ public class ModItems {
 	public static Item schokoBarApple;
 	public static Item schokoBarBlack;
 	public static Item schokoBarCobble;
+	public static Item schokoBarCookie;
 	public static Item schokoBarCow;
 	public static Item schokoBarCreeper;
 	public static Item schokoBarCristmas;
@@ -30,7 +31,6 @@ public class ModItems {
 	public static Item schokoBarPortal;
 	public static Item schokoBarQuartz;
 	public static Item schokoBarRedstone;
-	public static Item schokoBarRubiks;
 	public static Item schokoBarSlot;
 	public static Item schokoBarSmartie;
 	public static Item schokoBarSteve;
@@ -51,6 +51,7 @@ public class ModItems {
 		schokoBarNormal = new ItemSchokoBar("normal");
 		schokoBarBlack = new ItemSchokoBar("black");
 		schokoBarWhite = new ItemSchokoBar("white");
+		schokoBarCookie = new ItemSchokoBar("cookie");
 		//TODO: 
 		schokoBarApple = new ItemSchokoBar("apple");
 		schokoBarCobble = new ItemSchokoBar("cobble");
@@ -72,7 +73,6 @@ public class ModItems {
 		schokoBarPortal = new ItemSchokoBar("portal");
 		schokoBarQuartz = new ItemSchokoBar("quartz");
 		schokoBarRedstone = new ItemSchokoBar("redstone");
-		schokoBarRubiks = new ItemSchokoBar("rubiks");
 		schokoBarSlot = new ItemSchokoBar("slot");
 		schokoBarSmartie = new ItemSchokoBar("smartie");
 		schokoBarSteve = new ItemSchokoBar("steve");
@@ -84,6 +84,7 @@ public class ModItems {
 		GameRegistry.registerItem(schokoBarApple, "schokoBarApple");
 		GameRegistry.registerItem(schokoBarBlack, "schokoBarBlack");
 		GameRegistry.registerItem(schokoBarCobble, "schokoBarCobble");
+		GameRegistry.registerItem(schokoBarCookie, "schokoBarCookie");
 		GameRegistry.registerItem(schokoBarCow, "schokoBarCow");
 		GameRegistry.registerItem(schokoBarCreeper, "schokoBarCreeper");
 		GameRegistry.registerItem(schokoBarCristmas, "schokoBarCristmas");
@@ -106,7 +107,6 @@ public class ModItems {
 		GameRegistry.registerItem(schokoBarPortal, "schokoBarPortal");
 		GameRegistry.registerItem(schokoBarQuartz, "schokoBarQuartz");
 		GameRegistry.registerItem(schokoBarRedstone, "schokoBarRedstone");
-		GameRegistry.registerItem(schokoBarRubiks, "schokoBarRubiks");
 		GameRegistry.registerItem(schokoBarSlot, "schokoBarSlot");
 		GameRegistry.registerItem(schokoBarSmartie, "schokoBarSmartie");
 		GameRegistry.registerItem(schokoBarSteve, "schokoBarSteve");
