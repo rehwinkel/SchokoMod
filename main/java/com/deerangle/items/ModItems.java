@@ -12,7 +12,7 @@ public class ModItems {
 	public static Item schokoBarCookie;
 	public static Item schokoBarCow;
 	public static Item schokoBarCreeper;
-	public static Item schokoBarCristmas;
+	public static Item schokoBarChristmas;
 	public static Item schokoBarDoor;
 	public static Item schokoBarDrawing;
 	public static Item schokoBarEnder;
@@ -73,9 +73,9 @@ public class ModItems {
 		schokoBarPortal = new ItemSchokoBarPortal();
 		schokoBarGlass = new ItemSchokoBarGlass();
 		schokoBarSteve = new ItemSchokoBarSteve();
+		schokoBarChristmas = new ItemSchokoBarChristmas();
 		//TODO: 
 		schokoBarApple = new ItemSchokoBar("apple");
-		schokoBarCristmas = new ItemSchokoBar("cristmas");
 		schokoBarDoor = new ItemSchokoBar("door");
 		schokoBarDrawing = new ItemSchokoBar("drawing");
 		schokoBarSlot = new ItemSchokoBar("slot");
@@ -90,7 +90,7 @@ public class ModItems {
 		GameRegistry.registerItem(schokoBarCookie, "schokoBarCookie");
 		GameRegistry.registerItem(schokoBarCow, "schokoBarCow");
 		GameRegistry.registerItem(schokoBarCreeper, "schokoBarCreeper");
-		GameRegistry.registerItem(schokoBarCristmas, "schokoBarCristmas");
+		GameRegistry.registerItem(schokoBarChristmas, "schokoBarChristmas");
 		GameRegistry.registerItem(schokoBarDoor, "schokoBarDoor");
 		GameRegistry.registerItem(schokoBarDrawing, "schokoBarDrawing");
 		GameRegistry.registerItem(schokoBarEnder, "schokoBarEnder");

@@ -6,6 +6,7 @@ import java.lang.reflect.Modifier;
 import com.deerangle.effects.LSDPotion;
 import com.deerangle.effects.SchokoPotion;
 import com.deerangle.items.ModItems;
+import com.deerangle.tile.ModBlocks;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -35,6 +36,7 @@ public class SchokoMod {
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
 		ModItems.load();
+		ModBlocks.load();
 
 		loadPotions();
 	}
