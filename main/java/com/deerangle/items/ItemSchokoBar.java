@@ -41,7 +41,6 @@ public class ItemSchokoBar extends ItemFood {
 		player.addPotionEffect(new PotionEffect(SchokoMod.schokoPotion.id, 10 * 20, effect));
 		if(!world.isRemote){
 			player.getEntityData().setInteger("Diabetis", player.getEntityData().getInteger("Diabetis") + 1);
-			player.addChatMessage(new ChatComponentText("You now have Diabetis " + player.getEntityData().getInteger("Diabetis") + "!"));
 		}
 		return super.onEaten(stack, world, player);
 	}
