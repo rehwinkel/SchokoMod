@@ -1,5 +1,7 @@
 package com.deerangle.tile;
 
+import java.util.ArrayList;
+
 import com.deerangle.main.SchokoMod;
 
 import net.minecraft.block.Block;
@@ -26,10 +28,10 @@ public class BlockPresent extends Block {
 	}
 	
 	@Override
-	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int meta) {
-		ItemStack stack = new ItemStack(Items.coal, 3);
-		world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, stack));
-		super.onBlockDestroyedByPlayer(world, x, y, z, meta);
+	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+		ArrayList<ItemStack> stacks = new ArrayList<ItemStack>();
+		stacks.add(new ItemStack(Items.coal, 3));
+		return stacks;
 	}
 	
 	@Override
