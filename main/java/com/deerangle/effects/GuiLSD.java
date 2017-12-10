@@ -19,7 +19,7 @@ public class GuiLSD extends Gui {
 			int height = scaled.getScaledHeight();
 
 			mc.getTextureManager().bindTexture(new ResourceLocation(SchokoMod.MODID + ":textures/gui/lsd.png"));
-			drawDrawFullscreenImage(width, height, (int) (partialTicks * 4));
+			drawDrawFullscreenImage(width, height, (int) (partialTicks * 7));
 		}
 	}
 

@@ -61,6 +61,7 @@ public class ModItems {
 		schokoBarLite = new ItemSchokoBarLite();
 		schokoBarNuts = new ItemSchokoBar("nuts", 5);
 		schokoBarLSD = new ItemSchokoBarLSD();
+		schokoBarWindows = new ItemSchokoBarWindows();
 		//TODO: 
 		schokoBarApple = new ItemSchokoBar("apple");
 		schokoBarCobble = new ItemSchokoBar("cobble");
@@ -77,7 +78,6 @@ public class ModItems {
 		schokoBarRedstone = new ItemSchokoBar("redstone");
 		schokoBarSlot = new ItemSchokoBar("slot");
 		schokoBarSteve = new ItemSchokoBar("steve");
-		schokoBarWindows = new ItemSchokoBar("windows");
 		schokoBarWood = new ItemSchokoBar("wood");
 		schokoBarYouTube = new ItemSchokoBar("youTube");
 	}
