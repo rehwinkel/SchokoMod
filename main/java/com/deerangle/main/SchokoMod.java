@@ -29,6 +29,7 @@ public class SchokoMod {
 	};
 
 	public static Potion schokoPotion;
+	public static Potion lsdPotion;
 
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
@@ -60,10 +61,12 @@ public class SchokoMod {
 		}
 
 		MinecraftForge.EVENT_BUS.register(new ModEventHandler());
+		MinecraftForge.EVENT_BUS.register(new ModRenderHandler());
 	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		schokoPotion = (new SchokoPotion(32)).setIconIndex(0, 0);
+		lsdPotion = (new LSDPotion(33)).setIconIndex(0, 0);
 	}
 }
