@@ -17,5 +17,3 @@ item.schokoBarNuts.name=Nuts Chocolate Bar
 item.schokoBarLite.name=Lite Chocolate Bar
 item.schokoBarLSD.name=LSD Chocolate Bar
 item.schokoBarWindows.name=Windows Chocolate Bar
-windows.error=Error 0x0462
-windows.error.text=Fun.exe has stopped working!

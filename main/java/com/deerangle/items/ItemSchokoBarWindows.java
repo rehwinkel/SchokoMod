@@ -1,5 +1,7 @@
 package com.deerangle.items;
 
+import com.deerangle.main.SchokoMod;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
@@ -14,9 +16,11 @@ public class ItemSchokoBarWindows extends ItemSchokoBar {
 	
 	@Override
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
-		player.addChatMessage(new ChatComponentText("§a" + StatCollector.translateToLocal("windows.error")));
-		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("windows.error.text")));
-		world.playSoundAtEntity(player, "windows", 1, 1);
+		if(!world.isRemote){
+			player.addChatMessage(new ChatComponentText("§cError 0x" + world.rand.nextInt(10) + "" + world.rand.nextInt(10) + "" + world.rand.nextInt(10) + "" + world.rand.nextInt(10)));
+			player.addChatMessage(new ChatComponentText("Chocolate.exe has stopped working!"));
+		}
+		world.playSoundAtEntity(player, SchokoMod.MODID + ":windows", 1, 1);
 		return super.onEaten(stack, world, player);
 	}
 
