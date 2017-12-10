@@ -1,0 +1,29 @@
+package com.deerangle.items;
+
+import com.deerangle.main.SchokoMod;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
+
+public class ItemSchokoBarIlluminati extends ItemSchokoBar {
+
+	public ItemSchokoBarIlluminati() {
+		super("illuminati");
+	}
+	
+	@Override
+	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
+		player.addPotionEffect(new PotionEffect(SchokoMod.schokoPotion.id, 30 * 20, 100));
+		player.addPotionEffect(new PotionEffect(SchokoMod.lsdPotion.id, 30 * 20, 0));
+		player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 30 * 20, 2));
+		player.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 30 * 20, 2));
+		player.addPotionEffect(new PotionEffect(Potion.blindness.id, 30 * 20, 2));
+		player.addPotionEffect(new PotionEffect(Potion.confusion.id, 30 * 20, 2));
+		player.addPotionEffect(new PotionEffect(Potion.invisibility.id, 30 * 20, 4));
+		return super.onEaten(stack, world, player);
+	}
+
+}

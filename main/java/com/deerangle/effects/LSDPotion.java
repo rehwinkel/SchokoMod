@@ -1,11 +1,11 @@
-package com.deerangle.main;
+package com.deerangle.effects;
 
 import net.minecraft.potion.Potion;
 import net.minecraft.util.StatCollector;
 
 public class LSDPotion extends Potion {
 
-	protected LSDPotion(int id) {
+	public LSDPotion(int id) {
 		super(id, false, 16711680);
 	}
 	

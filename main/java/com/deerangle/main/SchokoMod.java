@@ -3,6 +3,7 @@ package com.deerangle.main;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+import com.deerangle.effects.LSDPotion;
 import com.deerangle.effects.SchokoPotion;
 import com.deerangle.items.ModItems;
 

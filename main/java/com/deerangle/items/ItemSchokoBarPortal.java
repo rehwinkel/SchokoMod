@@ -1,20 +1,20 @@
 package com.deerangle.items;
 
-import com.deerangle.main.SchokoMod;
-
+import net.minecraft.block.BlockPortal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Direction;
 import net.minecraft.world.World;
 
-public class ItemSchokoBarCow extends ItemSchokoBar {
+public class ItemSchokoBarPortal extends ItemSchokoBar {
 
-	public ItemSchokoBarCow() {
-		super("cow", 4, true);
+	public ItemSchokoBarPortal() {
+		super("portal");
 	}
 	
 	@Override
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
-		world.playSoundAtEntity(player, SchokoMod.MODID + ":cow", 1, 1);
+		player.travelToDimension(-1);
 		return super.onEaten(stack, world, player);
 	}
 

@@ -12,7 +12,7 @@ public class ModRenderHandler {
 	@SubscribeEvent
 	public void onRenderGui(RenderGameOverlayEvent.Post event) {
 		if (event.type == ElementType.ALL) {
-			new GuiLSD(Minecraft.getMinecraft(), event.partialTicks);
+			new GuiLSD(Minecraft.getMinecraft());
 		}
 	}
 

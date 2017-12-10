@@ -18,7 +18,7 @@ public class ItemSchokoBarWindows extends ItemSchokoBar {
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
 		if(!world.isRemote){
 			player.addChatMessage(new ChatComponentText("§cError 0x" + world.rand.nextInt(10) + "" + world.rand.nextInt(10) + "" + world.rand.nextInt(10) + "" + world.rand.nextInt(10)));
-			player.addChatMessage(new ChatComponentText("Chocolate.exe has stopped working!"));
+			player.addChatMessage(new ChatComponentText("§7Chocolate.exe §fhas stopped working!"));
 		}
 		world.playSoundAtEntity(player, SchokoMod.MODID + ":windows", 1, 1);
 		return super.onEaten(stack, world, player);

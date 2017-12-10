@@ -20,17 +20,17 @@ public class SchokoPotion extends Potion {
 		super(id, false, 9533525);
 	}
 	
-	@Override
-	public boolean hasStatusIcon() {
-		return false;
-	}
-	
-	@Override
-	public void renderInventoryEffect(int x, int y, PotionEffect effect, Minecraft mc) {
-		mc.renderEngine.bindTexture(new ResourceLocation(SchokoMod.MODID + ":textures/items/bars/schokoBarNormal.png"));
-		GL11.glEnable(GL11.GL_BLEND);
-		mc.currentScreen.drawTexturedModalRect(x + 6, y + 7, 0, 0, 16, 16);
-	}
+//	@Override
+//	public boolean hasStatusIcon() {
+//		return false;
+//	}
+//	
+//	@Override
+//	public void renderInventoryEffect(int x, int y, PotionEffect effect, Minecraft mc) {
+//		mc.renderEngine.bindTexture(new ResourceLocation(SchokoMod.MODID + ":textures/items/bars/schokoBarNormal.png"));
+//		GL11.glEnable(GL11.GL_BLEND);
+//		mc.currentScreen.drawTexturedModalRect(x + 6, y + 7, 0, 0, 16, 16);
+//	}
 
 	@Override
 	public Potion setIconIndex(int x, int y) {

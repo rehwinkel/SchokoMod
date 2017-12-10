@@ -1,6 +1,7 @@
 package com.deerangle.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.BlockGlass;
 import net.minecraft.item.Item;
 
 public class ModItems {
@@ -62,22 +63,22 @@ public class ModItems {
 		schokoBarNuts = new ItemSchokoBar("nuts", 5);
 		schokoBarLSD = new ItemSchokoBarLSD();
 		schokoBarWindows = new ItemSchokoBarWindows();
+		schokoBarCobble = new ItemSchokoBarStone("cobble");
+		schokoBarQuartz = new ItemSchokoBarStone("quartz");
+		schokoBarCreeper = new ItemSchokoBarCreeper();
+		schokoBarHalloween = new ItemSchokoBarHalloween();
+		schokoBarRedstone = new ItemSchokoBarRedstone();
+		schokoBarFlower = new ItemSchokoBarFlower();
+		schokoBarIlluminati = new ItemSchokoBarIlluminati();
+		schokoBarPortal = new ItemSchokoBarPortal();
+		schokoBarGlass = new ItemSchokoBarGlass();
+		schokoBarSteve = new ItemSchokoBarSteve();
 		//TODO: 
 		schokoBarApple = new ItemSchokoBar("apple");
-		schokoBarCobble = new ItemSchokoBar("cobble");
-		schokoBarCreeper = new ItemSchokoBar("creeper");
 		schokoBarCristmas = new ItemSchokoBar("cristmas");
 		schokoBarDoor = new ItemSchokoBar("door");
 		schokoBarDrawing = new ItemSchokoBar("drawing");
-		schokoBarFlower = new ItemSchokoBar("flower");
-		schokoBarGlass = new ItemSchokoBar("glass");
-		schokoBarHalloween = new ItemSchokoBar("halloween");
-		schokoBarIlluminati = new ItemSchokoBar("illuminati");
-		schokoBarPortal = new ItemSchokoBar("portal");
-		schokoBarQuartz = new ItemSchokoBar("quartz");
-		schokoBarRedstone = new ItemSchokoBar("redstone");
 		schokoBarSlot = new ItemSchokoBar("slot");
-		schokoBarSteve = new ItemSchokoBar("steve");
 		schokoBarWood = new ItemSchokoBar("wood");
 		schokoBarYouTube = new ItemSchokoBar("youTube");
 	}

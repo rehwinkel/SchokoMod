@@ -1,3 +1,7 @@
 {
-    "windows": {"category": "master", "sounds": ["windows"]}
+    "windows": {"category": "master", "sounds": ["windows"]},
+    "scream": {"category": "master", "sounds": ["scream"]},
+    "dejavu": {"category": "master", "sounds": ["dejavu"]},
+    "glass": {"category": "master", "sounds": ["glass"]},
+    "cow": {"category": "master", "sounds": ["cow"]}
 }

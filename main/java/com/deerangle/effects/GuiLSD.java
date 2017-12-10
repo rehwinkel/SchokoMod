@@ -12,14 +12,14 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiLSD extends Gui {
 
-	public GuiLSD(Minecraft mc, float partialTicks) {
+	public GuiLSD(Minecraft mc) {
 		if (mc.thePlayer.isPotionActive(SchokoMod.lsdPotion.id)) {
 			ScaledResolution scaled = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 			int width = scaled.getScaledWidth();
 			int height = scaled.getScaledHeight();
 
 			mc.getTextureManager().bindTexture(new ResourceLocation(SchokoMod.MODID + ":textures/gui/lsd.png"));
-			drawDrawFullscreenImage(width, height, (int) (partialTicks * 7));
+			drawDrawFullscreenImage(width, height, (int) (mc.getSystemTime() % 4));
 		}
 	}
 
