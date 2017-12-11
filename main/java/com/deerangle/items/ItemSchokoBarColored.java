@@ -6,10 +6,13 @@ import com.deerangle.main.SchokoMod;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 public class ItemSchokoBarColored extends ItemFood {
 
@@ -46,6 +49,18 @@ public class ItemSchokoBarColored extends ItemFood {
 	@Override
 	public IIcon getIconFromDamage(int dmg) {
 		return icons[dmg];
+	}
+	
+	@Override
+	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
+		if(stack.getItemDamage() == 4){
+			world.playSoundAtEntity(player, SchokoMod.MODID + ":blue", 10, 1);
+		}
+		player.addPotionEffect(new PotionEffect(SchokoMod.schokoPotion.id, 10 * 20, 0));
+		if(!world.isRemote){
+			player.getEntityData().setInteger("Diabetis", player.getEntityData().getInteger("Diabetis") + 1);
+		}
+		return super.onEaten(stack, world, player);
 	}
 
 }
