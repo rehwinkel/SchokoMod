@@ -1,4 +1,5 @@
-itemGroup.schoko=Chocolate!
+itemGroup.schoko=Chocolate Items!
+itemGroup.schoko.bars=Chocolate Bars!
 potion.schoko=Chocolate!
 potion.lsd=LSD!
 item.schokoBarNormal.name=Normal Chocolate Bar
