@@ -14,7 +14,7 @@ public class ItemSchokoBarLite extends ItemFood {
 	public ItemSchokoBarLite() {
 		super(1, false);
 		this.setUnlocalizedName("schokoBarLite");
-		this.setCreativeTab(SchokoMod.tab);
+		this.setCreativeTab(SchokoMod.bars);
 		this.setTextureName(SchokoMod.MODID + ":bars/schokoBarLite");
 	}
 

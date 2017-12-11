@@ -21,7 +21,7 @@ public class ItemSchokoBarColored extends ItemFood {
 		this.setMaxDamage(0);
 		this.setHasSubtypes(true);
 		this.setUnlocalizedName("schokoBarColored");
-		this.setCreativeTab(SchokoMod.tab);
+		this.setCreativeTab(SchokoMod.bars);
 	}
 	
 	@Override

@@ -12,7 +12,7 @@ public class ItemSchokoBarMushroom extends ItemFood {
 	public ItemSchokoBarMushroom() {
 		super(4, false);
 		this.setUnlocalizedName("schokoBarMushroom");
-		this.setCreativeTab(SchokoMod.tab);
+		this.setCreativeTab(SchokoMod.bars);
 		this.setTextureName(SchokoMod.MODID + ":bars/schokoBarMushroom");
 	}
 	

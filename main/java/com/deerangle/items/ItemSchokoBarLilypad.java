@@ -12,7 +12,7 @@ public class ItemSchokoBarLilypad extends ItemFood {
 	public ItemSchokoBarLilypad() {
 		super(4, false);
 		this.setUnlocalizedName("schokoBarLilypad");
-		this.setCreativeTab(SchokoMod.tab);
+		this.setCreativeTab(SchokoMod.bars);
 		this.setTextureName(SchokoMod.MODID + ":bars/schokoBarLilypad");
 	}
 	

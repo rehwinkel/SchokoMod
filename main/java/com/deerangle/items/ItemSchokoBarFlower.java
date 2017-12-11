@@ -13,7 +13,7 @@ public class ItemSchokoBarFlower extends ItemFood {
 	public ItemSchokoBarFlower() {
 		super(4, false);
 		this.setUnlocalizedName("schokoBarFlower");
-		this.setCreativeTab(SchokoMod.tab);
+		this.setCreativeTab(SchokoMod.bars);
 		this.setTextureName(SchokoMod.MODID + ":bars/schokoBarFlower");
 	}
 	

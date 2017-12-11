@@ -33,7 +33,7 @@ public class ItemSchokoBar extends ItemFood {
 		type = type.substring(0, 1).toUpperCase() + type.substring(1);
 		this.effect = effect;
 		this.setUnlocalizedName("schokoBar" + type);
-		this.setCreativeTab(SchokoMod.tab);
+		this.setCreativeTab(SchokoMod.bars);
 		this.setTextureName(SchokoMod.MODID + ":bars/schokoBar" + type);
 	}
 

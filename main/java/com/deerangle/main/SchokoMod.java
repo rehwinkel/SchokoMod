@@ -23,10 +23,17 @@ public class SchokoMod {
 	public static final String MODID = "schokomod";
 	public static final String VERSION = "1.0";
 
-	public static CreativeTabs tab = new CreativeTabs("schoko") {
+	public static CreativeTabs bars = new CreativeTabs("schoko.bars") {
 		@Override
 		public Item getTabIconItem() {
 			return ModItems.schokoBarNormal;
+		}
+	};
+	
+	public static CreativeTabs rest = new CreativeTabs("schoko") {
+		@Override
+		public Item getTabIconItem() {
+			return Item.getItemFromBlock(ModBlocks.present);
 		}
 	};
 
