@@ -16,8 +16,8 @@ public class ItemSchokoBarGlowstone extends ItemSchokoBar {
 
 	@Override
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
-		world.playSoundAtEntity(player, SchokoMod.MODID + ":sanic", 8, 1);
-		player.addPotionEffect(new PotionEffect(Potion.jump.id, 12 * 20, 100));
+		world.playSoundAtEntity(player, SchokoMod.MODID + ":sanic", 100, 1);
+		player.addPotionEffect(new PotionEffect(Potion.jump.id, 12 * 20, 50));
 		return super.onEaten(stack, world, player);
 	}
 

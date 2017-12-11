@@ -29,7 +29,7 @@ public class ItemSchokoBarEnder extends ItemSchokoBar {
 				tries++;
 			}
 			
-			if(tries > 128){
+			if(tries > 512){
 				break;
 			}
 		}
