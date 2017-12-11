@@ -46,7 +46,6 @@ public class ModItems {
 	}
 
 	private static void initialize() {
-		//DONE:
 		schokoBarCow = new ItemSchokoBarCow();
 		schokoBarFull = new ItemSchokoBar("full", 6, false, 2);
 		schokoBarEnder = new ItemSchokoBarEnder();
