@@ -39,6 +39,12 @@ public class ModItems {
 	public static Item schokoBarWhite;
 	public static Item schokoBarWood;
 	public static Item schokoBarYouTube;
+	public static Item schokoBarColored;
+	public static Item schokoBarMushroom;
+	public static Item schokoBarLilypad;
+	public static Item schokoBarGlowstone;
+	public static Item schokoBarBook;
+	public static Item schokoBarCobweb;
 	
 	public static void load(){
 		initialize();
@@ -73,6 +79,11 @@ public class ModItems {
 		schokoBarGlass = new ItemSchokoBarGlass();
 		schokoBarSteve = new ItemSchokoBarSteve();
 		schokoBarChristmas = new ItemSchokoBarChristmas();
+		schokoBarColored = new ItemSchokoBarColored();
+		schokoBarMushroom = new ItemSchokoBarMushroom();
+		schokoBarLilypad = new ItemSchokoBarLilypad();
+		schokoBarBook = new ItemSchokoBarBook();
+		schokoBarGlowstone = new ItemSchokoBarGlowstone();
 		//TODO: 
 		schokoBarApple = new ItemSchokoBar("apple");
 		schokoBarDoor = new ItemSchokoBar("door");
@@ -80,6 +91,8 @@ public class ModItems {
 		schokoBarSlot = new ItemSchokoBar("slot");
 		schokoBarWood = new ItemSchokoBar("wood");
 		schokoBarYouTube = new ItemSchokoBar("youTube");
+		//ez
+		schokoBarCobweb = new ItemSchokoBar("cobweb");
 	}
 
 	private static void register() {
@@ -116,6 +129,12 @@ public class ModItems {
 		GameRegistry.registerItem(schokoBarWindows, "schokoBarWindows");
 		GameRegistry.registerItem(schokoBarWood, "schokoBarWood");
 		GameRegistry.registerItem(schokoBarYouTube, "schokoBarYouTube");
+		GameRegistry.registerItem(schokoBarColored, "schokoBarColored");
+		GameRegistry.registerItem(schokoBarMushroom, "schokoBarMushroom");
+		GameRegistry.registerItem(schokoBarLilypad, "schokoBarLilypad");
+		GameRegistry.registerItem(schokoBarGlowstone, "schokoBarGlowstone");
+		GameRegistry.registerItem(schokoBarBook, "schokoBarBook");
+		GameRegistry.registerItem(schokoBarCobweb, "schokoBarCobweb");
 	}
 	
 }

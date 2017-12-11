@@ -3,5 +3,6 @@
     "scream": {"category": "master", "sounds": ["scream"]},
     "dejavu": {"category": "master", "sounds": ["dejavu"]},
     "glass": {"category": "master", "sounds": ["glass"]},
-    "cow": {"category": "master", "sounds": ["cow"]}
+    "cow": {"category": "master", "sounds": ["cow"]},
+    "sanic": {"category": "master", "sounds": ["sanic"]}
 }
