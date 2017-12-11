@@ -84,6 +84,7 @@ public class ModItems {
 		schokoBarLilypad = new ItemSchokoBarLilypad();
 		schokoBarBook = new ItemSchokoBarBook();
 		schokoBarGlowstone = new ItemSchokoBarGlowstone();
+		schokoBarCobweb = new ItemSchokoBarCobweb();
 		// TODO:
 		schokoBarApple = new ItemSchokoBar("apple");
 		schokoBarDoor = new ItemSchokoBar("door");
@@ -91,8 +92,6 @@ public class ModItems {
 		schokoBarSlot = new ItemSchokoBar("slot");
 		schokoBarWood = new ItemSchokoBar("wood");
 		schokoBarYouTube = new ItemSchokoBar("youTube");
-		// ez
-		schokoBarCobweb = new ItemSchokoBarCobweb();
 	}
 
 	private static void register() {
