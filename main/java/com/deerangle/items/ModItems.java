@@ -45,8 +45,8 @@ public class ModItems {
 	public static Item schokoBarGlowstone;
 	public static Item schokoBarBook;
 	public static Item schokoBarCobweb;
-	
-	public static void load(){
+
+	public static void load() {
 		initialize();
 		register();
 	}
@@ -84,15 +84,15 @@ public class ModItems {
 		schokoBarLilypad = new ItemSchokoBarLilypad();
 		schokoBarBook = new ItemSchokoBarBook();
 		schokoBarGlowstone = new ItemSchokoBarGlowstone();
-		//TODO: 
+		// TODO:
 		schokoBarApple = new ItemSchokoBar("apple");
 		schokoBarDoor = new ItemSchokoBar("door");
 		schokoBarDrawing = new ItemSchokoBar("drawing");
 		schokoBarSlot = new ItemSchokoBar("slot");
 		schokoBarWood = new ItemSchokoBar("wood");
 		schokoBarYouTube = new ItemSchokoBar("youTube");
-		//ez
-		schokoBarCobweb = new ItemSchokoBar("cobweb");
+		// ez
+		schokoBarCobweb = new ItemSchokoBarCobweb();
 	}
 
 	private static void register() {
@@ -136,5 +136,5 @@ public class ModItems {
 		GameRegistry.registerItem(schokoBarBook, "schokoBarBook");
 		GameRegistry.registerItem(schokoBarCobweb, "schokoBarCobweb");
 	}
-	
+
 }
