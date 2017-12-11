@@ -44,8 +44,8 @@ public class ItemSchokoBarColored extends ItemFood {
 	}
 	
 	@Override
-	public IIcon getIcon(ItemStack stack, int pass) {
-		return icons[stack.getItemDamage()];
+	public IIcon getIconFromDamage(int dmg) {
+		return icons[dmg];
 	}
 
 }
