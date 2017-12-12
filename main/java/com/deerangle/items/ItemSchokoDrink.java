@@ -64,6 +64,7 @@ public class ItemSchokoDrink extends ItemFood {
 		if (!world.isRemote) {
 			player.getEntityData().setInteger("Diabetis", player.getEntityData().getInteger("Diabetis") + 1);
 		}
+		super.onEaten(stack, world, player);
 		return new ItemStack(ModItems.mug);
 	}
 
