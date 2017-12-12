@@ -28,6 +28,7 @@ public class ItemSchokoDrink extends ItemFood {
 		this.setUnlocalizedName("schokoDrink");
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
+		this.setMaxStackSize(1);
 		this.setCreativeTab(SchokoMod.rest);
 	}
 
@@ -63,7 +64,8 @@ public class ItemSchokoDrink extends ItemFood {
 		if (!world.isRemote) {
 			player.getEntityData().setInteger("Diabetis", player.getEntityData().getInteger("Diabetis") + 1);
 		}
-		return super.onEaten(stack, world, player);
+		super.onEaten(stack, world, player);
+		return new ItemStack(ModItems.mug);
 	}
 
 	public EnumAction getItemUseAction(ItemStack stack) {
