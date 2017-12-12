@@ -3,6 +3,7 @@ package com.deerangle.items;
 import com.deerangle.main.SchokoMod;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.item.Item;
 
@@ -53,6 +54,7 @@ public class ModItems {
 	public static Item cocoaPowder;
 	public static Item schokoDrink;
 	public static Item mug;
+	public static Item weedBud;
 
 	public static void load() {
 		initialize();
@@ -106,6 +108,7 @@ public class ModItems {
 		cocoaPowder = new Item().setUnlocalizedName("cocoaPowder").setTextureName(SchokoMod.MODID + ":cocoaPowder").setCreativeTab(SchokoMod.rest);
 		mug = new Item().setUnlocalizedName("mug").setTextureName(SchokoMod.MODID + ":mug").setCreativeTab(SchokoMod.rest);
 		schokoDrink = new ItemSchokoDrink();
+		weedBud = new Item().setUnlocalizedName("weedBud").setTextureName(SchokoMod.MODID + ":weedBud").setCreativeTab(SchokoMod.rest);
 	}
 
 	private static void register() {
@@ -154,6 +157,7 @@ public class ModItems {
 		GameRegistry.registerItem(cocoaPowder, "cocoaPowder");
 		GameRegistry.registerItem(schokoDrink, "schokoDrink");
 		GameRegistry.registerItem(mug, "mug");
+		GameRegistry.registerItem(weedBud, "weedBud");
 	}
 
 }

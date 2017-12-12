@@ -17,6 +17,8 @@ public class BlockWeedBush extends Block implements IShearable {
 	protected BlockWeedBush() {
 		super(Material.leaves);
 		this.setHardness(0.65F);
+		this.setBlockName("weedBush");
+		this.setBlockBounds(0.25F, 0.5F, 0.25F, 1 - 0.25F, 1 - 0.5F, 1 - 0.25F);
 	}
 
 	@Override
@@ -28,17 +30,17 @@ public class BlockWeedBush extends Block implements IShearable {
 	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
 		ret.add(new ItemStack(this));
-		if(Math.random() < 0.4){
+		if (Math.random() < 0.4) {
 			ret.add(new ItemStack(ModItems.weedBud));
 		}
 		ret.add(new ItemStack(this));
 		return ret;
 	}
-	
+
 	@Override
 	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-		if(Math.random() < 0.4){
+		if (Math.random() < 0.4) {
 			ret.add(new ItemStack(ModItems.weedBud));
 		}
 		return ret;
