@@ -10,12 +10,13 @@ public class BlockWeedBushRenderer implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-
+		ClientProxy.renderInv = true;
+		renderer.renderBlockAsItem(block, 0, 0.0F);
+		ClientProxy.renderInv = false;
 	}
 
 	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId,
-			RenderBlocks renderer) {
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
 		int meta = world.getBlockMetadata(x, y, z);
 		if (ClientProxy.renderPass == 0) {
 			if (meta == 0) {
@@ -32,6 +33,7 @@ public class BlockWeedBushRenderer implements ISimpleBlockRenderingHandler {
 
 		if (ClientProxy.renderPass == 1) {
 			if (meta == 3) {
+				renderer.setRenderBounds(0, 0, 0, 1, 1, 1);
 				renderer.renderStandardBlock(block, x, y, z);
 			}
 		}

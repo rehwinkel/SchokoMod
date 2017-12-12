@@ -5,6 +5,8 @@ import java.util.Random;
 
 import com.deerangle.items.ModItems;
 import com.deerangle.main.ClientProxy;
+import com.deerangle.main.SchokoMod;
+import com.sun.security.ntlm.Client;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
@@ -25,15 +27,32 @@ public class BlockWeedBush extends Block implements IShearable {
 		super(Material.leaves);
 		this.setHardness(0.65F);
 		this.setBlockName("weedBush");
-		this.useNeighborBrightness = true;
+		this.setBlockTextureName(SchokoMod.MODID + ":weedBush");
 		this.setTickRandomly(true);
+		this.setBlockBounds(0.25f, 0.0f, 0.25f, 1 - 0.25f, 1 - 0.5f, 1 - 0.25f);
 	}
-	
+
+	@Override
+	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
+		int meta = world.getBlockMetadata(x, y, z);
+		if (meta == 0) {
+			return AxisAlignedBB.getBoundingBox(0.25F, 0.0F, 0.25F, 1 - 0.25F, 1 - 0.5F, 1 - 0.25F);
+		}
+		if (meta == 1) {
+			return AxisAlignedBB.getBoundingBox(0.125F, 0.0F, 0.125F, 1 - 0.125F, 1 - 0.25F, 1 - 0.125F);
+		}
+		if (meta > 1) {
+			return AxisAlignedBB.getBoundingBox(0, 0, 0, 1, 1, 1);
+		}
+		System.err.println("ERROR!");
+		return null;
+	}
+
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		System.out.println("hey!!");
 		int meta = world.getBlockMetadata(x, y, z);
-		if(meta < 3){
+		if (meta < 3) {
 			world.setBlockMetadataWithNotify(x, y, z, meta + 1, 2);
 		}
 	}
@@ -42,18 +61,21 @@ public class BlockWeedBush extends Block implements IShearable {
 	public int getRenderBlockPass() {
 		return 1;
 	}
-	
+
 	@Override
 	public boolean canRenderInPass(int pass) {
 		ClientProxy.renderPass = pass;
-		return super.canRenderInPass(pass);
+		return true;
 	}
-	
+
 	@Override
 	public int getRenderType() {
+		if (ClientProxy.renderInv) {
+			return 0;
+		}
 		return ClientProxy.rendererWeed;
 	}
-	
+
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
@@ -75,16 +97,16 @@ public class BlockWeedBush extends Block implements IShearable {
 		ret.add(new ItemStack(this));
 		return ret;
 	}
-	
+
 	@Override
 	public void registerBlockIcons(IIconRegister register) {
 		super.registerBlockIcons(register);
 		icon = register.registerIcon(this.textureName + "_grown");
 	}
-	
+
 	@Override
 	public IIcon getIcon(int side, int meta) {
-		return ClientProxy.renderPass == 1 ? icon : this.blockIcon;
+		return ClientProxy.renderPass == 1 && !ClientProxy.renderInv ? icon : this.blockIcon;
 	}
 
 	@Override
