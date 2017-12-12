@@ -1,0 +1,65 @@
+package com.deerangle.items;
+
+import java.util.List;
+
+import com.deerangle.main.SchokoMod;
+
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemPotion;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
+
+public class ItemSchokoDrink extends ItemPotion {
+
+	private String[] types = new String[] { "normal", "hot" };
+	private IIcon[] icons = new IIcon[types.length];
+
+	public ItemSchokoDrink() {
+		this.setUnlocalizedName("schokoDrink");
+		this.setHasSubtypes(true);
+		this.setMaxDamage(0);
+		this.setCreativeTab(SchokoMod.rest);
+	}
+
+	@Override
+	public void getSubItems(Item item, CreativeTabs tab, List list) {
+		for (int i = 0; i < types.length; i++) {
+			list.add(new ItemStack(item, 1, i));
+		}
+	}
+	
+	@Override
+	public void registerIcons(IIconRegister register) {
+		icons[0] = register.registerIcon(SchokoMod.MODID + ":schokoDrink" + "_" + types[0]);
+		icons[1] = register.registerIcon(SchokoMod.MODID + ":schokoDrink" + "_" + types[1]);
+	}
+	
+	@Override
+	public IIcon getIconFromDamage(int damage) {
+		return icons[damage];
+	}
+
+	@Override
+	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
+		player.addPotionEffect(new PotionEffect(SchokoMod.schokoPotion.id, 10 * 20, 0));
+		if(stack.getItemDamage() > 0){
+			player.addPotionEffect(new PotionEffect(Potion.regeneration.id, 10 * 20, 0));
+		}
+		if(!world.isRemote){
+			player.getEntityData().setInteger("Diabetis", player.getEntityData().getInteger("Diabetis") + 1);
+		}
+		return super.onEaten(stack, world, player);
+	}
+	
+	@Override
+	public int getColorFromDamage(int damage) {
+		return 9533525;
+	}
+
+}

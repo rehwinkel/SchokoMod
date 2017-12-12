@@ -51,6 +51,7 @@ public class ModItems {
 	public static Item schokoIngot;
 	public static Item mortar;
 	public static Item cocoaPowder;
+	public static Item schokoDrink;
 
 	public static void load() {
 		initialize();
@@ -102,6 +103,7 @@ public class ModItems {
 		schokoIngot = new ItemSchokoIngot();
 		mortar = new ItemMortar();
 		cocoaPowder = new Item().setUnlocalizedName("cocoaPowder").setTextureName(SchokoMod.MODID + ":cocoaPowder").setCreativeTab(SchokoMod.rest);
+		schokoDrink = new ItemSchokoDrink();
 	}
 
 	private static void register() {
@@ -148,6 +150,7 @@ public class ModItems {
 		GameRegistry.registerItem(schokoIngot, "schokoIngot");
 		GameRegistry.registerItem(mortar, "mortar");
 		GameRegistry.registerItem(cocoaPowder, "cocoaPowder");
+		GameRegistry.registerItem(schokoDrink, "schokoDrink");
 	}
 
 }
