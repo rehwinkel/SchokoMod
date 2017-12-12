@@ -44,6 +44,7 @@ public class SchokoMod {
 	public void preinit(FMLPreInitializationEvent event) {
 		ModItems.load();
 		ModBlocks.load();
+		ModCrafting.load();
 
 		loadPotions();
 	}

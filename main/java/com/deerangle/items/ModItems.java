@@ -49,6 +49,8 @@ public class ModItems {
 	public static Item schokoBarCobweb;
 
 	public static Item schokoIngot;
+	public static Item mortar;
+	public static Item cocoaPowder;
 
 	public static void load() {
 		initialize();
@@ -96,8 +98,10 @@ public class ModItems {
 		schokoBarSlot = new ItemSchokoBar("slot");
 		schokoBarWood = new ItemSchokoBar("wood");
 		schokoBarYouTube = new ItemSchokoBar("youTube");
-		
+
 		schokoIngot = new ItemSchokoIngot();
+		mortar = new Item().setUnlocalizedName("mortar").setTextureName(SchokoMod.MODID + ":mortar").setCreativeTab(SchokoMod.rest);
+		cocoaPowder = new Item().setUnlocalizedName("cocoaPowder").setTextureName(SchokoMod.MODID + ":cocoaPowder").setCreativeTab(SchokoMod.rest);
 	}
 
 	private static void register() {
@@ -142,6 +146,8 @@ public class ModItems {
 		GameRegistry.registerItem(schokoBarCobweb, "schokoBarCobweb");
 
 		GameRegistry.registerItem(schokoIngot, "schokoIngot");
+		GameRegistry.registerItem(mortar, "mortar");
+		GameRegistry.registerItem(cocoaPowder, "cocoaPowder");
 	}
 
 }
