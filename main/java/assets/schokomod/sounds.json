@@ -6,5 +6,6 @@
     "cow": {"category": "master", "sounds": ["cow"]},
     "sanic": {"category": "master", "sounds": ["sanic"]},
     "xfiles": {"category": "master", "sounds": ["xfiles"]},
-    "blue": {"category": "master", "sounds": ["blue"]}
+    "blue": {"category": "master", "sounds": ["blue"]},
+    "rainbow": {"category": "master", "sounds": ["rainbow"]}
 }
