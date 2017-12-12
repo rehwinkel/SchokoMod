@@ -14,7 +14,7 @@ item.schokoIngot_black.name=Brick of Dark Chocolate
 tile.schokoBlock_normal.name=Block of Normal Chocolate
 tile.schokoBlock_white.name=Block of Light Chocolate
 tile.schokoBlock_black.name=Block of Dark Chocolate
-tile.weedBud.name=Weed Bud
+item.weedBud.name=Weed Bud
 tile.weedBush.name=Weed Bush
 
 item.schokoBarRainbow.name=Rainbow Chocolate Bar

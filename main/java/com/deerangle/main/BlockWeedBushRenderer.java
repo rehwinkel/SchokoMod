@@ -3,6 +3,7 @@ package com.deerangle.main;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 
@@ -11,12 +12,16 @@ public class BlockWeedBushRenderer implements ISimpleBlockRenderingHandler {
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
 		ClientProxy.renderInv = true;
-		renderer.renderBlockAsItem(block, 0, 0.0F);
+		
 		ClientProxy.renderInv = false;
 	}
 
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+		Tessellator t = Tessellator.instance;
+		for (int i = 0; i < 8; i++) {
+			t.addVertex(0, 0, 0);
+		}
 		int meta = world.getBlockMetadata(x, y, z);
 		if (ClientProxy.renderPass == 0) {
 			if (meta == 0) {

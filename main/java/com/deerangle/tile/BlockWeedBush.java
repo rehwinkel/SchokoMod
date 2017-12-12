@@ -12,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
@@ -36,24 +37,25 @@ public class BlockWeedBush extends Block implements IShearable {
 	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta == 0) {
-			return AxisAlignedBB.getBoundingBox(0.25F, 0.0F, 0.25F, 1 - 0.25F, 1 - 0.5F, 1 - 0.25F);
+			this.setBlockBounds(0.25F, 0.0F, 0.25F, 1 - 0.25F, 1 - 0.5F, 1 - 0.25F);
 		}
 		if (meta == 1) {
-			return AxisAlignedBB.getBoundingBox(0.125F, 0.0F, 0.125F, 1 - 0.125F, 1 - 0.25F, 1 - 0.125F);
+			this.setBlockBounds(0.125F, 0.0F, 0.125F, 1 - 0.125F, 1 - 0.25F, 1 - 0.125F);
 		}
 		if (meta > 1) {
-			return AxisAlignedBB.getBoundingBox(0, 0, 0, 1, 1, 1);
+			this.setBlockBounds(0, 0, 0, 1, 1, 1);
 		}
-		System.err.println("ERROR!");
-		return null;
+		return super.getSelectedBoundingBoxFromPool(world, x, y, z);
 	}
 
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand) {
-		System.out.println("hey!!");
+		// TODO: more time
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta < 3) {
-			world.setBlockMetadataWithNotify(x, y, z, meta + 1, 2);
+			if(Math.random() < 0.3){
+				world.setBlockMetadataWithNotify(x, y, z, meta + 1, 2);
+			}
 		}
 	}
 
@@ -112,11 +114,19 @@ public class BlockWeedBush extends Block implements IShearable {
 	@Override
 	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
 		ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-		ret.add(new ItemStack(ModItems.weedBud));
-		if (Math.random() < 0.4) {
+		if (metadata > 2) {
 			ret.add(new ItemStack(ModItems.weedBud));
 		}
 		return ret;
+	}
+
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p, int s, float fx, float fy, float fz) {
+		if(world.getBlockMetadata(x, y, z) == 3){
+			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+			p.inventory.addItemStackToInventory(new ItemStack(ModItems.weedBud));
+		}
+		return true;
 	}
 
 }
