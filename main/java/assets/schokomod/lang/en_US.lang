@@ -3,7 +3,7 @@ itemGroup.schoko.bars=Chocolate Bars!
 potion.schoko=Chocolate!
 potion.lsd=LSD!
 
-item.mog.name=Empty Mug
+item.mug.name=Empty Mug
 item.schokoDrink_normal.name=Cold Chocolate
 item.schokoDrink_hot.name=Hot Chocolate
 item.mortar.name=Mortar and Pestle
