@@ -12,7 +12,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemSchokoIngot extends Item {
 
-	private String[] types = new String[] {"normal", "black", "white"};
+	private String[] types = new String[] { "normal", "black", "white" };
 	private IIcon[] icons = new IIcon[types.length];
 	
 	public ItemSchokoIngot() {

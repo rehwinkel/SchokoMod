@@ -6,6 +6,9 @@ potion.lsd=LSD!
 item.schokoIngot_normal.name=Brick of Normal Chocolate
 item.schokoIngot_white.name=Brick of Light Chocolate
 item.schokoIngot_black.name=Brick of Dark Chocolate
+tile.schokoBlock_normal.name=Block of Normal Chocolate
+tile.schokoBlock_white.name=Block of Light Chocolate
+tile.schokoBlock_black.name=Block of Dark Chocolate
 tile.present.name=Present
 
 item.schokoBarNormal.name=Normal Chocolate Bar

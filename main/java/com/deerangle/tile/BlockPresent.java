@@ -23,7 +23,7 @@ public class BlockPresent extends Block {
 		super(Material.cloth);
 		this.setBlockName("present");
 		this.setBlockTextureName(SchokoMod.MODID + ":present");
-		this.setHardness(2F);
+		this.setHardness(1F);
 		this.setCreativeTab(SchokoMod.rest);
 	}
 	
