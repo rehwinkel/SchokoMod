@@ -96,7 +96,6 @@ public class ModItems {
 		schokoBarRainbow = new ItemSchokoBarRainbow();
 		schokoBarApple = new ItemSchokoBarApple();
 		// TODO:
-		
 		schokoBarDoor = new ItemSchokoBar("door");
 		schokoBarDrawing = new ItemSchokoBar("drawing");
 		schokoBarSlot = new ItemSchokoBar("slot");
