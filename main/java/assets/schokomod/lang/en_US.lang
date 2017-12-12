@@ -3,6 +3,8 @@ itemGroup.schoko.bars=Chocolate Bars!
 potion.schoko=Chocolate!
 potion.lsd=LSD!
 
+item.mortar.name=Mortar and Pestle
+item.cocoaPowder.name=Cocoa Powder
 item.schokoIngot_normal.name=Brick of Normal Chocolate
 item.schokoIngot_white.name=Brick of Light Chocolate
 item.schokoIngot_black.name=Brick of Dark Chocolate
@@ -11,6 +13,7 @@ tile.schokoBlock_white.name=Block of Light Chocolate
 tile.schokoBlock_black.name=Block of Dark Chocolate
 tile.present.name=Present
 
+item.schokoBarRainbow.name=Rainbow Chocolate Bar
 item.schokoBarNormal.name=Normal Chocolate Bar
 item.schokoBarBlack.name=Dark Chocolate Bar
 item.schokoBarWhite.name=Light Chocolate Bar
