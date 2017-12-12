@@ -14,16 +14,29 @@ public class BlockWeedBushRenderer implements ISimpleBlockRenderingHandler {
 	}
 
 	@Override
-	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-		System.out.println("wehr");
+	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId,
+			RenderBlocks renderer) {
 		int meta = world.getBlockMetadata(x, y, z);
-		if(meta == 0){
+		if (ClientProxy.renderPass == 0) {
+			if (meta == 0) {
+				renderer.setRenderBounds(0.25F, 0.0F, 0.25F, 1 - 0.25F, 1 - 0.5F, 1 - 0.25F);
+			}
+			if (meta == 1) {
+				renderer.setRenderBounds(0.125F, 0.0F, 0.125F, 1 - 0.125F, 1 - 0.25F, 1 - 0.125F);
+			}
+			if (meta > 1) {
+				renderer.setRenderBounds(0, 0, 0, 1, 1, 1);
+			}
 			renderer.renderStandardBlock(block, x, y, z);
 		}
-		AxisAlignedBB box = AxisAlignedBB.getBoundingBox(0.25F, 0.0F, 0.25F, 1 - 0.25F, 1 - 0.5F, 1 - 0.25F);
-		AxisAlignedBB.getBoundingBox(0.125F, 0.0F, 0.125F, 1 - 0.125F, 1 - 0.25F, 1 - 0.125F);
-		AxisAlignedBB.getBoundingBox(0, 0, 0, 1, 1, 1);
-		return false;
+
+		if (ClientProxy.renderPass == 1) {
+			if (meta == 3) {
+				renderer.renderStandardBlock(block, x, y, z);
+			}
+		}
+
+		return true;
 	}
 
 	@Override
@@ -33,7 +46,7 @@ public class BlockWeedBushRenderer implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public int getRenderId() {
-		return 0;
+		return ClientProxy.rendererWeed;
 	}
 
 }
