@@ -9,6 +9,7 @@ import com.deerangle.items.ModItems;
 import com.deerangle.tile.ModBlocks;
 
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -39,12 +40,16 @@ public class SchokoMod {
 
 	public static Potion schokoPotion;
 	public static Potion lsdPotion;
+	
+	@SidedProxy(clientSide="com.deerangle.main.ClientProxy", serverSide="com.deerangle.main.ServerProxy")
+	public static ServerProxy proxy;
 
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
 		ModItems.load();
 		ModBlocks.load();
 		ModCrafting.load();
+		proxy.registerRenderThings();
 
 		loadPotions();
 	}
