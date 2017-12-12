@@ -1,5 +1,7 @@
 package com.deerangle.items;
 
+import com.deerangle.main.SchokoMod;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.BlockGlass;
 import net.minecraft.item.Item;
@@ -45,6 +47,8 @@ public class ModItems {
 	public static Item schokoBarGlowstone;
 	public static Item schokoBarBook;
 	public static Item schokoBarCobweb;
+
+	public static Item schokoIngot;
 
 	public static void load() {
 		initialize();
@@ -92,6 +96,8 @@ public class ModItems {
 		schokoBarSlot = new ItemSchokoBar("slot");
 		schokoBarWood = new ItemSchokoBar("wood");
 		schokoBarYouTube = new ItemSchokoBar("youTube");
+		
+		schokoIngot = new ItemSchokoIngot();
 	}
 
 	private static void register() {
@@ -134,6 +140,8 @@ public class ModItems {
 		GameRegistry.registerItem(schokoBarGlowstone, "schokoBarGlowstone");
 		GameRegistry.registerItem(schokoBarBook, "schokoBarBook");
 		GameRegistry.registerItem(schokoBarCobweb, "schokoBarCobweb");
+
+		GameRegistry.registerItem(schokoIngot, "schokoIngot");
 	}
 
 }

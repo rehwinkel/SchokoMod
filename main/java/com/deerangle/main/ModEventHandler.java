@@ -2,6 +2,7 @@ package com.deerangle.main;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.potion.Potion;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 
 public class ModEventHandler {
@@ -21,6 +22,10 @@ public class ModEventHandler {
 				if(Math.random() < 0.015){
 					player.heal(1);
 				}
+			}
+			
+			if(event.entityLiving.isPotionActive(Potion.jump.id)){
+				player.fallDistance = 0;
 			}
 		}
 	}
