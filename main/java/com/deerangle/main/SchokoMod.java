@@ -35,6 +35,13 @@ public class SchokoMod {
 		}
 	};
 	
+	public static CreativeTabs foods = new CreativeTabs("schoko.food") {
+		@Override
+		public Item getTabIconItem() {
+			return ModItems.schokoDrink;
+		}
+	};
+	
 	public static CreativeTabs rest = new CreativeTabs("schoko") {
 		@Override
 		public Item getTabIconItem() {
