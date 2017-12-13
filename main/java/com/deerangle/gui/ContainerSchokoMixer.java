@@ -11,11 +11,11 @@ import net.minecraft.item.ItemStack;
 public class ContainerSchokoMixer extends Container {
 
 	public ContainerSchokoMixer(IInventory inv, TileEntitySchokoMixer te) {
-		this.addSlotToContainer(new Slot(te, 0, 35, 25));
-		this.addSlotToContainer(new Slot(te, 1, 35, 45));
-		this.addSlotToContainer(new Slot(te, 2, 55, 25));
-		this.addSlotToContainer(new Slot(te, 3, 55, 45));
-		this.addSlotToContainer(new Slot(te, 4, 116, 35));
+		this.addSlotToContainer(new SlotSchokoMixerSugar(te, 0, 35, 25));
+		this.addSlotToContainer(new SlotSchokoMixerButter(te, 1, 55, 25));
+		this.addSlotToContainer(new SlotSchokoMixerPowder(te, 2, 35, 45));
+		this.addSlotToContainer(new SlotSchokoMixerPowder(te, 3, 55, 45));
+		this.addSlotToContainer(new SlotSchokoMixerOut(te, 4, 116, 35));
 
 		for (int x = 0; x < 9; ++x) {
 			this.addSlotToContainer(new Slot(inv, x, 8 + x * 18, 142));

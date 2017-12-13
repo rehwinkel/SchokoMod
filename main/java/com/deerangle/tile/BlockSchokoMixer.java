@@ -45,7 +45,7 @@ public class BlockSchokoMixer extends BlockContainer {
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p, int s, float fx, float fy, float fz) {
-		if(world.isRemote){
+		if(!world.isRemote){
 			p.openGui(SchokoMod.instance, ModGuiHandler.schokoMixerGui, world, x, y, z);
 		}
 		return true;
