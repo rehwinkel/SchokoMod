@@ -1,6 +1,6 @@
 package com.deerangle.gui;
 
-import com.deerangle.tile.TileEntitySchokoMixer;
+import com.deerangle.tile.TileEntitySchokoPress;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -8,13 +8,13 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-public class ContainerSchokoMixer extends Container {
+public class ContainerSchokoPress extends Container {
 
-	public ContainerSchokoMixer(IInventory inv, TileEntitySchokoMixer te) {
-		this.addSlotToContainer(new SlotSchokoMixerSugar(te, 0, 35, 25));
-		this.addSlotToContainer(new SlotSchokoMixerButter(te, 1, 55, 25));
-		this.addSlotToContainer(new SlotSchokoMixerPowder(te, 2, 35, 45));
-		this.addSlotToContainer(new SlotSchokoMixerPowder(te, 3, 55, 45));
+	public ContainerSchokoPress(IInventory inv, TileEntitySchokoPress te) {
+		this.addSlotToContainer(new SlotSchokoPressSchoko(te, 0, 35, 25));
+		this.addSlotToContainer(new SlotSchokoPressPaper(te, 1, 55, 25));
+		this.addSlotToContainer(new Slot(te, 2, 35, 45));
+		this.addSlotToContainer(new Slot(te, 3, 55, 45));
 		this.addSlotToContainer(new SlotSchokoOut(te, 4, 116, 35));
 
 		for (int x = 0; x < 9; ++x) {
@@ -27,12 +27,12 @@ public class ContainerSchokoMixer extends Container {
 			}
 		}
 	}
-
+	
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 		return true;
 	}
-
+	
 	@Override
 	protected boolean mergeItemStack(ItemStack stack, int start, int end, boolean backwards) {
 		boolean flag1 = false;

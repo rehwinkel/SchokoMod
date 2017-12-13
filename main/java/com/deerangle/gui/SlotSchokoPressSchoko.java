@@ -6,15 +6,15 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-public class SlotSchokoMixerOut extends Slot {
+public class SlotSchokoPressSchoko extends Slot {
 
-	public SlotSchokoMixerOut(IInventory inv, int id, int x, int y) {
+	public SlotSchokoPressSchoko(IInventory inv, int id, int x, int y) {
 		super(inv, id, x, y);
 	}
-	
+
 	@Override
 	public boolean isItemValid(ItemStack stack) {
-		return false;
+		return stack.getItem() == ModItems.schokoIngot;
 	}
 	
 }
