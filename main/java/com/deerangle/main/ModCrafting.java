@@ -10,8 +10,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class ModCrafting {
-
-	private static HashMap<ItemStack[], ItemStack> mixerRecipes = new HashMap<ItemStack[], ItemStack>();
 	
 	public static void load() {
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.mortar), "o/o", " o ", 'o', Blocks.cobblestone, '/', Items.stick);
@@ -38,25 +36,6 @@ public class ModCrafting {
 			}
 		}
 		return false;
-	}
-
-	public static ItemStack getMixerResult(ItemStack stack0, ItemStack stack1, ItemStack stack2, ItemStack stack3) {
-		ItemStack[] stacks = new ItemStack[] {stack0, stack1, stack2, stack3};
-		
-		for(ItemStack[] recipe : mixerRecipes.keySet()){
-			for(int i = 0; i < stacks.length; i++){
-				ItemStack a = stacks[i].copy();
-				ItemStack b = recipe[i].copy();
-				a.stackSize = 1;
-				b.stackSize = 1;
-				if(!ItemStack.areItemStacksEqual(a, b)){
-					return null;
-				}
-			}
-			return mixerRecipes.get(recipe).copy();
-		}
-		
-		return null;
 	}
 
 	public static ItemStack addItemStacks(ItemStack stacka, ItemStack stackb) {
