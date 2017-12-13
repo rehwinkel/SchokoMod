@@ -57,11 +57,11 @@ public class TileEntitySchokoMixer extends TileEntity implements IInventory {
 
 	private void processEnd(boolean success) {
 		if(success){
+			setInventorySlotContents(4, ModCrafting.addItemStacks(getMixerResult(), getStackInSlot(4)));
 			this.decrStackSize(0, 1);
 			this.decrStackSize(1, 1);
 			this.decrStackSize(2, 1);
 			this.decrStackSize(3, 1);
-			setInventorySlotContents(4, ModCrafting.addItemStacks(getStackInSlot(4), getMixerResult()));
 		}else{
 			process = 0;
 		}

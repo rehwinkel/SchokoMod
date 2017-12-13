@@ -21,6 +21,7 @@ tile.schokoBlock_black.name=Block of Dark Chocolate
 tile.weedBush.name=Weed Bush
 tile.present.name=Present
 tile.schokoMixer.name=Chocolate Mixer
+tile.schokoPress.name=Chocolate Press
 
 item.schokoBarRainbow.name=Rainbow Chocolate Bar
 item.schokoBarNormal.name=Normal Chocolate Bar

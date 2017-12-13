@@ -1,5 +1,8 @@
 package com.deerangle.tile;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import com.deerangle.items.ModItems;
 import com.deerangle.main.ModCrafting;
 
@@ -19,6 +22,46 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 
 	public int process = 0;
 	public int processMax = 60;
+
+	private ArrayList<ItemStack[]> recipesItems = new ArrayList<ItemStack[]>();
+	private ArrayList<ItemStack> recipesItem = new ArrayList<ItemStack>();
+
+	public TileEntitySchokoPress() {
+		addRecipe(0, null, null, new ItemStack(ModItems.schokoBarNormal, 2));
+		addRecipe(1, null, null, new ItemStack(ModItems.schokoBarBlack, 2));
+		addRecipe(2, null, null, new ItemStack(ModItems.schokoBarWhite, 2));
+		addRecipe(0, new ItemStack(Blocks.double_plant, 1, 0), null, new ItemStack(ModItems.schokoBarFlower, 2));
+	}
+
+	/**
+	 * @param type
+	 *            normal, dark, light
+	 */
+	private void addRecipe(int type, ItemStack add1, ItemStack add2, ItemStack out) {
+		if (add1 == null && add2 == null) {
+			ItemStack[] array = new ItemStack[1];
+			array[0] = new ItemStack(ModItems.schokoIngot, 1, type);
+			recipesItems.add(array);
+			recipesItem.add(out.copy());
+		} else if (add1 != null && add2 != null) {
+			ItemStack[] array = new ItemStack[3];
+			array[0] = new ItemStack(ModItems.schokoIngot, 1, type);
+			array[1] = add1;
+			array[2] = add2;
+			recipesItems.add(array);
+			recipesItem.add(out.copy());
+		} else {
+			ItemStack[] array = new ItemStack[2];
+			array[0] = new ItemStack(ModItems.schokoIngot, 1, type);
+			ItemStack use = add1 != null ? add1.copy() : null;
+			if (use == null) {
+				use = add2.copy();
+			}
+			array[1] = use;
+			recipesItems.add(array);
+			recipesItem.add(out.copy());
+		}
+	}
 
 	@Override
 	public void updateEntity() {
@@ -79,11 +122,11 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 
 	private void processEnd(boolean success) {
 		if (success) {
+			setInventorySlotContents(4, ModCrafting.addItemStacks(getStackInSlot(4), getPressResult()));
 			this.decrStackSize(0, 1);
 			this.decrStackSize(1, 1);
 			this.decrStackSize(2, 1);
 			this.decrStackSize(3, 1);
-			setInventorySlotContents(4, ModCrafting.addItemStacks(getStackInSlot(4), getPressResult()));
 		} else {
 			process = 0;
 		}
@@ -94,11 +137,6 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 		if (getStackInSlot(0) != null) {
 			test0 = getStackInSlot(0).copy();
 			test0.stackSize = 1;
-		}
-		ItemStack test1 = null;
-		if (getStackInSlot(1) != null) {
-			test1 = getStackInSlot(1).copy();
-			test1.stackSize = 1;
 		}
 		ItemStack test2 = null;
 		if (getStackInSlot(2) != null) {
@@ -111,18 +149,39 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 			test3.stackSize = 1;
 		}
 
-		//START RECIPES!
-		if (test0.getItemDamage() == 0 && test2 == null && test3 == null) {
-			return new ItemStack(ModItems.schokoBarNormal, 2);
-		}
-		if (test0.getItemDamage() == 1 && test2 == null && test3 == null) {
-			return new ItemStack(ModItems.schokoBarBlack, 2);
-		}
-		if (test0.getItemDamage() == 2 && test2 == null && test3 == null) {
-			return new ItemStack(ModItems.schokoBarWhite, 2);
-		}
-		if (test0.getItemDamage() == 0 && ItemStack.areItemStacksEqual(test2, new ItemStack(Blocks.double_plant, 1, 0)) && test3 == null) {
-			return new ItemStack(ModItems.schokoBarFlower, 2);
+		// START RECIPES!
+		for(int i = 0; i < recipesItem.size(); i++){
+			ItemStack out = recipesItem.get(i);
+			ItemStack[] in = recipesItems.get(i);
+			if(in.length == 1){
+				if (in[0].getItemDamage() == test0.getItemDamage()) {
+					if (test2 == null && test3 == null) {
+						return out.copy();
+					}
+				}
+			}
+			if(in.length == 2){
+				if (in[0].getItemDamage() == test0.getItemDamage()) {
+					if (ItemStack.areItemStacksEqual(in[1], test3) && test2 == null) {
+						return out.copy();
+					}
+					if (ItemStack.areItemStacksEqual(in[1], test2) && test3 == null) {
+						return out.copy();
+					}
+				}
+			}
+			if(in.length == 3){
+				if (in[0].getItemDamage() == test0.getItemDamage()) {
+					if (ItemStack.areItemStacksEqual(in[1], test2)) {
+						if (ItemStack.areItemStacksEqual(in[2], test3)) {
+							return out.copy();
+						}
+						if (ItemStack.areItemStacksEqual(in[3], test2)) {
+							return out.copy();
+						}
+					}
+				}
+			}
 		}
 		return null;
 	}

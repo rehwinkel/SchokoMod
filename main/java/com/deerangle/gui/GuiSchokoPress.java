@@ -44,7 +44,7 @@ public class GuiSchokoPress extends GuiContainer {
 	
 	@Override
 	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
-		String s = StatCollector.translateToLocal("tile.schokoMixer.name");
+		String s = StatCollector.translateToLocal("tile.schokoPress.name");
 		this.fontRendererObj.drawString(s, 88 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
 		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.playerInv.getInventoryName()), 8, 72, 4210752);
 	}
