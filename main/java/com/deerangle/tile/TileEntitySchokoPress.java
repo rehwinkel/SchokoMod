@@ -15,6 +15,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 
 public class TileEntitySchokoPress extends TileEntity implements IInventory {
 
