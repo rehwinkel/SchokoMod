@@ -1,17 +1,97 @@
 package com.deerangle.tile;
 
+import com.deerangle.items.ModItems;
+import com.deerangle.main.ModCrafting;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntitySchokoMixer extends TileEntity implements IInventory {
 
 	public ItemStack[] slots = new ItemStack[5];
 
+	private int process = 0;
+	private int processMax = 60;
+
 	@Override
 	public void updateEntity() {
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 
+		processStart();
+		process();
+
+		super.updateEntity();
+	}
+
+	private void processStart() {
+		if (process == 0) {
+			if (getStackInSlot(0) != null && getStackInSlot(1) != null) {
+				if (ModCrafting.willStackOn(getMixerResult(), getStackInSlot(4))) {
+					process = processMax;
+				}
+			}
+		}
+	}
+
+	private void process() {
+		if (process > 0) {
+			if (getStackInSlot(0) != null && getStackInSlot(1) != null) {
+				if (ModCrafting.willStackOn(getMixerResult(), getStackInSlot(4))) {
+					process--;
+
+					if (process == 0) {
+						processEnd();
+					}
+				}
+			}
+		}
+	}
+
+	private void processEnd() {
+		this.decrStackSize(0, 1);
+		this.decrStackSize(1, 1);
+		this.decrStackSize(2, 1);
+		this.decrStackSize(3, 1);
+		setInventorySlotContents(4, ModCrafting.addItemStacks(getStackInSlot(4), getMixerResult()));
+	}
+
+	private ItemStack getMixerResult() {
+		if (getStackInSlot(2) != null && getStackInSlot(3) != null) {
+			return new ItemStack(ModItems.schokoIngot, 1, 1);
+		}
+		if (getStackInSlot(2) != null && getStackInSlot(3) == null) {
+			return new ItemStack(ModItems.schokoIngot);
+		}
+		if (getStackInSlot(2) == null && getStackInSlot(3) != null) {
+			return new ItemStack(ModItems.schokoIngot);
+		}
+		return new ItemStack(ModItems.schokoIngot, 1, 2);
+	}
+
+	@Override
+	public S35PacketUpdateTileEntity getDescriptionPacket() {
+		NBTTagCompound tagCompound = new NBTTagCompound();
+		this.writeToNBTSync(tagCompound);
+		S35PacketUpdateTileEntity pack = new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 0, tagCompound);
+		return pack;
+	}
+
+	@Override
+	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+		this.readFromNBTSync(pkt.func_148857_g());
+	}
+
+	public void writeToNBTSync(NBTTagCompound tag) {
+		tag.setInteger("Process", process);
+	}
+
+	public void readFromNBTSync(NBTTagCompound tag) {
+		process = tag.getInteger("Process");
 	}
 
 	@Override

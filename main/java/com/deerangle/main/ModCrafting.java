@@ -1,5 +1,7 @@
 package com.deerangle.main;
 
+import java.util.HashMap;
+
 import com.deerangle.items.ModItems;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -9,6 +11,8 @@ import net.minecraft.item.ItemStack;
 
 public class ModCrafting {
 
+	private static HashMap<ItemStack[], ItemStack> mixerRecipes = new HashMap<ItemStack[], ItemStack>();
+	
 	public static void load() {
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.mortar), "o/o", " o ", 'o', Blocks.cobblestone, '/', Items.stick);
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaPowder), ModItems.mortar, new ItemStack(Items.dye, 1, 3));
@@ -18,5 +22,53 @@ public class ModCrafting {
 		GameRegistry.addSmelting(new ItemStack(ModItems.schokoDrink), new ItemStack(ModItems.schokoDrink, 1, 1), 0);
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.mug, 4), "O O", "O O", "OOO", 'O', Items.clay_ball);
 	}
-	
+
+	public static boolean willStackOn(ItemStack top, ItemStack bottom) {
+		if (top == null) {
+			return false;
+		}
+		if (bottom == null) {
+			return true;
+		}
+		if (top.getItem() == bottom.getItem()) {
+			if (bottom.stackSize + top.stackSize <= bottom.getMaxStackSize()) {
+				if (top.getItemDamage() == bottom.getItemDamage()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public static ItemStack getMixerResult(ItemStack stack0, ItemStack stack1, ItemStack stack2, ItemStack stack3) {
+		ItemStack[] stacks = new ItemStack[] {stack0, stack1, stack2, stack3};
+		
+		for(ItemStack[] recipe : mixerRecipes.keySet()){
+			for(int i = 0; i < stacks.length; i++){
+				ItemStack a = stacks[i].copy();
+				ItemStack b = recipe[i].copy();
+				a.stackSize = 1;
+				b.stackSize = 1;
+				if(!ItemStack.areItemStacksEqual(a, b)){
+					return null;
+				}
+			}
+			return mixerRecipes.get(recipe).copy();
+		}
+		
+		return null;
+	}
+
+	public static ItemStack addItemStacks(ItemStack stacka, ItemStack stackb) {
+		if (stacka == null) {
+			return stackb;
+		} else if (stackb == null) {
+			return stacka;
+		} else {
+			ItemStack stack = stacka.copy();
+			stack.stackSize += stackb.copy().stackSize;
+			return stack;
+		}
+	}
+
 }
