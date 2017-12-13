@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -15,8 +16,8 @@ public class TileEntitySchokoMixer extends TileEntity implements IInventory {
 
 	public ItemStack[] slots = new ItemStack[5];
 
-	private int process = 0;
-	private int processMax = 60;
+	public int process = 0;
+	public int processMax = 60;
 
 	@Override
 	public void updateEntity() {
@@ -45,19 +46,24 @@ public class TileEntitySchokoMixer extends TileEntity implements IInventory {
 					process--;
 
 					if (process == 0) {
-						processEnd();
+						processEnd(true);
 					}
 				}
 			}
 		}
+		processEnd(false);
 	}
 
-	private void processEnd() {
-		this.decrStackSize(0, 1);
-		this.decrStackSize(1, 1);
-		this.decrStackSize(2, 1);
-		this.decrStackSize(3, 1);
-		setInventorySlotContents(4, ModCrafting.addItemStacks(getStackInSlot(4), getMixerResult()));
+	private void processEnd(boolean success) {
+		if(success){
+			this.decrStackSize(0, 1);
+			this.decrStackSize(1, 1);
+			this.decrStackSize(2, 1);
+			this.decrStackSize(3, 1);
+			setInventorySlotContents(4, ModCrafting.addItemStacks(getStackInSlot(4), getMixerResult()));
+		}else{
+			process = 0;
+		}
 	}
 
 	private ItemStack getMixerResult() {
@@ -191,4 +197,36 @@ public class TileEntitySchokoMixer extends TileEntity implements IInventory {
 		return true;
 	}
 
+	@Override
+	public void readFromNBT(NBTTagCompound tag) {
+		super.readFromNBT(tag);
+
+		NBTTagList list = tag.getTagList("Items", 10);
+		for (int i = 0; i < list.tagCount(); ++i) {
+			NBTTagCompound stackTag = list.getCompoundTagAt(i);
+			int slot = stackTag.getByte("Slot") & 255;
+			this.setInventorySlotContents(slot, ItemStack.loadItemStackFromNBT(stackTag));
+		}
+
+		process = tag.getInteger("Process");
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound tag) {
+		super.writeToNBT(tag);
+
+		NBTTagList list = new NBTTagList();
+		for (int i = 0; i < this.getSizeInventory(); ++i) {
+			if (this.getStackInSlot(i) != null) {
+				NBTTagCompound stackTag = new NBTTagCompound();
+				stackTag.setByte("Slot", (byte) i);
+				this.getStackInSlot(i).writeToNBT(stackTag);
+				list.appendTag(stackTag);
+			}
+		}
+		tag.setTag("Items", list);
+
+		tag.setInteger("Process", process);
+	}
+	
 }
