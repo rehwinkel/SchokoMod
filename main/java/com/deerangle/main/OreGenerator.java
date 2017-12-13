@@ -19,7 +19,8 @@ public class OreGenerator implements IWorldGenerator {
 	}
 
 	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator,
+			IChunkProvider chunkProvider) {
 		switch (world.provider.dimensionId) {
 		case 0: // Overworld
 			this.runGenerator(this.weedBushGen, world, random, chunkX, chunkZ, 20, 50, 256);
@@ -33,7 +34,8 @@ public class OreGenerator implements IWorldGenerator {
 		}
 	}
 
-	private void runGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
+	private void runGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z,
+			int chancesToSpawn, int minHeight, int maxHeight) {
 		if (minHeight < 0 || maxHeight > 256 || minHeight > maxHeight)
 			throw new IllegalArgumentException("Illegal Height Arguments for WorldGenerator");
 
