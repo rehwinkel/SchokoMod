@@ -10,6 +10,8 @@ public class ModBlocks {
 	public static Block schokoBlock;
 	public static Block weedBush;
 	public static Block weedBushInv;
+	public static Block schokoMixer;
+	public static Block schokoPress;
 
 	public static void load() {
 		initialize();
@@ -21,6 +23,7 @@ public class ModBlocks {
 		schokoBlock = new BlockSchoko();
 		weedBush = new BlockWeedBush();
 		weedBushInv = new BlockWeedBushInv();
+		schokoMixer = new BlockSchokoMixer();
 	}
 
 	private static void register() {
@@ -28,6 +31,7 @@ public class ModBlocks {
 		GameRegistry.registerBlock(weedBush, "weedBush");
 		GameRegistry.registerBlock(weedBushInv, "weedBushInv");
 		GameRegistry.registerBlock(schokoBlock, ItemBlockSchoko.class, "schokoBlock");
+		GameRegistry.registerBlock(schokoMixer, "schokoMixer");
 	}
 
 }

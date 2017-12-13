@@ -7,12 +7,16 @@ import com.deerangle.effects.LSDPotion;
 import com.deerangle.effects.SchokoPotion;
 import com.deerangle.items.ModItems;
 import com.deerangle.tile.ModBlocks;
+import com.deerangle.tile.TileEntitySchokoMixer;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
@@ -43,6 +47,9 @@ public class SchokoMod {
 	
 	@SidedProxy(clientSide="com.deerangle.main.ClientProxy", serverSide="com.deerangle.main.ServerProxy")
 	public static ServerProxy proxy;
+	
+	@Instance
+	public static SchokoMod instance;
 
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
@@ -78,6 +85,9 @@ public class SchokoMod {
 
 		MinecraftForge.EVENT_BUS.register(new ModEventHandler());
 		MinecraftForge.EVENT_BUS.register(new ModRenderHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new ModGuiHandler());
+		
+		GameRegistry.registerTileEntity(TileEntitySchokoMixer.class, "schokoMixer");
 	}
 
 	@EventHandler
