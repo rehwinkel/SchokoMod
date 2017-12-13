@@ -48,6 +48,7 @@ public class TileEntitySchokoMixer extends TileEntity implements IInventory {
 					if (process == 0) {
 						processEnd(true);
 					}
+					return;
 				}
 			}
 		}

@@ -22,7 +22,7 @@ public class OreGenerator implements IWorldGenerator {
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		switch (world.provider.dimensionId) {
 		case 0: // Overworld
-			this.runGenerator(this.weedBushGen, world, random, chunkX, chunkZ, 40, 50, 256);
+			this.runGenerator(this.weedBushGen, world, random, chunkX, chunkZ, 20, 50, 256);
 			break;
 		case -1: // Nether
 

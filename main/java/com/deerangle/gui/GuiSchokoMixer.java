@@ -29,7 +29,7 @@ public class GuiSchokoMixer extends GuiContainer {
 		this.mc.getTextureManager().bindTexture(new ResourceLocation(SchokoMod.MODID + ":textures/gui/container/schokoMixerGui.png"));
 		this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
 		
-		int process = tileEntity.process == 0 ? 0 : (int) (((double) tileEntity.process / (double) tileEntity.processMax) * 24.0);
+		int process = tileEntity.process == 0 ? 24 : (int) (((double) tileEntity.process / (double) tileEntity.processMax) * 24.0);
 		this.drawTexturedModalRect(this.guiLeft + 79, this.guiTop + 35, this.xSize, 0, 24 - process, 17);
 		
 		if(tileEntity.slots[0] != null){
