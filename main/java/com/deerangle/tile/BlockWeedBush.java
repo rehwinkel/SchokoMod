@@ -21,6 +21,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockWeedBush extends Block implements IShearable {
 
@@ -33,6 +34,7 @@ public class BlockWeedBush extends Block implements IShearable {
 		this.setBlockTextureName(SchokoMod.MODID + ":weedBush");
 		this.setTickRandomly(true);
 		this.setCreativeTab(SchokoMod.rest);
+		this.setStepSound(soundTypeGrass);
 	}
 
 	@Override
@@ -46,6 +48,16 @@ public class BlockWeedBush extends Block implements IShearable {
 		}
 		if (meta > 1) {
 			this.setBlockBounds(0, 0, 0, 1, 1, 1);
+		}
+	}
+
+	@Override
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+		super.onNeighborBlockChange(world, x, y, z, block);
+		if(!world.isRemote){
+			if (!world.doesBlockHaveSolidTopSurface(world, x, y - 1, z)) {
+				world.setBlockToAir(x, y, z);
+			}
 		}
 	}
 
