@@ -34,8 +34,8 @@ public class BlockSchokoMixer extends BlockContainer {
 	@Override
 	public void registerBlockIcons(IIconRegister register) {
 		icons[0] = register.registerIcon(this.textureName);
-		icons[1] = register.registerIcon(this.textureName + "_top");
-		icons[2] = register.registerIcon(this.textureName + "_bot");
+		icons[2] = register.registerIcon(this.textureName + "_top");
+		icons[1] = register.registerIcon(this.textureName + "_bot");
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class BlockSchokoMixer extends BlockContainer {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int s) {
 		TileEntitySchokoMixer mixer = (TileEntitySchokoMixer) world.getTileEntity(x, y, z);
-		for(int i = 0; i < mixer.slots.length - 1; i++){
+		for(int i = 0; i < mixer.slots.length; i++){
 			ItemStack item = mixer.slots[i];
 			if(item != null){
 				world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, item));
