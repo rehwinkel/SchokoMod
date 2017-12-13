@@ -15,16 +15,14 @@ public class OreGenerator implements IWorldGenerator {
 	private WorldGenerator weedBushGen;
 
 	public OreGenerator() {
-		this.weedBushGen = new WorldGenMinable(ModBlocks.weedBush, 8);
-
+		this.weedBushGen = new WorldGenWeed();
 	}
 
 	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator,
-			IChunkProvider chunkProvider) {
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		switch (world.provider.dimensionId) {
 		case 0: // Overworld
-			this.runGenerator(this.weedBushGen, world, random, chunkX, chunkZ, 20, 0, 70);
+			this.runGenerator(this.weedBushGen, world, random, chunkX, chunkZ, 20, 50, 256);
 			break;
 		case -1: // Nether
 
@@ -35,8 +33,7 @@ public class OreGenerator implements IWorldGenerator {
 		}
 	}
 
-	private void runGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z,
-			int chancesToSpawn, int minHeight, int maxHeight) {
+	private void runGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
 		if (minHeight < 0 || maxHeight > 256 || minHeight > maxHeight)
 			throw new IllegalArgumentException("Illegal Height Arguments for WorldGenerator");
 
