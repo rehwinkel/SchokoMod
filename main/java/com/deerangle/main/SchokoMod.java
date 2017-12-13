@@ -9,6 +9,7 @@ import com.deerangle.gui.ModGuiHandler;
 import com.deerangle.items.ModItems;
 import com.deerangle.tile.ModBlocks;
 import com.deerangle.tile.TileEntitySchokoMixer;
+import com.deerangle.tile.TileEntitySchokoPress;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -96,6 +97,7 @@ public class SchokoMod {
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new ModGuiHandler());
 
 		GameRegistry.registerTileEntity(TileEntitySchokoMixer.class, "schokoMixer");
+		GameRegistry.registerTileEntity(TileEntitySchokoPress.class, "schokoPress");
 	}
 
 	@EventHandler

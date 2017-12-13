@@ -4,6 +4,7 @@ import com.deerangle.items.ModItems;
 import com.deerangle.main.ModCrafting;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -14,7 +15,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntitySchokoPress extends TileEntity implements IInventory{
 
-	public ItemStack[] slots = new ItemStack[4];
+	public ItemStack[] slots = new ItemStack[5];
 
 	public int process = 0;
 	public int processMax = 60;
@@ -23,8 +24,8 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory{
 	public void updateEntity() {
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 
-//		processStart();
-//		process();
+		processStart();
+		process();
 
 		super.updateEntity();
 	}
@@ -50,56 +51,56 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory{
 		process = tag.getInteger("Process");
 	}
 
-//	private void processStart() {
-//		if (process == 0) {
-//			if (getStackInSlot(0) != null && getStackInSlot(1) != null) {
-//				if (ModCrafting.willStackOn(getMixerResult(), getStackInSlot(4))) {
-//					process = processMax;
-//				}
-//			}
-//		}
-//	}
-//
-//	private void process() {
-//		if (process > 0) {
-//			if (getStackInSlot(0) != null && getStackInSlot(1) != null) {
-//				if (ModCrafting.willStackOn(getMixerResult(), getStackInSlot(4))) {
-//					process--;
-//
-//					if (process == 0) {
-//						processEnd(true);
-//					}
-//					return;
-//				}
-//			}
-//		}
-//		processEnd(false);
-//	}
-//
-//	private void processEnd(boolean success) {
-//		if(success){
-//			this.decrStackSize(0, 1);
-//			this.decrStackSize(1, 1);
-//			this.decrStackSize(2, 1);
-//			this.decrStackSize(3, 1);
-//			setInventorySlotContents(4, ModCrafting.addItemStacks(getStackInSlot(4), getMixerResult()));
-//		}else{
-//			process = 0;
-//		}
-//	}
-//
-//	private ItemStack getPressResult() {
-//		if (getStackInSlot(2) != null && getStackInSlot(3) != null) {
-//			return new ItemStack(ModItems.schokoIngot, 1, 1);
-//		}
-//		if (getStackInSlot(2) != null && getStackInSlot(3) == null) {
-//			return new ItemStack(ModItems.schokoIngot);
-//		}
-//		if (getStackInSlot(2) == null && getStackInSlot(3) != null) {
-//			return new ItemStack(ModItems.schokoIngot);
-//		}
-//		return new ItemStack(ModItems.schokoIngot, 1, 2);
-//	}
+	private void processStart() {
+		if (process == 0) {
+			if (getStackInSlot(0) != null && getStackInSlot(1) != null) {
+				if (ModCrafting.willStackOn(getPressResult(), getStackInSlot(4))) {
+					process = processMax;
+				}
+			}
+		}
+	}
+
+	private void process() {
+		if (process > 0) {
+			if (getStackInSlot(0) != null && getStackInSlot(1) != null) {
+				if (ModCrafting.willStackOn(getPressResult(), getStackInSlot(4))) {
+					process--;
+
+					if (process == 0) {
+						processEnd(true);
+					}
+					return;
+				}
+			}
+		}
+		processEnd(false);
+	}
+
+	private void processEnd(boolean success) {
+		if(success){
+			this.decrStackSize(0, 1);
+			this.decrStackSize(1, 1);
+			this.decrStackSize(2, 1);
+			this.decrStackSize(3, 1);
+			setInventorySlotContents(4, ModCrafting.addItemStacks(getStackInSlot(4), getPressResult()));
+		}else{
+			process = 0;
+		}
+	}
+
+	private ItemStack getPressResult() {
+		if (getStackInSlot(0).getItemDamage() == 0 && getStackInSlot(2) == null && getStackInSlot(3) == null) {
+			return new ItemStack(ModItems.schokoBarNormal, 2);
+		}
+		if (getStackInSlot(0).getItemDamage() == 1 && getStackInSlot(2) == null && getStackInSlot(3) == null) {
+			return new ItemStack(ModItems.schokoBarBlack, 2);
+		}
+		if (getStackInSlot(0).getItemDamage() == 2 && getStackInSlot(2) == null && getStackInSlot(3) == null) {
+			return new ItemStack(ModItems.schokoBarWhite, 2);
+		}
+		return null;
+	}
 
 	@Override
 	public int getSizeInventory() {
