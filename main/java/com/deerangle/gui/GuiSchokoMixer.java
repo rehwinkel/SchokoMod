@@ -34,15 +34,15 @@ public class GuiSchokoMixer extends GuiContainer {
 		}
 		
 		if(tileEntity.slots[1] != null){
-			this.drawTexturedModalRect(this.guiLeft, this.guiTop, 8, 84, 16, 16);
+			this.drawTexturedModalRect(this.guiLeft + 55, this.guiTop + 25, 8, 84, 16, 16);
 		}
 		
 		if(tileEntity.slots[2] != null){
-			this.drawTexturedModalRect(this.guiLeft, this.guiTop, 8, 84, 16, 16);
+			this.drawTexturedModalRect(this.guiLeft + 35, this.guiTop + 45, 8, 84, 16, 16);
 		}
 		
 		if(tileEntity.slots[3] != null){
-			this.drawTexturedModalRect(this.guiLeft, this.guiTop, 8, 84, 16, 16);
+			this.drawTexturedModalRect(this.guiLeft + 55, this.guiTop + 45, 8, 84, 16, 16);
 		}
 	}
 	
