@@ -24,7 +24,7 @@ public class ModBlocks {
 		weedBush = new BlockWeedBush();
 		weedBushInv = new BlockWeedBushInv();
 		schokoMixer = new BlockSchokoMixer();
-		schokoMixer = new BlockSchokoPress();
+		schokoPress = new BlockSchokoPress();
 	}
 
 	private static void register() {
