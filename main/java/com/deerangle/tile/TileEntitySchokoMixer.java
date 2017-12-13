@@ -7,7 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntitySchokoMixer extends TileEntity implements IInventory {
 
-	public ItemStack[] slots = new ItemStack[6];
+	public ItemStack[] slots = new ItemStack[5];
 
 	@Override
 	public void updateEntity() {

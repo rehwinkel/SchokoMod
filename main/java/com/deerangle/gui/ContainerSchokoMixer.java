@@ -10,8 +10,12 @@ import net.minecraft.inventory.Slot;
 public class ContainerSchokoMixer extends Container {
 
 	public ContainerSchokoMixer(IInventory inv, TileEntitySchokoMixer te) {
-		this.addSlotToContainer(new Slot(te, 0, 50, 50));
-		
+		this.addSlotToContainer(new Slot(te, 0, 35, 25));
+		this.addSlotToContainer(new Slot(te, 1, 35, 45));
+		this.addSlotToContainer(new Slot(te, 2, 55, 25));
+		this.addSlotToContainer(new Slot(te, 3, 55, 45));
+		this.addSlotToContainer(new Slot(te, 4, 116, 35));
+
 		for (int x = 0; x < 9; ++x) {
 			this.addSlotToContainer(new Slot(inv, x, 8 + x * 18, 142));
 		}
@@ -22,7 +26,7 @@ public class ContainerSchokoMixer extends Container {
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean canInteractWith(EntityPlayer player) {
 		return true;
