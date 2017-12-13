@@ -7,12 +7,19 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
 public class GuiSchokoMixer extends GuiContainer {
+
+	private IInventory playerInv;
+	private TileEntitySchokoMixer tileEntity;
 
 	public GuiSchokoMixer(IInventory inv, TileEntitySchokoMixer te) {
 		super(new ContainerSchokoMixer(inv, te));
 
+		this.playerInv = inv;
+		this.tileEntity = te;
+		
 		this.xSize = 176;
 		this.ySize = 166;
 	}
@@ -21,6 +28,29 @@ public class GuiSchokoMixer extends GuiContainer {
 	protected void drawGuiContainerBackgroundLayer(float f, int mouseX, int mouseY) {
 		this.mc.getTextureManager().bindTexture(new ResourceLocation(SchokoMod.MODID + ":textures/gui/container/schokoMixerGui.png"));
 		this.drawTexturedModalRect(this.guiLeft, this.guiTop, 0, 0, this.xSize, this.ySize);
+		
+		if(tileEntity.slots[0] != null){
+			this.drawTexturedModalRect(this.guiLeft + 35, this.guiTop + 25, 8, 84, 16, 16);
+		}
+		
+		if(tileEntity.slots[1] != null){
+			this.drawTexturedModalRect(this.guiLeft, this.guiTop, 8, 84, 16, 16);
+		}
+		
+		if(tileEntity.slots[2] != null){
+			this.drawTexturedModalRect(this.guiLeft, this.guiTop, 8, 84, 16, 16);
+		}
+		
+		if(tileEntity.slots[3] != null){
+			this.drawTexturedModalRect(this.guiLeft, this.guiTop, 8, 84, 16, 16);
+		}
+	}
+	
+	@Override
+	protected void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_) {
+		String s = StatCollector.translateToLocal("tile.schokoMixer.name");
+		this.fontRendererObj.drawString(s, 88 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
+		this.fontRendererObj.drawString(StatCollector.translateToLocal(this.playerInv.getInventoryName()), 8, 72, 4210752);
 	}
 
 }

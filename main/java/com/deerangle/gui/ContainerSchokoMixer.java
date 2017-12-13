@@ -34,6 +34,81 @@ public class ContainerSchokoMixer extends Container {
 	}
 
 	@Override
+	protected boolean mergeItemStack(ItemStack stack, int start, int end, boolean backwards) {
+		boolean flag1 = false;
+		int k = start;
+
+		if (backwards) {
+			k = end - 1;
+		}
+
+		Slot slot;
+		ItemStack itemstack1;
+
+		if (stack.isStackable()) {
+			while (stack.stackSize > 0 && (!backwards && k < end || backwards && k >= start)) {
+				slot = (Slot) this.inventorySlots.get(k);
+				itemstack1 = slot.getStack();
+
+				if (itemstack1 != null && itemstack1.getItem() == stack.getItem()
+						&& (!stack.getHasSubtypes() || stack.getItemDamage() == itemstack1.getItemDamage())
+						&& ItemStack.areItemStackTagsEqual(stack, itemstack1)) {
+					int l = itemstack1.stackSize + stack.stackSize;
+
+					if (l <= stack.getMaxStackSize()) {
+						stack.stackSize = 0;
+						itemstack1.stackSize = l;
+						slot.onSlotChanged();
+						flag1 = true;
+					} else if (itemstack1.stackSize < stack.getMaxStackSize()) {
+						stack.stackSize -= stack.getMaxStackSize() - itemstack1.stackSize;
+						itemstack1.stackSize = stack.getMaxStackSize();
+						slot.onSlotChanged();
+						flag1 = true;
+					}
+				}
+
+				if (backwards) {
+					--k;
+				} else {
+					++k;
+				}
+			}
+		}
+
+		if (stack.stackSize > 0) {
+			if (backwards) {
+				k = end - 1;
+			} else {
+				k = start;
+			}
+
+			while (!backwards && k < end || backwards && k >= start) {
+				slot = (Slot) this.inventorySlots.get(k);
+				itemstack1 = slot.getStack();
+
+				if (itemstack1 == null) {
+					if(slot.isItemValid(stack.copy())){
+						slot.putStack(stack.copy());
+						slot.onSlotChanged();
+						stack.stackSize = 0;
+						flag1 = true;
+						break;
+					}
+				}
+
+				if (backwards) {
+					--k;
+				} else {
+					++k;
+				}
+			}
+		}
+
+		return flag1;
+	}
+
+	@Override
 	public ItemStack transferStackInSlot(EntityPlayer playerIn, int fromSlot) {
 		ItemStack previous = null;
 		Slot slot = (Slot) this.inventorySlots.get(fromSlot);
@@ -46,7 +121,7 @@ public class ContainerSchokoMixer extends Container {
 				if (!this.mergeItemStack(current, 5, 41, false))
 					return null;
 			} else {
-				if (!this.mergeItemStack(current, 0, 4, true))
+				if (!this.mergeItemStack(current, 0, 4, false))
 					return null;
 			}
 

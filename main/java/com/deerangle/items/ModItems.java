@@ -93,8 +93,8 @@ public class ModItems {
 		schokoBarFull = new ItemSchokoBar("full", 6, false, 2);
 		schokoBarEnder = new ItemSchokoBarEnder();
 		schokoBarNormal = new ItemSchokoBar("normal");
-		schokoBarBlack = new ItemSchokoBar("black");
-		schokoBarWhite = new ItemSchokoBar("white");
+		schokoBarBlack = new ItemSchokoBar("black", 5);
+		schokoBarWhite = new ItemSchokoBar("white", 3);
 		schokoBarCookie = new ItemSchokoBar("cookie", 5);
 		schokoBarJoghurt = new ItemSchokoBar("joghurt", 5);
 		schokoBarSmartie = new ItemSchokoBar("smartie", 6);

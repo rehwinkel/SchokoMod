@@ -71,7 +71,7 @@ public class BlockWeedBush extends Block implements IShearable {
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta < 3) {
-			if (Math.random() < 0.3) {
+			if (Math.random() < 0.1) {
 				meta++;
 				world.setBlockMetadataWithNotify(x, y, z, meta, 2);
 			}
