@@ -1,6 +1,7 @@
 package com.deerangle.tile;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import com.deerangle.items.ModItems;
@@ -12,6 +13,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
@@ -30,11 +32,11 @@ public class BlockWeedBush extends Block implements IShearable {
 		this.setBlockName("weedBush");
 		this.setBlockTextureName(SchokoMod.MODID + ":weedBush");
 		this.setTickRandomly(true);
-		this.setBlockBounds(0.25f, 0.0f, 0.25f, 1 - 0.25f, 1 - 0.5f, 1 - 0.25f);
+		this.setCreativeTab(SchokoMod.rest);
 	}
 
 	@Override
-	public AxisAlignedBB getSelectedBoundingBoxFromPool(World world, int x, int y, int z) {
+	public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta == 0) {
 			this.setBlockBounds(0.25F, 0.0F, 0.25F, 1 - 0.25F, 1 - 0.5F, 1 - 0.25F);
@@ -45,16 +47,33 @@ public class BlockWeedBush extends Block implements IShearable {
 		if (meta > 1) {
 			this.setBlockBounds(0, 0, 0, 1, 1, 1);
 		}
-		return super.getSelectedBoundingBoxFromPool(world, x, y, z);
+	}
+
+	@Override
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+		AxisAlignedBB box = null;
+		int meta = world.getBlockMetadata(x, y, z);
+		if (meta == 0) {
+			box = AxisAlignedBB.getBoundingBox(0.25F + x, 0.0F + y, 0.25F + z, 1 - 0.25F + x, 1 - 0.5F + y,
+					1 - 0.25F + z);
+		}
+		if (meta == 1) {
+			box = AxisAlignedBB.getBoundingBox(0.125F + x, 0.0F + y, 0.125F + z, 1 - 0.125F + x, 1 - 0.25F + y,
+					1 - 0.125F + z);
+		}
+		if (meta > 1) {
+			box = AxisAlignedBB.getBoundingBox(0 + x, 0 + y, 0 + z, 1 + x, 1 + y, 1 + z);
+		}
+		return box;
 	}
 
 	@Override
 	public void updateTick(World world, int x, int y, int z, Random rand) {
-		// TODO: more time
 		int meta = world.getBlockMetadata(x, y, z);
 		if (meta < 3) {
-			if(Math.random() < 0.3){
-				world.setBlockMetadataWithNotify(x, y, z, meta + 1, 2);
+			if (Math.random() < 0.3) {
+				meta++;
+				world.setBlockMetadataWithNotify(x, y, z, meta, 2);
 			}
 		}
 	}
@@ -72,9 +91,6 @@ public class BlockWeedBush extends Block implements IShearable {
 
 	@Override
 	public int getRenderType() {
-		if (ClientProxy.renderInv) {
-			return 0;
-		}
 		return ClientProxy.rendererWeed;
 	}
 
@@ -108,7 +124,7 @@ public class BlockWeedBush extends Block implements IShearable {
 
 	@Override
 	public IIcon getIcon(int side, int meta) {
-		return ClientProxy.renderPass == 1 && !ClientProxy.renderInv ? icon : this.blockIcon;
+		return ClientProxy.renderPass == 1 ? icon : this.blockIcon;
 	}
 
 	@Override
@@ -121,8 +137,9 @@ public class BlockWeedBush extends Block implements IShearable {
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p, int s, float fx, float fy, float fz) {
-		if(world.getBlockMetadata(x, y, z) == 3){
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p, int s, float fx, float fy,
+			float fz) {
+		if (world.getBlockMetadata(x, y, z) == 3) {
 			world.setBlockMetadataWithNotify(x, y, z, 2, 2);
 			p.inventory.addItemStackToInventory(new ItemStack(ModItems.weedBud));
 		}

@@ -1,5 +1,7 @@
 package com.deerangle.main;
 
+import com.deerangle.tile.ModBlocks;
+
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -11,9 +13,7 @@ public class BlockWeedBushRenderer implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
-		ClientProxy.renderInv = true;
-		
-		ClientProxy.renderInv = false;
+		renderer.renderBlockAsItem(ModBlocks.weedBushInv, 0, 0.8F);
 	}
 
 	@Override
