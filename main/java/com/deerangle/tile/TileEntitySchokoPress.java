@@ -13,13 +13,13 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntitySchokoPress extends TileEntity implements IInventory{
+public class TileEntitySchokoPress extends TileEntity implements IInventory {
 
 	public ItemStack[] slots = new ItemStack[5];
 
 	public int process = 0;
 	public int processMax = 60;
-	
+
 	@Override
 	public void updateEntity() {
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
@@ -78,26 +78,51 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory{
 	}
 
 	private void processEnd(boolean success) {
-		if(success){
+		if (success) {
 			this.decrStackSize(0, 1);
 			this.decrStackSize(1, 1);
 			this.decrStackSize(2, 1);
 			this.decrStackSize(3, 1);
 			setInventorySlotContents(4, ModCrafting.addItemStacks(getStackInSlot(4), getPressResult()));
-		}else{
+		} else {
 			process = 0;
 		}
 	}
 
 	private ItemStack getPressResult() {
-		if (getStackInSlot(0).getItemDamage() == 0 && getStackInSlot(2) == null && getStackInSlot(3) == null) {
+		ItemStack test0 = null;
+		if (getStackInSlot(0) != null) {
+			test0 = getStackInSlot(0).copy();
+			test0.stackSize = 1;
+		}
+		ItemStack test1 = null;
+		if (getStackInSlot(1) != null) {
+			test1 = getStackInSlot(1).copy();
+			test1.stackSize = 1;
+		}
+		ItemStack test2 = null;
+		if (getStackInSlot(2) != null) {
+			test2 = getStackInSlot(2).copy();
+			test2.stackSize = 1;
+		}
+		ItemStack test3 = null;
+		if (getStackInSlot(3) != null) {
+			test3 = getStackInSlot(3).copy();
+			test3.stackSize = 1;
+		}
+
+		//START RECIPES!
+		if (test0.getItemDamage() == 0 && test2 == null && test3 == null) {
 			return new ItemStack(ModItems.schokoBarNormal, 2);
 		}
-		if (getStackInSlot(0).getItemDamage() == 1 && getStackInSlot(2) == null && getStackInSlot(3) == null) {
+		if (test0.getItemDamage() == 1 && test2 == null && test3 == null) {
 			return new ItemStack(ModItems.schokoBarBlack, 2);
 		}
-		if (getStackInSlot(0).getItemDamage() == 2 && getStackInSlot(2) == null && getStackInSlot(3) == null) {
+		if (test0.getItemDamage() == 2 && test2 == null && test3 == null) {
 			return new ItemStack(ModItems.schokoBarWhite, 2);
+		}
+		if (test0.getItemDamage() == 0 && test2 == new ItemStack(Blocks.tallgrass, 1, 0) && test3 == null) {
+			return new ItemStack(ModItems.schokoBarFlower, 2);
 		}
 		return null;
 	}
