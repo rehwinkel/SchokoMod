@@ -35,14 +35,14 @@ public class SchokoMod {
 			return ModItems.schokoBarNormal;
 		}
 	};
-	
+
 	public static CreativeTabs foods = new CreativeTabs("schoko.food") {
 		@Override
 		public Item getTabIconItem() {
 			return ModItems.schokoDrink;
 		}
 	};
-	
+
 	public static CreativeTabs rest = new CreativeTabs("schoko") {
 		@Override
 		public Item getTabIconItem() {
@@ -52,10 +52,10 @@ public class SchokoMod {
 
 	public static Potion schokoPotion;
 	public static Potion lsdPotion;
-	
-	@SidedProxy(clientSide="com.deerangle.main.ClientProxy", serverSide="com.deerangle.main.ServerProxy")
+
+	@SidedProxy(clientSide = "com.deerangle.main.ClientProxy", serverSide = "com.deerangle.main.ServerProxy")
 	public static ServerProxy proxy;
-	
+
 	@Instance
 	public static SchokoMod instance;
 
@@ -94,7 +94,7 @@ public class SchokoMod {
 		MinecraftForge.EVENT_BUS.register(new ModEventHandler());
 		MinecraftForge.EVENT_BUS.register(new ModRenderHandler());
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new ModGuiHandler());
-		
+
 		GameRegistry.registerTileEntity(TileEntitySchokoMixer.class, "schokoMixer");
 	}
 
@@ -102,5 +102,6 @@ public class SchokoMod {
 	public void init(FMLInitializationEvent event) {
 		schokoPotion = (new SchokoPotion(32)).setIconIndex(0, 0);
 		lsdPotion = (new LSDPotion(33)).setIconIndex(0, 0);
+		GameRegistry.registerWorldGenerator(new OreGenerator(), 0);
 	}
 }
