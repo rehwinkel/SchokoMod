@@ -121,7 +121,7 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 		if (test0.getItemDamage() == 2 && test2 == null && test3 == null) {
 			return new ItemStack(ModItems.schokoBarWhite, 2);
 		}
-		if (test0.getItemDamage() == 0 && test2 == new ItemStack(Blocks.tallgrass, 1, 0) && test3 == null) {
+		if (test0.getItemDamage() == 0 && ItemStack.areItemStacksEqual(test2, new ItemStack(Blocks.double_plant, 1, 0)) && test3 == null) {
 			return new ItemStack(ModItems.schokoBarFlower, 2);
 		}
 		return null;
