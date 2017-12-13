@@ -1,6 +1,6 @@
 package com.deerangle.tile;
 
-import com.deerangle.main.ModGuiHandler;
+import com.deerangle.gui.ModGuiHandler;
 import com.deerangle.main.SchokoMod;
 
 import net.minecraft.block.Block;
@@ -54,7 +54,8 @@ public class BlockSchokoMixer extends BlockContainer {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int s) {
 		TileEntitySchokoMixer mixer = (TileEntitySchokoMixer) world.getTileEntity(x, y, z);
-		for(ItemStack item : mixer.slots){
+		for(int i = 0; i < mixer.slots.length - 1; i++){
+			ItemStack item = mixer.slots[i];
 			if(item != null){
 				world.spawnEntityInWorld(new EntityItem(world, x + 0.5, y + 0.5, z + 0.5, item));
 			}

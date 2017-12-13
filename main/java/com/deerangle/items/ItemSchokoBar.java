@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class ItemSchokoBar extends ItemFood {
 
-	int effect = 0;
+	protected int effect = 0;
 
 	public ItemSchokoBar(String type, int food) {
 		this(type, food, false, 0);

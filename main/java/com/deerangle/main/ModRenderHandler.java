@@ -1,6 +1,6 @@
 package com.deerangle.main;
 
-import com.deerangle.effects.GuiLSD;
+import com.deerangle.gui.GuiLSD;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.client.Minecraft;

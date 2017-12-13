@@ -1,5 +1,31 @@
 package com.deerangle.items;
 
+import com.deerangle.items.bars.ItemSchokoBarApple;
+import com.deerangle.items.bars.ItemSchokoBarBook;
+import com.deerangle.items.bars.ItemSchokoBarChristmas;
+import com.deerangle.items.bars.ItemSchokoBarCobweb;
+import com.deerangle.items.bars.ItemSchokoBarColored;
+import com.deerangle.items.bars.ItemSchokoBarCow;
+import com.deerangle.items.bars.ItemSchokoBarCreeper;
+import com.deerangle.items.bars.ItemSchokoBarEnder;
+import com.deerangle.items.bars.ItemSchokoBarFire;
+import com.deerangle.items.bars.ItemSchokoBarFireworks;
+import com.deerangle.items.bars.ItemSchokoBarFlower;
+import com.deerangle.items.bars.ItemSchokoBarGlass;
+import com.deerangle.items.bars.ItemSchokoBarGlowstone;
+import com.deerangle.items.bars.ItemSchokoBarGold;
+import com.deerangle.items.bars.ItemSchokoBarHalloween;
+import com.deerangle.items.bars.ItemSchokoBarIlluminati;
+import com.deerangle.items.bars.ItemSchokoBarLSD;
+import com.deerangle.items.bars.ItemSchokoBarLilypad;
+import com.deerangle.items.bars.ItemSchokoBarLite;
+import com.deerangle.items.bars.ItemSchokoBarMushroom;
+import com.deerangle.items.bars.ItemSchokoBarPortal;
+import com.deerangle.items.bars.ItemSchokoBarRainbow;
+import com.deerangle.items.bars.ItemSchokoBarRedstone;
+import com.deerangle.items.bars.ItemSchokoBarSteve;
+import com.deerangle.items.bars.ItemSchokoBarStone;
+import com.deerangle.items.bars.ItemSchokoBarWindows;
 import com.deerangle.main.SchokoMod;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -52,6 +78,7 @@ public class ModItems {
 	public static Item schokoIngot;
 	public static Item mortar;
 	public static Item cocoaPowder;
+	public static Item cocoaButter;
 	public static Item schokoDrink;
 	public static Item mug;
 	public static Item weedBud;
@@ -106,6 +133,7 @@ public class ModItems {
 		schokoIngot = new ItemSchokoIngot();
 		mortar = new ItemMortar();
 		cocoaPowder = new Item().setUnlocalizedName("cocoaPowder").setTextureName(SchokoMod.MODID + ":cocoaPowder").setCreativeTab(SchokoMod.rest);
+		cocoaButter = new Item().setUnlocalizedName("cocoaButter").setTextureName(SchokoMod.MODID + ":cocoaButter").setCreativeTab(SchokoMod.rest);
 		mug = new Item().setUnlocalizedName("mug").setTextureName(SchokoMod.MODID + ":mug").setCreativeTab(SchokoMod.rest);
 		schokoDrink = new ItemSchokoDrink();
 		weedBud = new Item().setUnlocalizedName("weedBud").setTextureName(SchokoMod.MODID + ":weedBud").setCreativeTab(SchokoMod.rest);
@@ -155,6 +183,7 @@ public class ModItems {
 		GameRegistry.registerItem(schokoIngot, "schokoIngot");
 		GameRegistry.registerItem(mortar, "mortar");
 		GameRegistry.registerItem(cocoaPowder, "cocoaPowder");
+		GameRegistry.registerItem(cocoaButter, "cocoaButter");
 		GameRegistry.registerItem(schokoDrink, "schokoDrink");
 		GameRegistry.registerItem(mug, "mug");
 		GameRegistry.registerItem(weedBud, "weedBud");

@@ -9,14 +9,18 @@ item.schokoDrink_normal.name=Cold Chocolate
 item.schokoDrink_hot.name=Hot Chocolate
 item.mortar.name=Mortar and Pestle
 item.cocoaPowder.name=Cocoa Powder
+item.cocoaButter.name=Cocoa Butter
+item.weedBud.name=Weed Bud
 item.schokoIngot_normal.name=Brick of Normal Chocolate
 item.schokoIngot_white.name=Brick of Light Chocolate
 item.schokoIngot_black.name=Brick of Dark Chocolate
+
 tile.schokoBlock_normal.name=Block of Normal Chocolate
 tile.schokoBlock_white.name=Block of Light Chocolate
 tile.schokoBlock_black.name=Block of Dark Chocolate
-item.weedBud.name=Weed Bud
 tile.weedBush.name=Weed Bush
+tile.present.name=Present
+tile.schokoMixer.name=Chocolate Mixer
 
 item.schokoBarRainbow.name=Rainbow Chocolate Bar
 item.schokoBarNormal.name=Normal Chocolate Bar

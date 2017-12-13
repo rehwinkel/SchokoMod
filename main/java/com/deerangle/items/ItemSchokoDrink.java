@@ -29,7 +29,7 @@ public class ItemSchokoDrink extends ItemFood {
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 		this.setMaxStackSize(1);
-		this.setCreativeTab(SchokoMod.rest);
+		this.setCreativeTab(SchokoMod.foods);
 	}
 
 	@Override

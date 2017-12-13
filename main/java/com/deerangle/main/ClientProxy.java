@@ -1,5 +1,7 @@
 package com.deerangle.main;
 
+import com.deerangle.tile.BlockWeedBushRenderer;
+
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import io.netty.handler.codec.ReplayingDecoder;
 

@@ -5,6 +5,7 @@ import java.lang.reflect.Modifier;
 
 import com.deerangle.effects.LSDPotion;
 import com.deerangle.effects.SchokoPotion;
+import com.deerangle.gui.ModGuiHandler;
 import com.deerangle.items.ModItems;
 import com.deerangle.tile.ModBlocks;
 import com.deerangle.tile.TileEntitySchokoMixer;
