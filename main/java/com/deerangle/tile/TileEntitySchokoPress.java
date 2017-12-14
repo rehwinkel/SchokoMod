@@ -6,6 +6,7 @@ import java.util.HashMap;
 import com.deerangle.items.ModItems;
 import com.deerangle.main.ModCrafting;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -29,28 +30,29 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 	private ArrayList<ItemStack> recipesItem = new ArrayList<ItemStack>();
 
 	public TileEntitySchokoPress() {
-		addRecipe(0, null, null, new ItemStack(ModItems.schokoBarNormal, 2));
-		addRecipe(1, null, null, new ItemStack(ModItems.schokoBarBlack, 2));
-		addRecipe(2, null, null, new ItemStack(ModItems.schokoBarWhite, 2));
-		addRecipe(0, new ItemStack(Blocks.double_plant, 1, 0), null, new ItemStack(ModItems.schokoBarFlower, 2));
-		addRecipe(1, new ItemStack(Blocks.brown_mushroom), null, new ItemStack(ModItems.schokoBarMushroom, 2));
+		addRecipe(0, null, null, new ItemStack(ModItems.schokoBarNormal, 2)); //1
+		addRecipe(1, null, null, new ItemStack(ModItems.schokoBarBlack, 2)); //2
+		addRecipe(2, null, null, new ItemStack(ModItems.schokoBarWhite, 2)); //3
+		addRecipe(0, new ItemStack(Blocks.double_plant, 1, 0), null, new ItemStack(ModItems.schokoBarFlower, 2)); //4
+		addRecipe(1, new ItemStack(Blocks.brown_mushroom), null, new ItemStack(ModItems.schokoBarMushroom, 2)); //5
 		for(int i = 0; i < 16; i++){
-			addRecipe(2, new ItemStack(Items.dye, 1, i), null, new ItemStack(ModItems.schokoBarColored, 2, i));
+			addRecipe(2, new ItemStack(Items.dye, 1, i), null, new ItemStack(ModItems.schokoBarColored, 2, i)); //21
 		}
-		addRecipe(0, new ItemStack(Items.quartz), null, new ItemStack(ModItems.schokoBarQuartz, 2));
-		addRecipe(0, new ItemStack(Blocks.cobblestone), null, new ItemStack(ModItems.schokoBarCobble, 2));
-		addRecipe(2, new ItemStack(Blocks.web), null, new ItemStack(ModItems.schokoBarCobweb, 2));
-		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(Items.redstone), new ItemStack(ModItems.schokoBarRedstone, 1));
-		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(Items.glowstone_dust), new ItemStack(ModItems.schokoBarGlowstone, 1));
-		addRecipe(0, new ItemStack(Items.leather), null, new ItemStack(ModItems.schokoBarCow, 2));
-		addRecipe(0, new ItemStack(Items.ender_pearl), null, new ItemStack(ModItems.schokoBarEnder, 2));
-		addRecipe(2, new ItemStack(Blocks.glass), null, new ItemStack(ModItems.schokoBarGlass, 2));
-		addRecipe(1, new ItemStack(Items.gunpowder), new ItemStack(Items.skull, 1, 4), new ItemStack(ModItems.schokoBarCreeper, 2));
-		addRecipe(1, new ItemStack(Items.fire_charge), new ItemStack(Items.fire_charge), new ItemStack(ModItems.schokoBarFire, 2));
-		addRecipe(0, new ItemStack(Items.fireworks), null, new ItemStack(ModItems.schokoBarFireworks, 2));
-		addRecipe(0, new ItemStack(ModItems.schokoIngot), null, new ItemStack(ModItems.schokoBarFull, 2));
-		addRecipe(0, new ItemStack(Blocks.gold_block), null, new ItemStack(ModItems.schokoBarGold, 3));
-		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(ModItems.weed), new ItemStack(ModItems.schokoBarLSD, 2));
+		addRecipe(0, new ItemStack(Items.quartz), null, new ItemStack(ModItems.schokoBarQuartz, 2)); //22
+		addRecipe(0, new ItemStack(Blocks.cobblestone), null, new ItemStack(ModItems.schokoBarCobble, 2)); //23
+		addRecipe(2, new ItemStack(Blocks.web), null, new ItemStack(ModItems.schokoBarCobweb, 2)); //24
+		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(Items.redstone), new ItemStack(ModItems.schokoBarRedstone, 1)); //25
+		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(Items.glowstone_dust), new ItemStack(ModItems.schokoBarGlowstone, 1)); //26
+		addRecipe(0, new ItemStack(Items.leather), null, new ItemStack(ModItems.schokoBarCow, 2)); //27
+		addRecipe(0, new ItemStack(Items.ender_pearl), null, new ItemStack(ModItems.schokoBarEnder, 2)); //28
+		addRecipe(2, new ItemStack(Blocks.glass), null, new ItemStack(ModItems.schokoBarGlass, 2)); //29
+		addRecipe(1, new ItemStack(Items.gunpowder), new ItemStack(Items.gunpowder), new ItemStack(ModItems.schokoBarCreeper, 2)); //30
+		addRecipe(1, new ItemStack(Items.fire_charge), new ItemStack(Items.fire_charge), new ItemStack(ModItems.schokoBarFire, 2)); //31
+		addRecipe(0, new ItemStack(Items.fireworks), null, new ItemStack(ModItems.schokoBarFireworks, 2)); //32
+		addRecipe(0, new ItemStack(ModItems.schokoIngot), null, new ItemStack(ModItems.schokoBarFull, 2)); //33
+		addRecipe(0, new ItemStack(Blocks.gold_block), null, new ItemStack(ModItems.schokoBarGold, 3)); //34
+		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(ModItems.weed), new ItemStack(ModItems.schokoBarLSD, 2)); //35
+		addRecipe(0, new ItemStack(ModItems.error), null, new ItemStack(ModItems.schokoBarWindows, 2)); //36
 		//addRecipe(1, new ItemStack(Items.bone), null, new ItemStack(ModItems.schokoBarChristmas, 1));
 	}
 
@@ -197,6 +199,8 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 						if (ItemStack.areItemStacksEqual(in[2], test3)) {
 							return out.copy();
 						}
+					}
+					if (ItemStack.areItemStacksEqual(in[1], test3)) {
 						if (ItemStack.areItemStacksEqual(in[2], test2)) {
 							return out.copy();
 						}

@@ -1,8 +1,12 @@
 package com.deerangle.main;
 
+import com.deerangle.items.ModItems;
+
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 
 public class ModEventHandler {
@@ -27,6 +31,13 @@ public class ModEventHandler {
 			if(event.entityLiving.isPotionActive(Potion.jump.id)){
 				player.fallDistance = 0;
 			}
+		}
+	}
+
+	@SubscribeEvent
+	public void onPlayerChat(ServerChatEvent event){
+		if(event.message.contains("0/0") || event.message.contains("0:0")){
+			event.player.inventory.addItemStackToInventory(new ItemStack(ModItems.error));
 		}
 	}
 	

@@ -83,6 +83,7 @@ public class ModItems {
 	public static Item mug;
 	public static Item weedBud;
 	public static Item weed;
+	public static Item error;
 
 	public static void load() {
 		initialize();
@@ -139,6 +140,7 @@ public class ModItems {
 		schokoDrink = new ItemSchokoDrink();
 		weedBud = new Item().setUnlocalizedName("weedBud").setTextureName(SchokoMod.MODID + ":weedBud").setCreativeTab(SchokoMod.rest);
 		weed = new Item().setUnlocalizedName("weed").setTextureName(SchokoMod.MODID + ":weed").setCreativeTab(SchokoMod.rest);
+		error = new Item().setUnlocalizedName("error").setTextureName(SchokoMod.MODID + ":error").setCreativeTab(SchokoMod.rest);
 	}
 
 	private static void register() {
