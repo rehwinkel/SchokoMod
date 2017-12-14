@@ -6,6 +6,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 
@@ -38,6 +39,8 @@ public class ModEventHandler {
 	public void onPlayerChat(ServerChatEvent event){
 		if(event.message.contains("0/0") || event.message.contains("0:0")){
 			event.player.inventory.addItemStackToInventory(new ItemStack(ModItems.error));
+			event.player.addChatMessage(new ChatComponentText("§7An unexpected Error occured!"));
+			event.player.addChatMessage(new ChatComponentText("§cCan't divide 0 by 0!"));
 		}
 	}
 	

@@ -50,10 +50,28 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 		addRecipe(1, new ItemStack(Items.fire_charge), new ItemStack(Items.fire_charge), new ItemStack(ModItems.schokoBarFire, 2)); //31
 		addRecipe(0, new ItemStack(Items.fireworks), null, new ItemStack(ModItems.schokoBarFireworks, 2)); //32
 		addRecipe(0, new ItemStack(ModItems.schokoIngot), null, new ItemStack(ModItems.schokoBarFull, 2)); //33
-		addRecipe(0, new ItemStack(Blocks.gold_block), null, new ItemStack(ModItems.schokoBarGold, 3)); //34
+		addRecipe(0, new ItemStack(Blocks.gold_block), null, new ItemStack(ModItems.schokoBarGold, 2)); //34
 		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(ModItems.weed), new ItemStack(ModItems.schokoBarLSD, 2)); //35
 		addRecipe(0, new ItemStack(ModItems.error), null, new ItemStack(ModItems.schokoBarWindows, 2)); //36
-		//addRecipe(1, new ItemStack(Items.bone), null, new ItemStack(ModItems.schokoBarChristmas, 1));
+		addRecipe(0, new ItemStack(Blocks.waterlily), null, new ItemStack(ModItems.schokoBarLilypad, 2)); //37
+		addRecipe(0, new ItemStack(Items.cookie), null, new ItemStack(ModItems.schokoBarCookie, 2)); //38
+		addRecipe(0, new ItemStack(Blocks.lit_pumpkin), null, new ItemStack(ModItems.schokoBarHalloween, 2)); //39
+		addRecipe(0, new ItemStack(Items.skull, 1, 3), null, new ItemStack(ModItems.schokoBarSteve, 2)); //40
+		addRecipe(0, new ItemStack(Items.apple), null, new ItemStack(ModItems.schokoBarApple, 2)); //41
+		addRecipe(0, new ItemStack(Items.enchanted_book), null, new ItemStack(ModItems.schokoBarBook, 2)); //42
+		addRecipe(0, new ItemStack(Items.milk_bucket), null, new ItemStack(ModItems.schokoBarJoghurt, 2)); //43
+		addRecipe(0, new ItemStack(Blocks.cocoa), null, new ItemStack(ModItems.schokoBarNuts, 2)); //44
+		addRecipe(0, new ItemStack(ModItems.santaHat), null, new ItemStack(ModItems.schokoBarChristmas, 4)); //45
+		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(ModItems.triangle), new ItemStack(ModItems.schokoBarIlluminati, 2)); //46
+		addRecipe(0, new ItemStack(Items.paper), new ItemStack(Items.paper), new ItemStack(ModItems.schokoBarLite, 2)); //47
+		addRecipe(0, new ItemStack(Blocks.obsidian), new ItemStack(Blocks.obsidian), new ItemStack(ModItems.schokoBarPortal, 2)); //48
+		addRecipe(0, new ItemStack(ModItems.schokoBarColored), null, new ItemStack(ModItems.schokoBarRainbow, 2)); //49
+		addRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarSmartie, 2)); //50
+
+		addRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarDoor, 2)); //51
+		addRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarDrawing, 2)); //52
+		addRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarSlot, 2)); //53
+		addRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarYouTube, 2)); //54
 	}
 
 	/**

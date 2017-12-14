@@ -84,6 +84,9 @@ public class ModItems {
 	public static Item weedBud;
 	public static Item weed;
 	public static Item error;
+	public static Item triangle;
+	public static Item smarties;
+	public static Item santaHat;
 
 	public static void load() {
 		initialize();
@@ -141,6 +144,9 @@ public class ModItems {
 		weedBud = new Item().setUnlocalizedName("weedBud").setTextureName(SchokoMod.MODID + ":weedBud").setCreativeTab(SchokoMod.rest);
 		weed = new Item().setUnlocalizedName("weed").setTextureName(SchokoMod.MODID + ":weed").setCreativeTab(SchokoMod.rest);
 		error = new Item().setUnlocalizedName("error").setTextureName(SchokoMod.MODID + ":error").setCreativeTab(SchokoMod.rest);
+		smarties = new ItemSmarties();
+		triangle = new Item().setUnlocalizedName("triangle").setTextureName(SchokoMod.MODID + ":triangle").setCreativeTab(SchokoMod.rest);
+		santaHat = new ItemSantaHat();
 	}
 
 	private static void register() {
@@ -192,6 +198,10 @@ public class ModItems {
 		GameRegistry.registerItem(mug, "mug");
 		GameRegistry.registerItem(weedBud, "weedBud");
 		GameRegistry.registerItem(weed, "weed");
+		GameRegistry.registerItem(error, "error");
+		GameRegistry.registerItem(santaHat, "santaHat");
+		GameRegistry.registerItem(smarties, "smarties");
+		GameRegistry.registerItem(triangle, "triangle");
 	}
 
 }

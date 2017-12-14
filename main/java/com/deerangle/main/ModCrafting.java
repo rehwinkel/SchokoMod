@@ -10,7 +10,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class ModCrafting {
-	
+
 	public static void load() {
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.mortar), "o/o", " o ", 'o', Blocks.cobblestone, '/', Items.stick);
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaPowder), ModItems.mortar, new ItemStack(Items.dye, 1, 3));
@@ -18,8 +18,12 @@ public class ModCrafting {
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.weed), ModItems.mortar, ModItems.weedBud);
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaButter, 2), ModItems.cocoaButter, Items.milk_bucket);
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.schokoDrink), ModItems.cocoaPowder, Items.sugar, ModItems.mug, Items.milk_bucket);
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.smarties), ModItems.schokoIngot, Items.dye);
 		GameRegistry.addSmelting(new ItemStack(ModItems.schokoDrink), new ItemStack(ModItems.schokoDrink, 1, 1), 0);
+		
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.mug, 4), "O O", "O O", "OOO", 'O', Items.clay_ball);
+		GameRegistry.addShapedRecipe(new ItemStack(ModItems.santaHat, 1), " R ", "RRR", "WWW", 'R', new ItemStack(Blocks.wool, 1, 14), 'W', new ItemStack(Blocks.wool, 1, 0));
+		GameRegistry.addShapedRecipe(new ItemStack(ModItems.triangle), " O ", "OOO", 'O', ModItems.schokoIngot);
 	}
 
 	public static boolean willStackOn(ItemStack top, ItemStack bottom) {
