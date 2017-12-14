@@ -61,11 +61,11 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 		addRecipe(0, new ItemStack(Items.enchanted_book), null, new ItemStack(ModItems.schokoBarBook, 2)); //42
 		addRecipe(0, new ItemStack(Items.milk_bucket), null, new ItemStack(ModItems.schokoBarJoghurt, 2)); //43
 		addRecipe(0, new ItemStack(Blocks.cocoa), null, new ItemStack(ModItems.schokoBarNuts, 2)); //44
-		addRecipe(0, new ItemStack(ModItems.santaHat), null, new ItemStack(ModItems.schokoBarChristmas, 4)); //45
+		addRecipe(0, new ItemStack(ModItems.santaHat), null, new ItemStack(ModItems.schokoBarChristmas, 2)); //45
 		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(ModItems.triangle), new ItemStack(ModItems.schokoBarIlluminati, 2)); //46
 		addRecipe(0, new ItemStack(Items.paper), new ItemStack(Items.paper), new ItemStack(ModItems.schokoBarLite, 2)); //47
 		addRecipe(0, new ItemStack(Blocks.obsidian), new ItemStack(Blocks.obsidian), new ItemStack(ModItems.schokoBarPortal, 2)); //48
-		addRecipe(0, new ItemStack(ModItems.schokoBarColored), null, new ItemStack(ModItems.schokoBarRainbow, 2)); //49
+		addRecipe(0, new ItemStack(ModItems.schokoBarColored, 1, 1), new ItemStack(ModItems.schokoBarColored, 1, 4), new ItemStack(ModItems.schokoBarRainbow, 2)); //49
 		addRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarSmartie, 2)); //50
 
 		addRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarDoor, 2)); //51

@@ -21,9 +21,9 @@ public class ItemSchokoBarEnder extends ItemSchokoBar {
 		int y = (int) player.posY;
 		int z = (int) player.posZ;
 		while(true){
-			int x2 = x + (-8 + world.rand.nextInt(16));
-			int y2 = y + world.rand.nextInt(4);
-			int z2 = z + (-8 + world.rand.nextInt(16));
+			int x2 = x + (-16 + world.rand.nextInt(32));
+			int y2 = y + world.rand.nextInt(8);
+			int z2 = z + (-16 + world.rand.nextInt(32));
 			if(world.isAirBlock(x2, y2, z2) && world.isAirBlock(x2, y2 + 1, z2)){
 				player.setPosition(x2, y2, z2);
 				break;
@@ -31,7 +31,7 @@ public class ItemSchokoBarEnder extends ItemSchokoBar {
 				tries++;
 			}
 			
-			if(tries > 512){
+			if(tries > 1024){
 				break;
 			}
 		}
