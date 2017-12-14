@@ -33,6 +33,7 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 		addRecipe(1, null, null, new ItemStack(ModItems.schokoBarBlack, 2));
 		addRecipe(2, null, null, new ItemStack(ModItems.schokoBarWhite, 2));
 		addRecipe(0, new ItemStack(Blocks.double_plant, 1, 0), null, new ItemStack(ModItems.schokoBarFlower, 2));
+		addRecipe(1, new ItemStack(Blocks.brown_mushroom), null, new ItemStack(ModItems.schokoBarMushroom, 2));
 		for(int i = 0; i < 16; i++){
 			addRecipe(2, new ItemStack(Items.dye, 1, i), null, new ItemStack(ModItems.schokoBarColored, 2, i));
 		}
@@ -41,7 +42,16 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 		addRecipe(2, new ItemStack(Blocks.web), null, new ItemStack(ModItems.schokoBarCobweb, 2));
 		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(Items.redstone), new ItemStack(ModItems.schokoBarRedstone, 1));
 		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(Items.glowstone_dust), new ItemStack(ModItems.schokoBarGlowstone, 1));
-		addRecipe(0, new ItemStack(Items.leather), null, new ItemStack(ModItems.schokoBarCow, 1));
+		addRecipe(0, new ItemStack(Items.leather), null, new ItemStack(ModItems.schokoBarCow, 2));
+		addRecipe(0, new ItemStack(Items.ender_pearl), null, new ItemStack(ModItems.schokoBarEnder, 2));
+		addRecipe(2, new ItemStack(Blocks.glass), null, new ItemStack(ModItems.schokoBarGlass, 2));
+		addRecipe(1, new ItemStack(Items.gunpowder), new ItemStack(Items.skull, 1, 4), new ItemStack(ModItems.schokoBarCreeper, 2));
+		addRecipe(1, new ItemStack(Items.fire_charge), new ItemStack(Items.fire_charge), new ItemStack(ModItems.schokoBarFire, 2));
+		addRecipe(0, new ItemStack(Items.fireworks), null, new ItemStack(ModItems.schokoBarFireworks, 2));
+		addRecipe(0, new ItemStack(ModItems.schokoIngot), null, new ItemStack(ModItems.schokoBarFull, 2));
+		addRecipe(0, new ItemStack(Blocks.gold_block), null, new ItemStack(ModItems.schokoBarGold, 3));
+		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(ModItems.weed), new ItemStack(ModItems.schokoBarLSD, 2));
+		//addRecipe(1, new ItemStack(Items.bone), null, new ItemStack(ModItems.schokoBarChristmas, 1));
 	}
 
 	/**
