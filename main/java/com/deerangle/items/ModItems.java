@@ -82,6 +82,7 @@ public class ModItems {
 	public static Item schokoDrink;
 	public static Item mug;
 	public static Item weedBud;
+	public static Item weed;
 
 	public static void load() {
 		initialize();
@@ -137,6 +138,7 @@ public class ModItems {
 		mug = new Item().setUnlocalizedName("mug").setTextureName(SchokoMod.MODID + ":mug").setCreativeTab(SchokoMod.rest);
 		schokoDrink = new ItemSchokoDrink();
 		weedBud = new Item().setUnlocalizedName("weedBud").setTextureName(SchokoMod.MODID + ":weedBud").setCreativeTab(SchokoMod.rest);
+		weed = new Item().setUnlocalizedName("weed").setTextureName(SchokoMod.MODID + ":weed").setCreativeTab(SchokoMod.rest);
 	}
 
 	private static void register() {
@@ -187,6 +189,7 @@ public class ModItems {
 		GameRegistry.registerItem(schokoDrink, "schokoDrink");
 		GameRegistry.registerItem(mug, "mug");
 		GameRegistry.registerItem(weedBud, "weedBud");
+		GameRegistry.registerItem(weed, "weed");
 	}
 
 }

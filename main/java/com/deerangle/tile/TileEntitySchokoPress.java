@@ -8,6 +8,7 @@ import com.deerangle.main.ModCrafting;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -32,6 +33,15 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 		addRecipe(1, null, null, new ItemStack(ModItems.schokoBarBlack, 2));
 		addRecipe(2, null, null, new ItemStack(ModItems.schokoBarWhite, 2));
 		addRecipe(0, new ItemStack(Blocks.double_plant, 1, 0), null, new ItemStack(ModItems.schokoBarFlower, 2));
+		for(int i = 0; i < 16; i++){
+			addRecipe(2, new ItemStack(Items.dye, 1, i), null, new ItemStack(ModItems.schokoBarColored, 2, i));
+		}
+		addRecipe(0, new ItemStack(Items.quartz), null, new ItemStack(ModItems.schokoBarQuartz, 2));
+		addRecipe(0, new ItemStack(Blocks.cobblestone), null, new ItemStack(ModItems.schokoBarCobble, 2));
+		addRecipe(2, new ItemStack(Blocks.web), null, new ItemStack(ModItems.schokoBarCobweb, 2));
+		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(Items.redstone), new ItemStack(ModItems.schokoBarRedstone, 1));
+		addRecipe(0, new ItemStack(ModItems.weed), new ItemStack(Items.glowstone_dust), new ItemStack(ModItems.schokoBarGlowstone, 1));
+		addRecipe(0, new ItemStack(Items.leather), null, new ItemStack(ModItems.schokoBarCow, 1));
 	}
 
 	/**
@@ -177,7 +187,7 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 						if (ItemStack.areItemStacksEqual(in[2], test3)) {
 							return out.copy();
 						}
-						if (ItemStack.areItemStacksEqual(in[3], test2)) {
+						if (ItemStack.areItemStacksEqual(in[2], test2)) {
 							return out.copy();
 						}
 					}
