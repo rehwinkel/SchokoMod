@@ -53,9 +53,6 @@ public class ItemSchokoBarColored extends ItemFood {
 	
 	@Override
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
-		if(stack.getItemDamage() == 4){
-			world.playSoundAtEntity(player, SchokoMod.MODID + ":blue", 10, 1);
-		}
 		player.addPotionEffect(new PotionEffect(SchokoMod.schokoPotion.id, 10 * 20, 0));
 		if(!world.isRemote){
 			player.getEntityData().setInteger("Diabetis", player.getEntityData().getInteger("Diabetis") + 1);
