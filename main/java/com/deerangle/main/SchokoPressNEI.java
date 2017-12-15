@@ -58,13 +58,16 @@ public class SchokoPressNEI extends TemplateRecipeHandler {
 	// load recipes from partial recipe input
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		if (ingredient.getItem() == ModItems.schokoIngot || ingredient.getItem() == Items.paper) {
+		if(ingredient.getItem() == Items.paper){
+			for(int i = 0; i < ModCrafting.pressRecipesItem.size(); i++){
+				arecipes.add(new CachedSchokoPressRecipe(ModCrafting.pressRecipesItem.get(i)));
+			}
+		}else if (ingredient.getItem() == ModItems.schokoIngot) {
 			for(int i = 0; i < ModCrafting.pressRecipesItem.size(); i++){
 				if(ModCrafting.pressRecipesItems.get(i)[0].getItemDamage() == ingredient.getItemDamage()){
 					arecipes.add(new CachedSchokoPressRecipe(ModCrafting.pressRecipesItem.get(i)));
 				}
 			}
-			return;
 		}else{
 			for(int i = 0; i < ModCrafting.pressRecipesItem.size(); i++){
 				ItemStack[] items = ModCrafting.pressRecipesItems.get(i);
@@ -76,7 +79,6 @@ public class SchokoPressNEI extends TemplateRecipeHandler {
 					}
 				}
 			}
-			return;
 		}
 	}
 
