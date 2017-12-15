@@ -58,21 +58,20 @@ public class SchokoPressNEI extends TemplateRecipeHandler {
 	// load recipes from partial recipe input
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		System.out.println("call");
 		if (ingredient.getItem() == ModItems.schokoIngot || ingredient.getItem() == Items.paper) {
-			for(ItemStack i : TileEntitySchokoPress.recipesItem){
-				//hands in the used ingredient
-				arecipes.add(new CachedSchokoPressRecipe(i));
+			for(int i = 0; i < ModCrafting.pressRecipesItem.size(); i++){
+				if(ModCrafting.pressRecipesItems.get(i)[0].getItemDamage() == ingredient.getItemDamage()){
+					arecipes.add(new CachedSchokoPressRecipe(ModCrafting.pressRecipesItem.get(i)));
+				}
 			}
 			return;
 		}else{
-			for(int i = 0; i < TileEntitySchokoPress.recipesItem.size(); i++){
-				ItemStack[] items = TileEntitySchokoPress.recipesItems.get(i);
-				//hands in the used ingredient
+			for(int i = 0; i < ModCrafting.pressRecipesItem.size(); i++){
+				ItemStack[] items = ModCrafting.pressRecipesItems.get(i);
 				for(ItemStack stack : items){
 					if(stack.getItem() == ingredient.getItem()){
 						if(stack.getItemDamage() == ingredient.getItemDamage()){
-							arecipes.add(new CachedSchokoPressRecipe(TileEntitySchokoPress.recipesItem.get(i)));
+							arecipes.add(new CachedSchokoPressRecipe(ModCrafting.pressRecipesItem.get(i)));
 						}
 					}
 				}
@@ -94,31 +93,31 @@ public class SchokoPressNEI extends TemplateRecipeHandler {
 		private PositionedStack ingredient3;
 		private PositionedStack output;
 
-//		public CachedSchokoPressRecipe(ItemStack ingredient, boolean b, int cocoa) {
-//			super();
-//			ingredient0 = new PositionedStack(new ItemStack(Items.sugar), 30, 14);
-//			ingredient1 = new PositionedStack(new ItemStack(ModItems.cocoaButter), 50, 14);
-//			ItemStack schoko = null;
-//			if (cocoa == 0) {
-//				schoko = new ItemStack(ModItems.schokoIngot, 1, cocoa);
-//				ingredient2 = new PositionedStack(new ItemStack(ModItems.cocoaPowder), 30, 34);
-//				ingredient3 = null;
-//			}
-//			if (cocoa == 1) {
-//				schoko = new ItemStack(ModItems.schokoIngot, 1, cocoa);
-//				ingredient2 = new PositionedStack(new ItemStack(ModItems.cocoaPowder), 30, 34);
-//				ingredient3 = new PositionedStack(new ItemStack(ModItems.cocoaPowder), 50, 34);
-//			}
-//			if (cocoa == 2) {
-//				schoko = new ItemStack(ModItems.schokoIngot, 1, cocoa);
-//				ingredient2 = null;
-//				ingredient3 = null;
-//			}
-//			output = new PositionedStack(schoko, 111, 24);
-//		}
-
 		public CachedSchokoPressRecipe(ItemStack stack) {
-			output = new PositionedStack(stack, 111, 24);
+			ItemStack[] ingreds = new ItemStack[3];
+			for(int i = 0; i < ModCrafting.pressRecipesItem.size(); i++){
+				if(stack.getItem() == ModCrafting.pressRecipesItem.get(i).getItem()){
+					if(stack.getItemDamage() == ModCrafting.pressRecipesItem.get(i).getItemDamage()){
+						ingreds = ModCrafting.pressRecipesItems.get(i);
+					}
+				}
+			}
+			ingredient0 = new PositionedStack(new ItemStack(ModItems.schokoIngot, 1, ingreds[0].getItemDamage()), 30, 14);
+			ingredient1 = new PositionedStack(new ItemStack(Items.paper), 50, 14);
+			if(ingreds.length == 2){
+				ingredient2 = new PositionedStack(ingreds[1], 30, 34);
+			}
+			if(ingreds.length == 3){
+				ingredient2 = new PositionedStack(ingreds[1], 30, 34);
+				ingredient3 = new PositionedStack(ingreds[2], 50, 34);
+			}
+			for(int i = 0; i < ModCrafting.pressRecipesItem.size(); i++){
+				if(stack.getItem() == ModCrafting.pressRecipesItem.get(i).getItem()){
+					if(stack.getItemDamage() == ModCrafting.pressRecipesItem.get(i).getItemDamage()){
+						output = new PositionedStack(ModCrafting.pressRecipesItem.get(i), 111, 24);
+					}
+				}
+			}
 		}
 
 		@Override
