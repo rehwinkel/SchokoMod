@@ -2,6 +2,7 @@ package com.deerangle.items.bars;
 
 import java.util.List;
 
+import com.deerangle.main.ISchokoBar;
 import com.deerangle.main.SchokoMod;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -14,7 +15,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class ItemSchokoBarColored extends ItemFood {
+public class ItemSchokoBarColored extends ItemFood implements ISchokoBar {
 
 	public String[] colors = new String[] {"black", "red", "green", "brown", "blue", "purple", "cyan", "silver", "gray", "pink", "lime", "yellow", "lightBlue", "magenta", "orange", "white"};
 	public IIcon[] icons = new IIcon[colors.length];

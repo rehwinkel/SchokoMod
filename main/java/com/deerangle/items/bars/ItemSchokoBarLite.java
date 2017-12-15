@@ -1,5 +1,6 @@
 package com.deerangle.items.bars;
 
+import com.deerangle.main.ISchokoBar;
 import com.deerangle.main.SchokoMod;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,7 +10,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
-public class ItemSchokoBarLite extends ItemFood {
+public class ItemSchokoBarLite extends ItemFood implements ISchokoBar {
 
 	public ItemSchokoBarLite() {
 		super(1, false);

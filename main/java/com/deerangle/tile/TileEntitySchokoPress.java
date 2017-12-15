@@ -26,8 +26,8 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 	public int process = 0;
 	public int processMax = 60;
 
-	private ArrayList<ItemStack[]> recipesItems = new ArrayList<ItemStack[]>();
-	private ArrayList<ItemStack> recipesItem = new ArrayList<ItemStack>();
+	public static ArrayList<ItemStack[]> recipesItems = new ArrayList<ItemStack[]>();
+	public static ArrayList<ItemStack> recipesItem = new ArrayList<ItemStack>();
 
 	public TileEntitySchokoPress() {
 		addRecipe(0, null, null, new ItemStack(ModItems.schokoBarNormal, 2)); //1
@@ -72,6 +72,7 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 		addRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarDrawing, 2)); //52
 		addRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarSlot, 2)); //53
 		addRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarYouTube, 2)); //54
+		System.out.println("HEWHWHEEHEWEHEWHWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
 	}
 
 	/**

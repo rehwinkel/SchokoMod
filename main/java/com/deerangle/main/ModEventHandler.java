@@ -2,6 +2,7 @@ package com.deerangle.main;
 
 import com.deerangle.items.ModItems;
 
+import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -42,6 +43,7 @@ public class ModEventHandler {
 			event.player.addChatMessage(new ChatComponentText("§7An unexpected Error occured!"));
 			event.player.addChatMessage(new ChatComponentText("§cCan't divide 0 by 0!"));
 		}
+		event.setResult(Result.DENY);
 	}
 	
 }

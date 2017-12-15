@@ -1,5 +1,6 @@
 package com.deerangle.items;
 
+import com.deerangle.main.ISchokoBar;
 import com.deerangle.main.SchokoMod;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,7 +13,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
-public class ItemSchokoBar extends ItemFood {
+public class ItemSchokoBar extends ItemFood implements ISchokoBar{
 
 	protected int effect = 0;
 

@@ -1,5 +1,6 @@
 package com.deerangle.items.bars;
 
+import com.deerangle.main.ISchokoBar;
 import com.deerangle.main.SchokoMod;
 
 import net.minecraft.command.CommandWeather;
@@ -8,7 +9,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemSchokoBarFlower extends ItemFood {
+public class ItemSchokoBarFlower extends ItemFood implements ISchokoBar {
 
 	public ItemSchokoBarFlower() {
 		super(4, false);

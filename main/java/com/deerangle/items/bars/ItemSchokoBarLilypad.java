@@ -1,5 +1,6 @@
 package com.deerangle.items.bars;
 
+import com.deerangle.main.ISchokoBar;
 import com.deerangle.main.SchokoMod;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -7,7 +8,7 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemSchokoBarLilypad extends ItemFood {
+public class ItemSchokoBarLilypad extends ItemFood implements ISchokoBar {
 
 	public ItemSchokoBarLilypad() {
 		super(4, false);
