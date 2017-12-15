@@ -11,6 +11,7 @@ import com.deerangle.tile.ModBlocks;
 import com.deerangle.tile.TileEntitySchokoMixer;
 import com.deerangle.tile.TileEntitySchokoPress;
 
+import codechicken.nei.api.API;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -107,6 +108,7 @@ public class SchokoMod {
 		schokoPotion = (new SchokoPotion(32)).setIconIndex(0, 0);
 		lsdPotion = (new LSDPotion(33)).setIconIndex(0, 0);
 		GameRegistry.registerWorldGenerator(new OreGenerator(), 0);
-		//API.hideItem(new ItemStack(ModBlocks.weedBushInv));
+		
+		API.hideItem(new ItemStack(ModBlocks.weedBushInv));
 	}
 }
