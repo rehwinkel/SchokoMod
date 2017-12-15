@@ -68,10 +68,10 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 		addRecipe(0, new ItemStack(ModItems.schokoBarColored, 1, 1), new ItemStack(ModItems.schokoBarColored, 1, 4), new ItemStack(ModItems.schokoBarRainbow, 2)); //49
 		addRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarSmartie, 2)); //50
 
-		addRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarDoor, 2)); //51
-		addRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarDrawing, 2)); //52
-		addRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarSlot, 2)); //53
-		addRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarYouTube, 2)); //54
+		addRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarDoor, 2)); //51
+		addRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarDrawing, 2)); //52
+		addRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarSlot, 2)); //53
+		addRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarYouTube, 2)); //54
 	}
 
 	/**

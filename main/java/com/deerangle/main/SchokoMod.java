@@ -1,6 +1,6 @@
 package com.deerangle.main;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.Field; 
 import java.lang.reflect.Modifier;
 
 import com.deerangle.effects.LSDPotion;
@@ -19,8 +19,10 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -105,5 +107,6 @@ public class SchokoMod {
 		schokoPotion = (new SchokoPotion(32)).setIconIndex(0, 0);
 		lsdPotion = (new LSDPotion(33)).setIconIndex(0, 0);
 		GameRegistry.registerWorldGenerator(new OreGenerator(), 0);
+		//API.hideItem(new ItemStack(ModBlocks.weedBushInv));
 	}
 }
