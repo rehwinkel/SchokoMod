@@ -125,23 +125,23 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 			}
 			if(in.length == 2){
 				if (in[0].getItemDamage() == test0.getItemDamage()) {
-					if (ItemStack.areItemStacksEqual(in[1], test3) && test2 == null) {
+					if (areItemStacksEqual(in[1], test3) && test2 == null) {
 						return out.copy();
 					}
-					if (ItemStack.areItemStacksEqual(in[1], test2) && test3 == null) {
+					if (areItemStacksEqual(in[1], test2) && test3 == null) {
 						return out.copy();
 					}
 				}
 			}
 			if(in.length == 3){
 				if (in[0].getItemDamage() == test0.getItemDamage()) {
-					if (ItemStack.areItemStacksEqual(in[1], test2)) {
-						if (ItemStack.areItemStacksEqual(in[2], test3)) {
+					if (areItemStacksEqual(in[1], test2)) {
+						if (areItemStacksEqual(in[2], test3)) {
 							return out.copy();
 						}
 					}
-					if (ItemStack.areItemStacksEqual(in[1], test3)) {
-						if (ItemStack.areItemStacksEqual(in[2], test2)) {
+					if (areItemStacksEqual(in[1], test3)) {
+						if (areItemStacksEqual(in[2], test2)) {
 							return out.copy();
 						}
 					}
@@ -151,6 +151,20 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 		return null;
 	}
 
+	private boolean areItemStacksEqual(ItemStack a, ItemStack b){
+		if(a == null && b == null){
+			return true;
+		}
+		if(a != null && b != null){
+			if(a.getItem() == b.getItem()){
+				if(a.getItemDamage() == b.getItemDamage()){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	@Override
 	public int getSizeInventory() {
 		return slots.length;
