@@ -5,6 +5,7 @@ import java.lang.reflect.Modifier;
 
 import com.deerangle.effects.LSDPotion;
 import com.deerangle.effects.SchokoPotion;
+import com.deerangle.gui.GuiSchokoMixer;
 import com.deerangle.gui.ModGuiHandler;
 import com.deerangle.items.ModItems;
 import com.deerangle.tile.ModBlocks;
@@ -12,6 +13,8 @@ import com.deerangle.tile.TileEntitySchokoMixer;
 import com.deerangle.tile.TileEntitySchokoPress;
 
 import codechicken.nei.api.API;
+import codechicken.nei.recipe.DefaultOverlayHandler;
+import codechicken.nei.recipe.TemplateRecipeHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -110,5 +113,11 @@ public class SchokoMod {
 		GameRegistry.registerWorldGenerator(new OreGenerator(), 0);
 		
 		API.hideItem(new ItemStack(ModBlocks.weedBushInv));
+		
+		TemplateRecipeHandler handler = new SchokoMixerNEI();
+		API.registerUsageHandler(handler);
+		API.registerRecipeHandler(handler);
+		API.registerGuiOverlay(GuiSchokoMixer.class, "schokoMixer");
+		API.registerGuiOverlayHandler(GuiSchokoMixer.class, new DefaultOverlayHandler(), "schokoMixer");
 	}
 }
