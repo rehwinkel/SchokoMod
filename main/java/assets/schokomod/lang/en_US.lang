@@ -29,6 +29,7 @@ tile.schokoMixer.name=Chocolate Mixer
 tile.schokoPress.name=Chocolate Press
 
 item.schokoBarRainbow.name=Rainbow Chocolate Bar
+item.schokoBarApple.name=Apple Chocolate Bar
 item.schokoBarNormal.name=Normal Chocolate Bar
 item.schokoBarBlack.name=Dark Chocolate Bar
 item.schokoBarWhite.name=Light Chocolate Bar
