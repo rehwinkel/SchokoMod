@@ -39,7 +39,8 @@ public class ModCrafting {
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.schokoIngot, 9, 2), new ItemStack(ModBlocks.schokoBlock, 1, 2));
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.schokoPress), "IPI", "ISI", "CCC", 'I', "ingotIron", 'P', Blocks.piston, 'S', new ItemStack(ModBlocks.schokoBlock, 1, 0), 'C', "cobblestone"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.schokoMixer), "PSP", "PCP", "PLP", 'L', "treeWood", 'P', "plankWood", 'S', ModItems.cocoaPowder, 'C', Blocks.crafting_table));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.schokoMixer), "PSP", "PCP", "PLP", 'P', "plankWood", 'S', ModItems.cocoaPowder, 'C', Blocks.crafting_table, 'L', "treeWood"));
+		System.out.println("GEWG");
 		
 		//PRESS RECIPES!
 		addPressRecipe(0, null, null, new ItemStack(ModItems.schokoBarNormal, 2)); //1
