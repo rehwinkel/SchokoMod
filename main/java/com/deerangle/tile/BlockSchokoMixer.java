@@ -24,6 +24,7 @@ public class BlockSchokoMixer extends BlockContainer {
 		this.setBlockName("schokoMixer");
 		this.setBlockTextureName(SchokoMod.MODID + ":schokoMixer");
 		this.setCreativeTab(SchokoMod.rest);
+		this.setHardness(1F);
 	}
 
 	@Override

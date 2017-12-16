@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemBucketMilk;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -183,6 +184,12 @@ public class TileEntitySchokoPress extends TileEntity implements IInventory {
 		if (this.getStackInSlot(slot) != null) {
 			ItemStack itemstack;
 
+			if(this.getStackInSlot(slot).getItem().getContainerItem() != null){
+				itemstack = new ItemStack(this.getStackInSlot(slot).getItem().getContainerItem(), this.getStackInSlot(slot).stackSize);
+				this.setInventorySlotContents(slot, itemstack);
+				return itemstack;
+			}
+			
 			if (this.getStackInSlot(slot).stackSize <= count) {
 				itemstack = this.getStackInSlot(slot);
 				this.setInventorySlotContents(slot, null);

@@ -23,6 +23,7 @@ public class BlockSchokoPress extends BlockContainer {
 		this.setBlockName("schokoPress");
 		this.setBlockTextureName(SchokoMod.MODID + ":schokoPress");
 		this.setCreativeTab(SchokoMod.rest);
+		this.setHardness(1F);
 	}
 
 	@Override

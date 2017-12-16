@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.deerangle.items.ModItems;
+import com.deerangle.tile.ModBlocks;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 public class ModCrafting {
 
@@ -17,8 +19,8 @@ public class ModCrafting {
 
 	public static void load() {
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.mortar), "o/o", " o ", 'o', Blocks.cobblestone, '/', Items.stick);
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaPowder), ModItems.mortar, new ItemStack(Items.dye, 1, 3));
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaButter), ModItems.mortar, ModItems.cocoaPowder);
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaPowder), ModItems.mortar, new ItemStack(Items.dye, 1, 3), new ItemStack(Items.dye, 1, 3), new ItemStack(Items.dye, 1, 3));
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaButter), ModItems.mortar, ModItems.cocoaPowder, ModItems.cocoaPowder, ModItems.cocoaPowder);
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.weed), ModItems.mortar, ModItems.weedBud);
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaButter, 2), ModItems.cocoaButter, Items.milk_bucket);
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.schokoDrink), ModItems.cocoaPowder, Items.sugar, ModItems.mug, Items.milk_bucket);
@@ -28,12 +30,23 @@ public class ModCrafting {
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.mug, 4), "O O", "O O", "OOO", 'O', Items.clay_ball);
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.santaHat, 1), " R ", "RRR", "WWW", 'R', new ItemStack(Blocks.wool, 1, 14), 'W', new ItemStack(Blocks.wool, 1, 0));
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.triangle), " O ", "OOO", 'O', ModItems.schokoIngot);
+
+		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.schokoBlock, 1, 0), "OOO", "OOO", "OOO", 'O', new ItemStack(ModItems.schokoIngot, 1, 0));
+		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.schokoBlock, 1, 1), "OOO", "OOO", "OOO", 'O', new ItemStack(ModItems.schokoIngot, 1, 1));
+		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.schokoBlock, 1, 2), "OOO", "OOO", "OOO", 'O', new ItemStack(ModItems.schokoIngot, 1, 2));
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.schokoIngot, 9, 0), new ItemStack(ModBlocks.schokoBlock, 1, 0));
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.schokoIngot, 9, 1), new ItemStack(ModBlocks.schokoBlock, 1, 1));
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.schokoIngot, 9, 2), new ItemStack(ModBlocks.schokoBlock, 1, 2));
+
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.schokoPress), "IPI", "ISI", "CCC", 'I', "ingotIron", 'P', Blocks.piston, 'S', new ItemStack(ModBlocks.schokoBlock, 1, 0), 'C', "cobblestone"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.schokoMixer), "PSP", "PCP", "PLP", 'L', "treeWood", 'P', "plankWood", 'S', ModItems.cocoaPowder, 'C', Blocks.crafting_table));
 		
+		//PRESS RECIPES!
 		addPressRecipe(0, null, null, new ItemStack(ModItems.schokoBarNormal, 2)); //1
 		addPressRecipe(1, null, null, new ItemStack(ModItems.schokoBarBlack, 2)); //2
 		addPressRecipe(2, null, null, new ItemStack(ModItems.schokoBarWhite, 2)); //3
-		addPressRecipe(0, new ItemStack(Blocks.double_plant, 1, 0), null, new ItemStack(ModItems.schokoBarFlower, 2)); //4
-		addPressRecipe(1, new ItemStack(Blocks.brown_mushroom), null, new ItemStack(ModItems.schokoBarMushroom, 2)); //5
+		addPressRecipe(0, new ItemStack(Blocks.double_plant, 1, 0), new ItemStack(ModItems.weed), new ItemStack(ModItems.schokoBarFlower, 2)); //4
+		addPressRecipe(1, new ItemStack(Blocks.brown_mushroom), new ItemStack(ModItems.weed), new ItemStack(ModItems.schokoBarMushroom, 2)); //5
 		for(int i = 0; i < 16; i++){
 			addPressRecipe(2, new ItemStack(Items.dye, 1, i), null, new ItemStack(ModItems.schokoBarColored, 2, i)); //21
 		}
@@ -52,7 +65,7 @@ public class ModCrafting {
 		addPressRecipe(0, new ItemStack(Blocks.gold_block), null, new ItemStack(ModItems.schokoBarGold, 2)); //34
 		addPressRecipe(0, new ItemStack(ModItems.weed), new ItemStack(ModItems.weed), new ItemStack(ModItems.schokoBarLSD, 2)); //35
 		addPressRecipe(0, new ItemStack(ModItems.error), null, new ItemStack(ModItems.schokoBarWindows, 2)); //36
-		addPressRecipe(0, new ItemStack(Blocks.waterlily), null, new ItemStack(ModItems.schokoBarLilypad, 2)); //37
+		addPressRecipe(0, new ItemStack(Blocks.waterlily), new ItemStack(ModItems.weed), new ItemStack(ModItems.schokoBarLilypad, 2)); //37
 		addPressRecipe(0, new ItemStack(Items.cookie), null, new ItemStack(ModItems.schokoBarCookie, 2)); //38
 		addPressRecipe(0, new ItemStack(Blocks.lit_pumpkin), null, new ItemStack(ModItems.schokoBarHalloween, 2)); //39
 		addPressRecipe(0, new ItemStack(Items.skull, 1, 3), null, new ItemStack(ModItems.schokoBarSteve, 2)); //40
