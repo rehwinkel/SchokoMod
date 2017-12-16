@@ -44,7 +44,7 @@ public class ModItems {
 	public static Item schokoBarCow;
 	public static Item schokoBarCreeper;
 	public static Item schokoBarChristmas;
-	public static Item schokoBarDrawing;
+	public static Item schokoBarFish;
 	public static Item schokoBarEnder;
 	public static Item schokoBarFire;
 	public static Item schokoBarFireworks;
@@ -98,19 +98,19 @@ public class ModItems {
 
 	private static void initialize() {
 		schokoBarCow = new ItemSchokoBarCow();
-		schokoBarFull = new ItemSchokoBar("full", 6, false, 2);
+		schokoBarFull = new ItemSchokoBar("full", 8, false, 2);
 		schokoBarEnder = new ItemSchokoBarEnder();
 		schokoBarNormal = new ItemSchokoBar("normal");
 		schokoBarBlack = new ItemSchokoBar("black", 5);
 		schokoBarWhite = new ItemSchokoBar("white", 3);
 		schokoBarCookie = new ItemSchokoBar("cookie", 5);
-		schokoBarJoghurt = new ItemSchokoBar("joghurt", 5);
+		schokoBarNuts = new ItemSchokoBar("nuts", 5);
+		schokoBarJoghurt = new ItemSchokoBar("joghurt", 6);
 		schokoBarSmartie = new ItemSchokoBar("smartie", 6);
 		schokoBarFireworks = new ItemSchokoBarFireworks();
 		schokoBarGold = new ItemSchokoBarGold();
 		schokoBarFire = new ItemSchokoBarFire();
 		schokoBarLite = new ItemSchokoBarLite();
-		schokoBarNuts = new ItemSchokoBar("nuts", 5);
 		schokoBarLSD = new ItemSchokoBarLSD();
 		schokoBarWindows = new ItemSchokoBarWindows();
 		schokoBarCobble = new ItemSchokoBarStone("cobble");
@@ -135,8 +135,7 @@ public class ModItems {
 		schokoBarWither = new ItemSchokoBarWither();
 		schokoBarTroll = new ItemSchokoBarTroll();
 		schokoBarWool = new ItemSchokoBarWool();
-		// TODO:
-		schokoBarDrawing = new ItemSchokoBar("drawing");
+		schokoBarFish = new ItemSchokoBarFish();
 
 		schokoIngot = new ItemSchokoIngot();
 		mortar = new ItemMortar();
@@ -162,7 +161,7 @@ public class ModItems {
 		GameRegistry.registerItem(schokoBarCreeper, "schokoBarCreeper");
 		GameRegistry.registerItem(schokoBarChristmas, "schokoBarChristmas");
 		GameRegistry.registerItem(schokoBarTroll, "schokoBarTroll");
-		GameRegistry.registerItem(schokoBarDrawing, "schokoBarDrawing");
+		GameRegistry.registerItem(schokoBarFish, "schokoBarFish");
 		GameRegistry.registerItem(schokoBarEnder, "schokoBarEnder");
 		GameRegistry.registerItem(schokoBarFire, "schokoBarFire");
 		GameRegistry.registerItem(schokoBarFireworks, "schokoBarFireworks");

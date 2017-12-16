@@ -14,8 +14,9 @@ public class ItemSchokoBarWool extends ItemSchokoBar {
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
 		player.fallDistance = 0;
 		player.motionX = 0;
-		player.motionY = 0;
+		player.motionY = 1;
 		player.motionZ = 0;
+		player.fallDistance = 0;
 		return super.onEaten(stack, world, player);
 	}
 

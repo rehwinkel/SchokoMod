@@ -83,8 +83,7 @@ public class ModCrafting {
 		addPressRecipe(1, new ItemStack(Blocks.soul_sand), null, new ItemStack(ModItems.schokoBarWither, 2)); //51
 		addPressRecipe(0, new ItemStack(Items.poisonous_potato), null, new ItemStack(ModItems.schokoBarTroll, 2)); //52
 		addPressRecipe(2, new ItemStack(Blocks.wool), null, new ItemStack(ModItems.schokoBarWool, 2)); //53
-
-		addPressRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarDrawing, 2)); //54
+		addPressRecipe(0, new ItemStack(Items.fish), null, new ItemStack(ModItems.schokoBarFish, 2)); //54
 	}
 
 	/**
