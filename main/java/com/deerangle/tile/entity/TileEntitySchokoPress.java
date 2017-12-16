@@ -1,4 +1,4 @@
-package com.deerangle.tile;
+package com.deerangle.tile.entity;
 
 import java.util.ArrayList;
 import java.util.HashMap;

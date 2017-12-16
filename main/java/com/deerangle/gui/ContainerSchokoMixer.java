@@ -1,6 +1,6 @@
 package com.deerangle.gui;
 
-import com.deerangle.tile.TileEntitySchokoMixer;
+import com.deerangle.tile.entity.TileEntitySchokoMixer;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;

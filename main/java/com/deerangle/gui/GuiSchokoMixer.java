@@ -1,7 +1,7 @@
 package com.deerangle.gui;
 
 import com.deerangle.main.SchokoMod;
-import com.deerangle.tile.TileEntitySchokoMixer;
+import com.deerangle.tile.entity.TileEntitySchokoMixer;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;

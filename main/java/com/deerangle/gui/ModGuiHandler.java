@@ -1,7 +1,7 @@
 package com.deerangle.gui;
 
-import com.deerangle.tile.TileEntitySchokoMixer;
-import com.deerangle.tile.TileEntitySchokoPress;
+import com.deerangle.tile.entity.TileEntitySchokoMixer;
+import com.deerangle.tile.entity.TileEntitySchokoPress;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;

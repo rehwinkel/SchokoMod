@@ -38,8 +38,8 @@ public class ModCrafting {
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.schokoIngot, 9, 1), new ItemStack(ModBlocks.schokoBlock, 1, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.schokoIngot, 9, 2), new ItemStack(ModBlocks.schokoBlock, 1, 2));
 
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.schokoPress), "IPI", "ISI", "CCC", 'I', "ingotIron", 'P', Blocks.piston, 'S', new ItemStack(ModBlocks.schokoBlock, 1, 0), 'C', "cobblestone"));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ModBlocks.schokoMixer), "PSP", "PCP", "PLP", 'P', "plankWood", 'S', ModItems.cocoaPowder, 'C', Blocks.crafting_table, 'L', "treeWood"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.schokoPress, "IPI", "ISI", "CCC", 'I', "ingotIron", 'P', Blocks.piston, 'S', new ItemStack(ModBlocks.schokoBlock, 1, 0), 'C', "cobblestone"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.schokoMixer, "OSO", "OCO", "OLO", 'O', "plankWood", 'L', "treeWood", 'S', ModItems.cocoaPowder, 'C', Blocks.crafting_table));
 		System.out.println("GEWG");
 		
 		//PRESS RECIPES!
@@ -73,7 +73,7 @@ public class ModCrafting {
 		addPressRecipe(0, new ItemStack(Items.apple), null, new ItemStack(ModItems.schokoBarApple, 2)); //41
 		addPressRecipe(0, new ItemStack(Items.enchanted_book), null, new ItemStack(ModItems.schokoBarBook, 2)); //42
 		addPressRecipe(0, new ItemStack(Items.milk_bucket), null, new ItemStack(ModItems.schokoBarJoghurt, 2)); //43
-		addPressRecipe(0, new ItemStack(Blocks.cocoa), null, new ItemStack(ModItems.schokoBarNuts, 2)); //44
+		addPressRecipe(0, new ItemStack(Items.dye, 1, 3), new ItemStack(Items.dye, 1, 3), new ItemStack(ModItems.schokoBarNuts, 2)); //44
 		addPressRecipe(0, new ItemStack(ModItems.santaHat), null, new ItemStack(ModItems.schokoBarChristmas, 2)); //45
 		addPressRecipe(0, new ItemStack(ModItems.weed), new ItemStack(ModItems.triangle), new ItemStack(ModItems.schokoBarIlluminati, 2)); //46
 		addPressRecipe(0, new ItemStack(Items.paper), new ItemStack(Items.paper), new ItemStack(ModItems.schokoBarLite, 2)); //47

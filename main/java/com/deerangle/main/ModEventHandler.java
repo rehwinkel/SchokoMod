@@ -42,8 +42,8 @@ public class ModEventHandler {
 			event.player.inventory.addItemStackToInventory(new ItemStack(ModItems.error));
 			event.player.addChatMessage(new ChatComponentText("§7An unexpected Error occured!"));
 			event.player.addChatMessage(new ChatComponentText("§cCan't divide 0 by 0!"));
+			event.setCanceled(true);
 		}
-		event.setResult(Result.DENY);
 	}
 	
 }

@@ -1,4 +1,4 @@
-package com.deerangle.tile;
+package com.deerangle.tile.entity;
 
 import com.deerangle.items.ModItems;
 import com.deerangle.main.ModCrafting;

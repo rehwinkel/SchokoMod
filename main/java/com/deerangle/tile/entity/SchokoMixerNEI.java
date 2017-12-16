@@ -1,9 +1,10 @@
-package com.deerangle.main;
+package com.deerangle.tile.entity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.deerangle.items.ModItems;
+import com.deerangle.main.SchokoMod;
 
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;

@@ -10,8 +10,11 @@ import com.deerangle.gui.GuiSchokoPress;
 import com.deerangle.gui.ModGuiHandler;
 import com.deerangle.items.ModItems;
 import com.deerangle.tile.ModBlocks;
-import com.deerangle.tile.TileEntitySchokoMixer;
-import com.deerangle.tile.TileEntitySchokoPress;
+import com.deerangle.tile.entity.SchokoMixerNEI;
+import com.deerangle.tile.entity.SchokoPressNEI;
+import com.deerangle.tile.entity.TileEntitySchokoMixer;
+import com.deerangle.tile.entity.TileEntitySchokoPress;
+import com.deerangle.world.OreGenerator;
 
 import codechicken.nei.api.API;
 import codechicken.nei.recipe.DefaultOverlayHandler;

@@ -1,4 +1,4 @@
-package com.deerangle.tile;
+package com.deerangle.tile.entity;
 
 import com.deerangle.gui.ModGuiHandler;
 import com.deerangle.main.SchokoMod;
@@ -12,24 +12,23 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockSchokoMixer extends BlockContainer {
+public class BlockSchokoPress extends BlockContainer {
 
 	private IIcon[] icons = new IIcon[3];
 
-	protected BlockSchokoMixer() {
+	public BlockSchokoPress() {
 		super(Material.wood);
-		this.setBlockName("schokoMixer");
-		this.setBlockTextureName(SchokoMod.MODID + ":schokoMixer");
+		this.setBlockName("schokoPress");
+		this.setBlockTextureName(SchokoMod.MODID + ":schokoPress");
 		this.setCreativeTab(SchokoMod.rest);
 		this.setHardness(1F);
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int i) {
-		return new TileEntitySchokoMixer();
+		return new TileEntitySchokoPress();
 	}
 
 	@Override
@@ -47,14 +46,14 @@ public class BlockSchokoMixer extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p, int s, float fx, float fy, float fz) {
 		if(!world.isRemote){
-			p.openGui(SchokoMod.instance, ModGuiHandler.schokoMixerGui, world, x, y, z);
+			p.openGui(SchokoMod.instance, ModGuiHandler.schokoPressGui, world, x, y, z);
 		}
 		return true;
 	}
 	
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int s) {
-		TileEntitySchokoMixer mixer = (TileEntitySchokoMixer) world.getTileEntity(x, y, z);
+		TileEntitySchokoPress mixer = (TileEntitySchokoPress) world.getTileEntity(x, y, z);
 		for(int i = 0; i < mixer.slots.length; i++){
 			ItemStack item = mixer.slots[i];
 			if(item != null){

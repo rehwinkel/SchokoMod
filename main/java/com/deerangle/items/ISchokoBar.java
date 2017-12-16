@@ -1,4 +1,4 @@
-package com.deerangle.main;
+package com.deerangle.items;
 
 public interface ISchokoBar {
 

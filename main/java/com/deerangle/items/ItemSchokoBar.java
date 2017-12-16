@@ -1,6 +1,5 @@
 package com.deerangle.items;
 
-import com.deerangle.main.ISchokoBar;
 import com.deerangle.main.SchokoMod;
 
 import net.minecraft.entity.player.EntityPlayer;
