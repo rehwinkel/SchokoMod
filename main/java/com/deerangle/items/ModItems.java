@@ -62,7 +62,6 @@ public class ModItems {
 	public static Item schokoBarPortal;
 	public static Item schokoBarQuartz;
 	public static Item schokoBarRedstone;
-	public static Item schokoBarSlot;
 	public static Item schokoBarSmartie;
 	public static Item schokoBarSteve;
 	public static Item schokoBarWindows;
@@ -76,6 +75,7 @@ public class ModItems {
 	public static Item schokoBarBook;
 	public static Item schokoBarCobweb;
 	public static Item schokoBarTroll;
+	public static Item schokoBarWool;
 
 	public static Item schokoIngot;
 	public static Item mortar;
@@ -134,9 +134,9 @@ public class ModItems {
 		schokoBarApple = new ItemSchokoBarApple();
 		schokoBarWither = new ItemSchokoBarWither();
 		schokoBarTroll = new ItemSchokoBarTroll();
+		schokoBarWool = new ItemSchokoBarWool();
 		// TODO:
 		schokoBarDrawing = new ItemSchokoBar("drawing");
-		schokoBarSlot = new ItemSchokoBar("slot");
 
 		schokoIngot = new ItemSchokoIngot();
 		mortar = new ItemMortar();
@@ -180,7 +180,6 @@ public class ModItems {
 		GameRegistry.registerItem(schokoBarPortal, "schokoBarPortal");
 		GameRegistry.registerItem(schokoBarQuartz, "schokoBarQuartz");
 		GameRegistry.registerItem(schokoBarRedstone, "schokoBarRedstone");
-		GameRegistry.registerItem(schokoBarSlot, "schokoBarSlot");
 		GameRegistry.registerItem(schokoBarSmartie, "schokoBarSmartie");
 		GameRegistry.registerItem(schokoBarSteve, "schokoBarSteve");
 		GameRegistry.registerItem(schokoBarWhite, "schokoBarWhite");
@@ -193,6 +192,7 @@ public class ModItems {
 		GameRegistry.registerItem(schokoBarGlowstone, "schokoBarGlowstone");
 		GameRegistry.registerItem(schokoBarBook, "schokoBarBook");
 		GameRegistry.registerItem(schokoBarCobweb, "schokoBarCobweb");
+		GameRegistry.registerItem(schokoBarWool, "schokoBarWool");
 
 		GameRegistry.registerItem(schokoIngot, "schokoIngot");
 		GameRegistry.registerItem(mortar, "mortar");

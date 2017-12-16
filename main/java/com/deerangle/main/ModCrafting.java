@@ -80,11 +80,11 @@ public class ModCrafting {
 		addPressRecipe(0, new ItemStack(Blocks.obsidian), new ItemStack(Blocks.obsidian), new ItemStack(ModItems.schokoBarPortal, 2)); //48
 		addPressRecipe(0, new ItemStack(ModItems.schokoBarColored, 1, 1), new ItemStack(ModItems.schokoBarColored, 1, 4), new ItemStack(ModItems.schokoBarRainbow, 4)); //49
 		addPressRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarSmartie, 2)); //50
-		addPressRecipe(0, new ItemStack(Blocks.soul_sand), null, new ItemStack(ModItems.schokoBarWither, 2)); //51
+		addPressRecipe(1, new ItemStack(Blocks.soul_sand), null, new ItemStack(ModItems.schokoBarWither, 2)); //51
 		addPressRecipe(0, new ItemStack(Items.poisonous_potato), null, new ItemStack(ModItems.schokoBarTroll, 2)); //52
+		addPressRecipe(2, new ItemStack(Blocks.wool), null, new ItemStack(ModItems.schokoBarWool, 2)); //53
 
-		addPressRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarDrawing, 2)); //53
-		addPressRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarSlot, 2)); //54
+		addPressRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarDrawing, 2)); //54
 	}
 
 	/**
