@@ -38,8 +38,8 @@ public class ModCrafting {
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.schokoIngot, 9, 1), new ItemStack(ModBlocks.schokoBlock, 1, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.schokoIngot, 9, 2), new ItemStack(ModBlocks.schokoBlock, 1, 2));
 
-		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.schokoPress, "IPI", "ISI", "CCC", 'I', "ingotIron", 'P', Blocks.piston, 'S', new ItemStack(ModBlocks.schokoBlock, 1, 0), 'C', "cobblestone"));
 		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.schokoMixer, "OSO", "OCO", "OLO", 'O', "plankWood", 'L', "treeWood", 'S', ModItems.cocoaPowder, 'C', Blocks.crafting_table));
+		GameRegistry.addRecipe(new ShapedOreRecipe(ModBlocks.schokoPress, "IPI", "ISI", "CCC", 'I', "ingotIron", 'P', Blocks.piston, 'S', new ItemStack(ModBlocks.schokoBlock, 1, 0), 'C', "cobblestone"));
 		System.out.println("GEWG");
 		
 		//PRESS RECIPES!
@@ -80,11 +80,11 @@ public class ModCrafting {
 		addPressRecipe(0, new ItemStack(Blocks.obsidian), new ItemStack(Blocks.obsidian), new ItemStack(ModItems.schokoBarPortal, 2)); //48
 		addPressRecipe(0, new ItemStack(ModItems.schokoBarColored, 1, 1), new ItemStack(ModItems.schokoBarColored, 1, 4), new ItemStack(ModItems.schokoBarRainbow, 4)); //49
 		addPressRecipe(0, new ItemStack(ModItems.smarties), null, new ItemStack(ModItems.schokoBarSmartie, 2)); //50
+		addPressRecipe(0, new ItemStack(Blocks.soul_sand), null, new ItemStack(ModItems.schokoBarWither, 2)); //51
 
-		addPressRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarDoor, 2)); //51
-		addPressRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarDrawing, 2)); //52
-		addPressRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarSlot, 2)); //53
-		addPressRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarYouTube, 2)); //54
+		addPressRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarDoor, 2)); //52
+		addPressRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarDrawing, 2)); //53
+		addPressRecipe(0, new ItemStack(Items.clock), null, new ItemStack(ModItems.schokoBarSlot, 2)); //54
 	}
 
 	/**
