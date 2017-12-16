@@ -1,5 +1,6 @@
-package com.deerangle.items;
+package com.deerangle.items.bars;
 
+import com.deerangle.items.ItemSchokoBar;
 import com.deerangle.main.SchokoMod;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,7 +19,7 @@ public class ItemSchokoBarWither extends ItemSchokoBar {
 	@Override
 	public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
 		if(Math.random() < 0.08){
-			player.addPotionEffect(new PotionEffect(Potion.wither.id, 10 * 20, effect));
+			player.addPotionEffect(new PotionEffect(Potion.wither.id, 10 * 20, 2));
 			player.inventory.addItemStackToInventory(new ItemStack(Items.skull, 1, 1));
 		}
 		return super.onEaten(stack, world, player);

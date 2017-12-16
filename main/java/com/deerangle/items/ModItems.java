@@ -25,7 +25,9 @@ import com.deerangle.items.bars.ItemSchokoBarRainbow;
 import com.deerangle.items.bars.ItemSchokoBarRedstone;
 import com.deerangle.items.bars.ItemSchokoBarSteve;
 import com.deerangle.items.bars.ItemSchokoBarStone;
+import com.deerangle.items.bars.ItemSchokoBarTroll;
 import com.deerangle.items.bars.ItemSchokoBarWindows;
+import com.deerangle.items.bars.ItemSchokoBarWither;
 import com.deerangle.main.SchokoMod;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -42,7 +44,6 @@ public class ModItems {
 	public static Item schokoBarCow;
 	public static Item schokoBarCreeper;
 	public static Item schokoBarChristmas;
-	public static Item schokoBarDoor;
 	public static Item schokoBarDrawing;
 	public static Item schokoBarEnder;
 	public static Item schokoBarFire;
@@ -74,6 +75,7 @@ public class ModItems {
 	public static Item schokoBarGlowstone;
 	public static Item schokoBarBook;
 	public static Item schokoBarCobweb;
+	public static Item schokoBarTroll;
 
 	public static Item schokoIngot;
 	public static Item mortar;
@@ -131,8 +133,8 @@ public class ModItems {
 		schokoBarRainbow = new ItemSchokoBarRainbow();
 		schokoBarApple = new ItemSchokoBarApple();
 		schokoBarWither = new ItemSchokoBarWither();
+		schokoBarTroll = new ItemSchokoBarTroll();
 		// TODO:
-		schokoBarDoor = new ItemSchokoBar("door");
 		schokoBarDrawing = new ItemSchokoBar("drawing");
 		schokoBarSlot = new ItemSchokoBar("slot");
 
@@ -159,7 +161,7 @@ public class ModItems {
 		GameRegistry.registerItem(schokoBarCow, "schokoBarCow");
 		GameRegistry.registerItem(schokoBarCreeper, "schokoBarCreeper");
 		GameRegistry.registerItem(schokoBarChristmas, "schokoBarChristmas");
-		GameRegistry.registerItem(schokoBarDoor, "schokoBarDoor");
+		GameRegistry.registerItem(schokoBarTroll, "schokoBarTroll");
 		GameRegistry.registerItem(schokoBarDrawing, "schokoBarDrawing");
 		GameRegistry.registerItem(schokoBarEnder, "schokoBarEnder");
 		GameRegistry.registerItem(schokoBarFire, "schokoBarFire");
