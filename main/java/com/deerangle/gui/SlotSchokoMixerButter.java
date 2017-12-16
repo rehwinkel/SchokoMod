@@ -14,7 +14,7 @@ public class SlotSchokoMixerButter extends Slot {
 	
 	@Override
 	public boolean isItemValid(ItemStack stack) {
-		return stack.getItem() == ModItems.cocoaButter;
+		return stack.getItem() == ModItems.cocoaButter || stack.getItem() == ModItems.cocoaButterMilk;
 	}
 	
 }

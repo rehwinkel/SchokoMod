@@ -115,8 +115,9 @@ public class SchokoMod {
 		schokoPotion = (new SchokoPotion(32)).setIconIndex(0, 0);
 		lsdPotion = (new LSDPotion(33)).setIconIndex(0, 0);
 		GameRegistry.registerWorldGenerator(new OreGenerator(), 0);
-		
+
 		API.hideItem(new ItemStack(ModBlocks.weedBushInv));
+		API.hideItem(new ItemStack(ModBlocks.present));
 
 		TemplateRecipeHandler mixHandler = new SchokoMixerNEI();
 		API.registerUsageHandler(mixHandler);

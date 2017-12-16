@@ -57,7 +57,7 @@ public class SchokoMixerNEI extends TemplateRecipeHandler {
 	// load recipes from partial recipe input
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		if (ingredient.getItem() == ModItems.cocoaButter || ingredient.getItem() == Items.sugar) {
+		if (ingredient.getItem() == ModItems.cocoaButter || ingredient.getItem() == ModItems.cocoaButterMilk || ingredient.getItem() == Items.sugar) {
 			arecipes.add(new CachedSchokoMixerRecipe(0));
 			arecipes.add(new CachedSchokoMixerRecipe(1));
 			arecipes.add(new CachedSchokoMixerRecipe(2));
@@ -85,7 +85,7 @@ public class SchokoMixerNEI extends TemplateRecipeHandler {
 		public CachedSchokoMixerRecipe(int cocoa) {
 			super();
 			ingredient0 = new PositionedStack(new ItemStack(Items.sugar), 30, 14);
-			ingredient1 = new PositionedStack(new ItemStack(ModItems.cocoaButter), 50, 14);
+			ingredient1 = new PositionedStack(new ItemStack[] {new ItemStack(ModItems.cocoaButter), new ItemStack(ModItems.cocoaButterMilk)}, 50, 14);
 			ItemStack schoko = null;
 			if (cocoa == 0) {
 				schoko = new ItemStack(ModItems.schokoIngot, 1, cocoa);

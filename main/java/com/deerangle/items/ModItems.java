@@ -79,6 +79,7 @@ public class ModItems {
 	public static Item mortar;
 	public static Item cocoaPowder;
 	public static Item cocoaButter;
+	public static Item cocoaButterMilk;
 	public static Item schokoDrink;
 	public static Item mug;
 	public static Item weedBud;
@@ -139,6 +140,7 @@ public class ModItems {
 		mortar = new ItemMortar();
 		cocoaPowder = new Item().setUnlocalizedName("cocoaPowder").setTextureName(SchokoMod.MODID + ":cocoaPowder").setCreativeTab(SchokoMod.rest);
 		cocoaButter = new Item().setUnlocalizedName("cocoaButter").setTextureName(SchokoMod.MODID + ":cocoaButter").setCreativeTab(SchokoMod.rest);
+		cocoaButterMilk = new Item().setUnlocalizedName("cocoaButterMilk").setTextureName(SchokoMod.MODID + ":cocoaButterMilk").setCreativeTab(SchokoMod.rest);
 		mug = new Item().setUnlocalizedName("mug").setTextureName(SchokoMod.MODID + ":mug").setCreativeTab(SchokoMod.rest);
 		schokoDrink = new ItemSchokoDrink();
 		weedBud = new Item().setUnlocalizedName("weedBud").setTextureName(SchokoMod.MODID + ":weedBud").setCreativeTab(SchokoMod.rest);
@@ -194,6 +196,7 @@ public class ModItems {
 		GameRegistry.registerItem(mortar, "mortar");
 		GameRegistry.registerItem(cocoaPowder, "cocoaPowder");
 		GameRegistry.registerItem(cocoaButter, "cocoaButter");
+		GameRegistry.registerItem(cocoaButterMilk, "cocoaButterMilk");
 		GameRegistry.registerItem(schokoDrink, "schokoDrink");
 		GameRegistry.registerItem(mug, "mug");
 		GameRegistry.registerItem(weedBud, "weedBud");
