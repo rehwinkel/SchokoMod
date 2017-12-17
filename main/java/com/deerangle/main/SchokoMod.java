@@ -1,6 +1,8 @@
 package com.deerangle.main;
 
-import java.lang.reflect.Field;  
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
 import com.deerangle.effects.LSDPotion;
@@ -10,6 +12,8 @@ import com.deerangle.gui.GuiSchokoPress;
 import com.deerangle.gui.ModGuiHandler;
 import com.deerangle.items.ModItems;
 import com.deerangle.tile.ModBlocks;
+import com.deerangle.tile.entity.SchokoMixerNEI;
+import com.deerangle.tile.entity.SchokoPressNEI;
 import com.deerangle.tile.entity.TileEntitySchokoMixer;
 import com.deerangle.tile.entity.TileEntitySchokoPress;
 import com.deerangle.world.OreGenerator;
@@ -19,11 +23,13 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Optional.Interface;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -106,24 +112,49 @@ public class SchokoMod {
 		lsdPotion = (new LSDPotion(33)).setIconIndex(0, 0);
 		GameRegistry.registerWorldGenerator(new OreGenerator(), 0);
 	}
-	
+
 	@EventHandler
 	public void postinit(FMLPostInitializationEvent event) {
-//		if(Loader.isModLoaded("CodeChickenCore") && Loader.isModLoaded("NotEnoughItems")){
-//			codechicken.nei.api.API.hideItem(new ItemStack(ModBlocks.weedBushInv));
-//			codechicken.nei.api.API.hideItem(new ItemStack(ModBlocks.present));
-//
-//			codechicken.nei.recipe.TemplateRecipeHandler mixHandler = new com.deerangle.tile.entity.SchokoMixerNEI();
-//			codechicken.nei.api.API.registerUsageHandler(mixHandler);
-//			codechicken.nei.api.API.registerRecipeHandler(mixHandler);
-//			codechicken.nei.api.API.registerGuiOverlay(GuiSchokoMixer.class, "schokoMixer");
-//			codechicken.nei.api.API.registerGuiOverlayHandler(GuiSchokoMixer.class, new codechicken.nei.recipe.DefaultOverlayHandler(), "schokoMixer");
-//
-//			codechicken.nei.recipe.TemplateRecipeHandler handler = new com.deerangle.tile.entity.SchokoPressNEI();
-//			codechicken.nei.api.API.registerUsageHandler(handler);
-//			codechicken.nei.api.API.registerRecipeHandler(handler);
-//			codechicken.nei.api.API.registerGuiOverlay(GuiSchokoPress.class, "schokoPress");
-//			codechicken.nei.api.API.registerGuiOverlayHandler(GuiSchokoPress.class, new codechicken.nei.recipe.DefaultOverlayHandler(), "schokoPress");
-//		}
+		if (Loader.isModLoaded("CodeChickenCore") && Loader.isModLoaded("NotEnoughItems")) {
+			try {
+				Class api = Class.forName("codechicken.nei.api.API");
+				Class iOverlayHandler = Class.forName("codechicken.nei.api.IOverlayHandler");
+				Class iUsageHandler = Class.forName("codechicken.nei.recipe.IUsageHandler");
+				Class iCraftingHandler = Class.forName("codechicken.nei.recipe.ICraftingHandler");
+				Class defaultOverlayHandler = Class.forName("codechicken.nei.recipe.DefaultOverlayHandler");
+				Method hideItem = api.getMethod("hideItem", ItemStack.class);
+				Method registerUsageHandler = api.getMethod("registerUsageHandler", iUsageHandler);
+				Method registerRecipeHandler = api.getMethod("registerRecipeHandler", iCraftingHandler);
+				Method registerGuiOverlay = api.getMethod("registerGuiOverlay", Class.class, String.class);
+				Method registerGuiOverlayHandler = api.getMethod("registerGuiOverlayHandler", Class.class, iOverlayHandler, String.class);
+				
+				hideItem.invoke(api, new ItemStack(ModBlocks.weedBushInv));
+				hideItem.invoke(api, new ItemStack(ModBlocks.present));
+
+				SchokoMixerNEI mixHandler = new SchokoMixerNEI();
+				registerUsageHandler.invoke(api, mixHandler);
+				registerRecipeHandler.invoke(api, mixHandler);
+				registerGuiOverlay.invoke(api, GuiSchokoMixer.class, "schokoMixer");
+				registerGuiOverlayHandler.invoke(api, GuiSchokoMixer.class, defaultOverlayHandler.newInstance(), "schokoMixer");
+
+				SchokoPressNEI pressHandler = new SchokoPressNEI();
+				registerUsageHandler.invoke(api, pressHandler);
+				registerRecipeHandler.invoke(api, pressHandler);
+				registerGuiOverlay.invoke(api, GuiSchokoPress.class, "schokoPress");
+				registerGuiOverlayHandler.invoke(api, GuiSchokoPress.class, defaultOverlayHandler.newInstance(), "schokoPress");
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (NoSuchMethodException e) {
+				e.printStackTrace();
+			} catch (SecurityException e) {
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			} catch (InstantiationException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
