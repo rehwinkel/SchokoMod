@@ -19,11 +19,13 @@ import com.deerangle.world.OreGenerator;
 import codechicken.nei.api.API;
 import codechicken.nei.recipe.DefaultOverlayHandler;
 import codechicken.nei.recipe.TemplateRecipeHandler;
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -38,7 +40,7 @@ import net.minecraftforge.common.MinecraftForge;
 public class SchokoMod {
 	public static final String NAME = "Chocolate Mod";
 	public static final String MODID = "schokomod";
-	public static final String VERSION = "1.0.125";
+	public static final String VERSION = "1.0.127";
 
 	public static CreativeTabs bars = new CreativeTabs("schoko.bars") {
 		@Override
@@ -108,20 +110,29 @@ public class SchokoMod {
 		schokoPotion = (new SchokoPotion(32)).setIconIndex(0, 0);
 		lsdPotion = (new LSDPotion(33)).setIconIndex(0, 0);
 		GameRegistry.registerWorldGenerator(new OreGenerator(), 0);
+	}
+	
+	@EventHandler
+	public void postinit(FMLPostInitializationEvent event) {
+		schokoPotion = (new SchokoPotion(32)).setIconIndex(0, 0);
+		lsdPotion = (new LSDPotion(33)).setIconIndex(0, 0);
+		GameRegistry.registerWorldGenerator(new OreGenerator(), 0);
 
-		API.hideItem(new ItemStack(ModBlocks.weedBushInv));
-		API.hideItem(new ItemStack(ModBlocks.present));
+		if(Loader.isModLoaded("CodeChickenCore") && Loader.isModLoaded("NotEnoughItems")){
+			API.hideItem(new ItemStack(ModBlocks.weedBushInv));
+			API.hideItem(new ItemStack(ModBlocks.present));
 
-		TemplateRecipeHandler mixHandler = new SchokoMixerNEI();
-		API.registerUsageHandler(mixHandler);
-		API.registerRecipeHandler(mixHandler);
-		API.registerGuiOverlay(GuiSchokoMixer.class, "schokoMixer");
-		API.registerGuiOverlayHandler(GuiSchokoMixer.class, new DefaultOverlayHandler(), "schokoMixer");
+			TemplateRecipeHandler mixHandler = new SchokoMixerNEI();
+			API.registerUsageHandler(mixHandler);
+			API.registerRecipeHandler(mixHandler);
+			API.registerGuiOverlay(GuiSchokoMixer.class, "schokoMixer");
+			API.registerGuiOverlayHandler(GuiSchokoMixer.class, new DefaultOverlayHandler(), "schokoMixer");
 
-		TemplateRecipeHandler handler = new SchokoPressNEI();
-		API.registerUsageHandler(handler);
-		API.registerRecipeHandler(handler);
-		API.registerGuiOverlay(GuiSchokoPress.class, "schokoPress");
-		API.registerGuiOverlayHandler(GuiSchokoPress.class, new DefaultOverlayHandler(), "schokoPress");
+			TemplateRecipeHandler handler = new SchokoPressNEI();
+			API.registerUsageHandler(handler);
+			API.registerRecipeHandler(handler);
+			API.registerGuiOverlay(GuiSchokoPress.class, "schokoPress");
+			API.registerGuiOverlayHandler(GuiSchokoPress.class, new DefaultOverlayHandler(), "schokoPress");
+		}
 	}
 }
