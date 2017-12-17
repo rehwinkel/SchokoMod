@@ -19,7 +19,7 @@ public class BlockSchokoPress extends BlockContainer {
 	private IIcon[] icons = new IIcon[3];
 
 	public BlockSchokoPress() {
-		super(Material.wood);
+		super(Material.iron);
 		this.setBlockName("schokoPress");
 		this.setBlockTextureName(SchokoMod.MODID + ":schokoPress");
 		this.setCreativeTab(SchokoMod.rest);
