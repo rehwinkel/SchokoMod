@@ -1,6 +1,6 @@
 package com.deerangle.main;
 
-import java.lang.reflect.Field; 
+import java.lang.reflect.Field;  
 import java.lang.reflect.Modifier;
 
 import com.deerangle.effects.LSDPotion;
@@ -16,9 +16,6 @@ import com.deerangle.tile.entity.TileEntitySchokoMixer;
 import com.deerangle.tile.entity.TileEntitySchokoPress;
 import com.deerangle.world.OreGenerator;
 
-import codechicken.nei.api.API;
-import codechicken.nei.recipe.DefaultOverlayHandler;
-import codechicken.nei.recipe.TemplateRecipeHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -119,20 +116,20 @@ public class SchokoMod {
 		GameRegistry.registerWorldGenerator(new OreGenerator(), 0);
 
 		if(Loader.isModLoaded("CodeChickenCore") && Loader.isModLoaded("NotEnoughItems")){
-			API.hideItem(new ItemStack(ModBlocks.weedBushInv));
-			API.hideItem(new ItemStack(ModBlocks.present));
+			codechicken.nei.api.API.hideItem(new ItemStack(ModBlocks.weedBushInv));
+			codechicken.nei.api.API.hideItem(new ItemStack(ModBlocks.present));
 
-			TemplateRecipeHandler mixHandler = new SchokoMixerNEI();
-			API.registerUsageHandler(mixHandler);
-			API.registerRecipeHandler(mixHandler);
-			API.registerGuiOverlay(GuiSchokoMixer.class, "schokoMixer");
-			API.registerGuiOverlayHandler(GuiSchokoMixer.class, new DefaultOverlayHandler(), "schokoMixer");
+			codechicken.nei.recipe.TemplateRecipeHandler mixHandler = new SchokoMixerNEI();
+			codechicken.nei.api.API.registerUsageHandler(mixHandler);
+			codechicken.nei.api.API.registerRecipeHandler(mixHandler);
+			codechicken.nei.api.API.registerGuiOverlay(GuiSchokoMixer.class, "schokoMixer");
+			codechicken.nei.api.API.registerGuiOverlayHandler(GuiSchokoMixer.class, new codechicken.nei.recipe.DefaultOverlayHandler(), "schokoMixer");
 
-			TemplateRecipeHandler handler = new SchokoPressNEI();
-			API.registerUsageHandler(handler);
-			API.registerRecipeHandler(handler);
-			API.registerGuiOverlay(GuiSchokoPress.class, "schokoPress");
-			API.registerGuiOverlayHandler(GuiSchokoPress.class, new DefaultOverlayHandler(), "schokoPress");
+			codechicken.nei.recipe.TemplateRecipeHandler handler = new SchokoPressNEI();
+			codechicken.nei.api.API.registerUsageHandler(handler);
+			codechicken.nei.api.API.registerRecipeHandler(handler);
+			codechicken.nei.api.API.registerGuiOverlay(GuiSchokoPress.class, "schokoPress");
+			codechicken.nei.api.API.registerGuiOverlayHandler(GuiSchokoPress.class, new codechicken.nei.recipe.DefaultOverlayHandler(), "schokoPress");
 		}
 	}
 }
