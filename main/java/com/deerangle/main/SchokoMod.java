@@ -10,8 +10,6 @@ import com.deerangle.gui.GuiSchokoPress;
 import com.deerangle.gui.ModGuiHandler;
 import com.deerangle.items.ModItems;
 import com.deerangle.tile.ModBlocks;
-import com.deerangle.tile.entity.SchokoMixerNEI;
-import com.deerangle.tile.entity.SchokoPressNEI;
 import com.deerangle.tile.entity.TileEntitySchokoMixer;
 import com.deerangle.tile.entity.TileEntitySchokoPress;
 import com.deerangle.world.OreGenerator;
@@ -37,7 +35,7 @@ import net.minecraftforge.common.MinecraftForge;
 public class SchokoMod {
 	public static final String NAME = "Chocolate Mod";
 	public static final String MODID = "schokomod";
-	public static final String VERSION = "1.0.129";
+	public static final String VERSION = "1.0.130";
 
 	public static CreativeTabs bars = new CreativeTabs("schoko.bars") {
 		@Override
@@ -119,13 +117,13 @@ public class SchokoMod {
 			codechicken.nei.api.API.hideItem(new ItemStack(ModBlocks.weedBushInv));
 			codechicken.nei.api.API.hideItem(new ItemStack(ModBlocks.present));
 
-			codechicken.nei.recipe.TemplateRecipeHandler mixHandler = new SchokoMixerNEI();
+			codechicken.nei.recipe.TemplateRecipeHandler mixHandler = new com.deerangle.tile.entity.SchokoMixerNEI();
 			codechicken.nei.api.API.registerUsageHandler(mixHandler);
 			codechicken.nei.api.API.registerRecipeHandler(mixHandler);
 			codechicken.nei.api.API.registerGuiOverlay(GuiSchokoMixer.class, "schokoMixer");
 			codechicken.nei.api.API.registerGuiOverlayHandler(GuiSchokoMixer.class, new codechicken.nei.recipe.DefaultOverlayHandler(), "schokoMixer");
 
-			codechicken.nei.recipe.TemplateRecipeHandler handler = new SchokoPressNEI();
+			codechicken.nei.recipe.TemplateRecipeHandler handler = new com.deerangle.tile.entity.SchokoPressNEI();
 			codechicken.nei.api.API.registerUsageHandler(handler);
 			codechicken.nei.api.API.registerRecipeHandler(handler);
 			codechicken.nei.api.API.registerGuiOverlay(GuiSchokoPress.class, "schokoPress");
