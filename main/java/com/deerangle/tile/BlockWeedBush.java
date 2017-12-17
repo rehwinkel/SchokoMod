@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Random;
 
 import com.deerangle.items.ModItems;
+import com.deerangle.items.bars.ItemSchokoBarApple;
 import com.deerangle.main.ClientProxy;
 import com.deerangle.main.SchokoMod;
 import com.sun.security.ntlm.Client;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -89,6 +91,25 @@ public class BlockWeedBush extends Block implements IShearable {
 				world.setBlockMetadataWithNotify(x, y, z, meta, 2);
 			}
 		}
+	}
+	
+	@Override
+	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+		if (world.getBlock(x, y - 1, z) != Blocks.grass && world.getBlock(x, y - 1, z) != Blocks.dirt) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side) {
+		if(side == 1){
+			if (world.getBlock(x, y - 1, z) != Blocks.grass && world.getBlock(x, y - 1, z) != Blocks.dirt) {
+				return false;
+			}
+			return true;
+		}
+		return false;
 	}
 
 	@Override
