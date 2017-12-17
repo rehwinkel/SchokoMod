@@ -71,6 +71,13 @@ public class SchokoMod {
 		proxy.registerRenderThings();
 
 		loadPotions();
+
+		MinecraftForge.EVENT_BUS.register(new ModEventHandler());
+		MinecraftForge.EVENT_BUS.register(new ModRenderHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new ModGuiHandler());
+
+		GameRegistry.registerTileEntity(TileEntitySchokoMixer.class, "schokoMixer");
+		GameRegistry.registerTileEntity(TileEntitySchokoPress.class, "schokoPress");
 	}
 
 	private void loadPotions() {
@@ -94,13 +101,6 @@ public class SchokoMod {
 				System.err.println(e);
 			}
 		}
-
-		MinecraftForge.EVENT_BUS.register(new ModEventHandler());
-		MinecraftForge.EVENT_BUS.register(new ModRenderHandler());
-		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new ModGuiHandler());
-
-		GameRegistry.registerTileEntity(TileEntitySchokoMixer.class, "schokoMixer");
-		GameRegistry.registerTileEntity(TileEntitySchokoPress.class, "schokoPress");
 	}
 
 	@EventHandler
