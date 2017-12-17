@@ -24,7 +24,6 @@ public class BlockPresent extends Block {
 		this.setBlockName("present");
 		this.setBlockTextureName(SchokoMod.MODID + ":present");
 		this.setHardness(1F);
-		this.setCreativeTab(SchokoMod.rest);
 	}
 	
 	@Override
