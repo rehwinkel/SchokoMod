@@ -7,5 +7,10 @@ public class ServerProxy {
 	public void registerRenderThings(){
 		
 	}
+
+	public void postInit() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

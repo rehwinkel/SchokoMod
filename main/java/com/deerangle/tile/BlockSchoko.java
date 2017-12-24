@@ -23,7 +23,7 @@ public class BlockSchoko extends Block {
 		this.setBlockName("schokoBlock");
 		this.setBlockTextureName(SchokoMod.MODID + ":schokoBlock");
 		this.setCreativeTab(SchokoMod.rest);
-		this.setHardness(3F);
+		this.setHardness(2F);
 	}
 
 	@Override

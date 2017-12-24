@@ -24,6 +24,7 @@ public class BlockSchokoPress extends BlockContainer {
 		this.setBlockTextureName(SchokoMod.MODID + ":schokoPress");
 		this.setCreativeTab(SchokoMod.rest);
 		this.setHardness(3F);
+		this.setHarvestLevel("pickaxe", 1);
 	}
 
 	@Override

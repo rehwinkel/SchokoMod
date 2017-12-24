@@ -18,18 +18,18 @@ public class ModCrafting {
 	public static ArrayList<ItemStack> pressRecipesItem = new ArrayList<ItemStack>();
 
 	public static void load() {
-		GameRegistry.addShapedRecipe(new ItemStack(ModItems.mortar), "o/o", " o ", 'o', Blocks.cobblestone, '/', Items.stick);
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaPowder), ModItems.mortar, new ItemStack(Items.dye, 1, 3), new ItemStack(Items.dye, 1, 3), new ItemStack(Items.dye, 1, 3));
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaButter), ModItems.mortar, ModItems.cocoaPowder, ModItems.cocoaPowder, ModItems.cocoaPowder);
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.weed), ModItems.mortar, ModItems.weedBud);
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaButterMilk, 2), ModItems.cocoaButter, Items.milk_bucket);
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.schokoDrink), ModItems.cocoaPowder, Items.sugar, ModItems.mug, Items.milk_bucket);
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.smarties), ModItems.schokoIngot, new ItemStack(Items.dye, 1, 1));
-		GameRegistry.addSmelting(new ItemStack(ModItems.schokoDrink), new ItemStack(ModItems.schokoDrink, 1, 1), 0);
+		GameRegistry.addShapedRecipe(new ItemStack(ModItems.mortar), "o/o", " o ", 'o', Blocks.cobblestone, '/', Items.stick); //dunzo
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaPowder), ModItems.mortar, new ItemStack(Items.dye, 1, 3), new ItemStack(Items.dye, 1, 3), new ItemStack(Items.dye, 1, 3)); //dunzo
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaButter), ModItems.mortar, ModItems.cocoaPowder, ModItems.cocoaPowder, ModItems.cocoaPowder); //dunzo
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.weed), ModItems.mortar, ModItems.weedBud); //dunzo
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.cocoaButterMilk, 2), ModItems.cocoaButter, Items.milk_bucket); //dunzo
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.schokoDrink), ModItems.cocoaPowder, Items.sugar, ModItems.mug, Items.milk_bucket); //dunzo
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.smarties), ModItems.schokoIngot, new ItemStack(Items.dye, 1, 1)); //dunzo
+		GameRegistry.addSmelting(new ItemStack(ModItems.schokoDrink), new ItemStack(ModItems.schokoDrink, 1, 1), 0); //dunzo
 		
-		GameRegistry.addShapedRecipe(new ItemStack(ModItems.mug, 4), "O O", "O O", "OOO", 'O', Items.clay_ball);
-		GameRegistry.addShapedRecipe(new ItemStack(ModItems.santaHat, 1), " R ", "RRR", "WWW", 'R', new ItemStack(Blocks.wool, 1, 14), 'W', new ItemStack(Blocks.wool, 1, 0));
-		GameRegistry.addShapedRecipe(new ItemStack(ModItems.triangle), " O ", "OOO", 'O', ModItems.schokoIngot);
+		GameRegistry.addShapedRecipe(new ItemStack(ModItems.mug, 4), "O O", "O O", "OOO", 'O', Items.clay_ball); //dunzo
+		GameRegistry.addShapedRecipe(new ItemStack(ModItems.santaHat, 1), " R ", "RRR", "WWW", 'R', new ItemStack(Blocks.wool, 1, 14), 'W', new ItemStack(Blocks.wool, 1, 0)); //dunzo
+		GameRegistry.addShapedRecipe(new ItemStack(ModItems.triangle), " O ", "OOO", 'O', ModItems.schokoIngot); //dunzo
 
 		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.schokoBlock, 1, 0), "OOO", "OOO", "OOO", 'O', new ItemStack(ModItems.schokoIngot, 1, 0));
 		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.schokoBlock, 1, 1), "OOO", "OOO", "OOO", 'O', new ItemStack(ModItems.schokoIngot, 1, 1));
@@ -46,7 +46,7 @@ public class ModCrafting {
 		addPressRecipe(1, null, null, new ItemStack(ModItems.schokoBarBlack, 2)); //2
 		addPressRecipe(2, null, null, new ItemStack(ModItems.schokoBarWhite, 2)); //3
 		addPressRecipe(0, new ItemStack(Blocks.double_plant, 1, 0), new ItemStack(ModItems.weed), new ItemStack(ModItems.schokoBarFlower, 2)); //4
-		addPressRecipe(1, new ItemStack(Blocks.brown_mushroom), new ItemStack(ModItems.weed), new ItemStack(ModItems.schokoBarMushroom, 2)); //5
+		addPressRecipe(1, new ItemStack(Blocks.red_mushroom), new ItemStack(ModItems.weed), new ItemStack(ModItems.schokoBarMushroom, 2)); //5
 		for(int i = 0; i < 16; i++){
 			addPressRecipe(2, new ItemStack(Items.dye, 1, i), null, new ItemStack(ModItems.schokoBarColored, 2, i)); //21
 		}

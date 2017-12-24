@@ -97,24 +97,24 @@ public class ModItems {
 	}
 
 	private static void initialize() {
-		schokoBarCow = new ItemSchokoBarCow();
 		schokoBarFull = new ItemSchokoBar("full", 8, false, 2);
-		schokoBarEnder = new ItemSchokoBarEnder();
 		schokoBarNormal = new ItemSchokoBar("normal");
-		schokoBarBlack = new ItemSchokoBar("black", 5);
-		schokoBarWhite = new ItemSchokoBar("white", 3);
+		schokoBarBlack = new ItemSchokoBar("black");
+		schokoBarWhite = new ItemSchokoBar("white");
 		schokoBarCookie = new ItemSchokoBar("cookie", 5);
 		schokoBarNuts = new ItemSchokoBar("nuts", 5);
 		schokoBarJoghurt = new ItemSchokoBar("joghurt", 6);
 		schokoBarSmartie = new ItemSchokoBar("smartie", 6);
+		schokoBarCobble = new ItemSchokoBarStone("cobble");
+		schokoBarQuartz = new ItemSchokoBarStone("quartz");
+		schokoBarCow = new ItemSchokoBarCow();
+		schokoBarEnder = new ItemSchokoBarEnder();
 		schokoBarFireworks = new ItemSchokoBarFireworks();
 		schokoBarGold = new ItemSchokoBarGold();
 		schokoBarFire = new ItemSchokoBarFire();
 		schokoBarLite = new ItemSchokoBarLite();
 		schokoBarLSD = new ItemSchokoBarLSD();
 		schokoBarWindows = new ItemSchokoBarWindows();
-		schokoBarCobble = new ItemSchokoBarStone("cobble");
-		schokoBarQuartz = new ItemSchokoBarStone("quartz");
 		schokoBarCreeper = new ItemSchokoBarCreeper();
 		schokoBarHalloween = new ItemSchokoBarHalloween();
 		schokoBarRedstone = new ItemSchokoBarRedstone();
