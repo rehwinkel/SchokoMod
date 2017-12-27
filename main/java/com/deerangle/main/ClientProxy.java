@@ -1,11 +1,10 @@
 package com.deerangle.main;
 
-import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.InvocationTargetException; 
 import java.lang.reflect.Method;
 
 import com.deerangle.block.ModBlocks;
 
-import codechicken.nei.api.API;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;

@@ -1,20 +1,17 @@
 package com.deerangle.main;
 
-import com.deerangle.block.ModBlocks;
+import com.deerangle.block.ModBlocks; 
 import com.deerangle.effect.ModPotions;
 import com.deerangle.gui.ModGuiHandler;
 import com.deerangle.item.ModItems;
 import com.deerangle.world.ModWorldGen;
 
-import codechicken.nei.api.API;
-import codechicken.nei.api.IConfigureNEI;
-import codechicken.nei.api.NEIPlugin;
-import codechicken.nei.util.ItemInfo;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.launchwrapper.injector.IndevVanillaTweakInjector;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -27,8 +24,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = NoahsChocolate.MODID, version = NoahsChocolate.VERSION, name = NoahsChocolate.NAME)
-@NEIPlugin
-public class NoahsChocolate implements IConfigureNEI {
+public class NoahsChocolate {
 	public static final String NAME = "Noah's Chocolate!";
 	public static final String MODID = "noahschocolate"; 
 	public static final String VERSION = "1.1.100";
@@ -72,20 +68,5 @@ public class NoahsChocolate implements IConfigureNEI {
 	@EventHandler
 	public void postinit(FMLPostInitializationEvent event) {
 		
-	}
-
-	@Override
-	public void loadConfig() {
-		API.hideItem(new ItemStack(Item.getItemFromBlock(ModBlocks.present)));
-	}
-
-	@Override
-	public String getName() {
-		return this.MODID;
-	}
-
-	@Override
-	public String getVersion() {
-		return this.VERSION;
 	}
 }
