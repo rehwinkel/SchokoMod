@@ -1,11 +1,10 @@
 package com.deerangle.block;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Random;
 
 import com.deerangle.main.NoahsChocolate;
 
-import codechicken.nei.api.IConfigureNEI;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
