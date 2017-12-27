@@ -77,14 +77,16 @@ public class TileEntityDistiller extends TileEntity implements ITickable, ICapab
 
 	private void burnFuel() {
 		if (!inventory.getStackInSlot(1).isEmpty() && !inventory.getStackInSlot(0).isEmpty()) {
-			if (burnTime == 0) {
-				burnTime = TileEntityFurnace.getItemBurnTime(inventory.getStackInSlot(1)) + 1;
-				maxBurnTime = burnTime;
-				inventory.extractItem(1, 1, false);
+			if(processTimeTHC == 0){
+				if (burnTime <= 1) {
+					burnTime = TileEntityFurnace.getItemBurnTime(inventory.getStackInSlot(1));
+					maxBurnTime = burnTime;
+					inventory.extractItem(1, 1, false);
+				}
 			}
 		}
 		
-		if (burnTime > 0) {
+		if (burnTime > 1) {
 			burnTime--;
 		}
 	}
