@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CCC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "noahschocolate:schoko_ingot",
+	  "data": 0
+    }
+  },
+  "result": {
+    "item": "noahschocolate:schoko_block",
+	"data": 0
+  }
+}

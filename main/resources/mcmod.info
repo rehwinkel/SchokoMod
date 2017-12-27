@@ -1,14 +1,14 @@
 [
 {
-  "modid": "noahschocolate",
-  "name": "Noah's Chocolate!",
-  "description": "This mod adds various different chocolate Items, including 54 different chocolate Bars!",
+  "modid": "examplemod",
+  "name": "Example Mod",
+  "description": "Example placeholder mod.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["deerangle", "Creepsy_HD"],
-  "credits": "The mod's Authors.",
+  "authorList": ["ExampleDude"],
+  "credits": "The Forge and FML guys, for making this example",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

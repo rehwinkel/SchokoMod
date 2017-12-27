@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "noahschocolate:schoko_block",
+	  "data": 1
+    }
+  ],
+  "result": {
+    "item": "noahschocolate:schoko_ingot",
+	"data": 1,
+	"count": 9
+  }
+}

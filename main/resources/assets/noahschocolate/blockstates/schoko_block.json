@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=normal": { "model": "noahschocolate:schoko_block_normal" },
+        "type=dark": { "model": "noahschocolate:schoko_block_dark" },
+        "type=light": { "model": "noahschocolate:schoko_block_light" }
+    }
+}

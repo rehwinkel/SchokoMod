@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "noahschocolate:cocoa_powder"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "item": "noahschocolate:mug"
+    }
+  ],
+  "result": {
+    "item": "noahschocolate:schoko_drink",
+	"data": 0
+  }
+}

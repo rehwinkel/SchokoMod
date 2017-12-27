@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "noahschocolate:blocks/schoko_block_light"
+    }
+}

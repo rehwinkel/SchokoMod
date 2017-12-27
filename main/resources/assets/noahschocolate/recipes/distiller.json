@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PGP",
+    "PBP",
+    "IFI"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:glass_pane"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    },
+	"I": {
+      "item": "minecraft:iron_ingot"
+    },
+	"F": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "noahschocolate:distiller"
+  }
+}
