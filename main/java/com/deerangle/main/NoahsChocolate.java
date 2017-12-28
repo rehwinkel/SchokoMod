@@ -40,7 +40,7 @@ public class NoahsChocolate {
 	public static CreativeTabs bars = new CreativeTabs("schoko_bars") {
 		@Override
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.schoko_bar_normal);
+			return new ItemStack(ModItems.chocolate_bar);
 		}
 	};
 

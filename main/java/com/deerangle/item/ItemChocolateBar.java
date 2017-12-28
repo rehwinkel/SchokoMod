@@ -1,5 +1,7 @@
 package com.deerangle.item;
 
+import com.deerangle.main.NoahsChocolate;
+
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,11 +17,17 @@ import net.minecraft.world.World;
 
 public class ItemChocolateBar extends ItemFood {
 
-	public static String[] types = new String[] { "normal", "dark", "light" };
+	public static String[] types = new String[] { "normal", "dark", "light", "full", "lite", "cookie", "nut", "smartie",
+			"joghurt", "colored_white", "colored_orange", "colored_magenta", "colored_light_blue", "colored_yellow",
+			"colored_lime", "colored_pink", "colored_gray", "colored_silver", "colored_cyan", "colored_purple",
+			"colored_blue", "colored_brown", "colored_green", "colored_red", "colored_black", "bed", "mushroom",
+			"flower", "lilypad", "gold", "steve", "lsd", "troll", "fish", "quartz", "cobble", "spider", "creeper",
+			"ender", "wither" };
 
 	public ItemChocolateBar() {
 		super(0, false);
 		this.setRegistryName("chocolate_bar");
+		this.setCreativeTab(NoahsChocolate.bars);
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
 	}
@@ -27,7 +35,7 @@ public class ItemChocolateBar extends ItemFood {
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		if (this.isInCreativeTab(tab)) {
-			for(int i = 0; i < types.length; i++){
+			for (int i = 0; i < types.length; i++) {
 				items.add(new ItemStack(this, 1, i));
 			}
 		}
@@ -35,7 +43,7 @@ public class ItemChocolateBar extends ItemFood {
 
 	@Override
 	public int getMetadata(ItemStack stack) {
-		return this.getMetadata(stack.getMetadata());
+		return this.getMetadata(stack.getItemDamage());
 	}
 
 	@Override
@@ -71,8 +79,8 @@ public class ItemChocolateBar extends ItemFood {
 
 	private void onFoodEaten(int meta, ItemStack stack, World worldIn, EntityPlayer player) {
 		if (!worldIn.isRemote) {
-			switch (meta) {
-			case 1:
+			switch (types[meta]) {
+			case "":
 				System.out.println();
 				break;
 
@@ -83,11 +91,29 @@ public class ItemChocolateBar extends ItemFood {
 	}
 
 	private boolean isWolfFood(int meta) {
-		return false;
+		switch (types[meta]) {
+		case "cow":
+			return true;
+		default:
+			return false;
+		}
 	}
 
 	private int getHungerAmount(int meta) {
-		return 0;
+		switch (types[meta]) {
+		case "nut":
+			return 6;
+		case "full":
+			return 6;
+		case "cookie":
+			return 6;
+		case "joghurt":
+			return 6;
+		case "smartie":
+			return 6;
+		default:
+			return 4;
+		}
 	}
 
 }

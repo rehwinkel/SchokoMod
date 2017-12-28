@@ -47,17 +47,17 @@ public class ModItems {
 //	public static Item schoko_bar_Book; //xp
 //	public static Item schoko_bar_Cobweb; //place cobweb and effect
 
-	public static Item schoko_bar_normal;
-	public static Item schoko_bar_dark;
-	public static Item schoko_bar_light;
-	public static Item schoko_bar_cookie;
-	public static Item schoko_bar_nut;
-	public static Item schoko_bar_joghurt;
-	public static Item schoko_bar_smartie;
-	public static Item schoko_bar_full;
-	public static Item schoko_bar_weather;
-	public static Item schoko_bar_colored;
-	public static Item schoko_bar_potion;
+//	public static Item schoko_bar_normal;
+//	public static Item schoko_bar_dark;
+//	public static Item schoko_bar_light;
+//	public static Item schoko_bar_cookie;
+//	public static Item schoko_bar_nut;
+//	public static Item schoko_bar_joghurt;
+//	public static Item schoko_bar_smartie;
+//	public static Item schoko_bar_full;
+//	public static Item schoko_bar_weather;
+//	public static Item schoko_bar_colored;
+//	public static Item schoko_bar_potion;
 	
 	public static Item schoko_ingot;
 	public static Item santa_hat;
@@ -75,20 +75,20 @@ public class ModItems {
 	public static Item error;
 	public static Item triangle;
 
-	private static Item chocolate_bar;
+	public static Item chocolate_bar;
 	
 	public static void preInit(){
-		schoko_bar_normal = new ItemSchokoBar("normal");
-		schoko_bar_dark = new ItemSchokoBar("dark");
-		schoko_bar_light = new ItemSchokoBar("light");
-		schoko_bar_cookie = new ItemSchokoBar("cookie", 6);
-		schoko_bar_nut = new ItemSchokoBar("nut", 6);
-		schoko_bar_joghurt = new ItemSchokoBar("joghurt", 6);
-		schoko_bar_smartie = new ItemSchokoBar("smartie", 6);
-		schoko_bar_full = new ItemSchokoBar("full", 6);
-		schoko_bar_weather = new ItemSchokoBarWeather();
-		schoko_bar_colored = new ItemSchokoBarColored();
-		schoko_bar_potion = new ItemSchokoBarPotion();
+//		schoko_bar_normal = new ItemSchokoBar("normal");
+//		schoko_bar_dark = new ItemSchokoBar("dark");
+//		schoko_bar_light = new ItemSchokoBar("light");
+//		schoko_bar_cookie = new ItemSchokoBar("cookie", 6);
+//		schoko_bar_nut = new ItemSchokoBar("nut", 6);
+//		schoko_bar_smartie = new ItemSchokoBar("smartie", 6);
+//		schoko_bar_joghurt = new ItemSchokoBar("joghurt", 6);
+//		schoko_bar_full = new ItemSchokoBar("full", 6);
+//		schoko_bar_weather = new ItemSchokoBarWeather();
+//		schoko_bar_colored = new ItemSchokoBarColored();
+//		schoko_bar_potion = new ItemSchokoBarPotion();
 		
 		schoko_ingot = new ItemSchokoIngot();
 		santa_hat = new ItemSantaHat();
@@ -114,17 +114,17 @@ public class ModItems {
 	public void registerItems(RegistryEvent.Register<Item> event){
 		IForgeRegistry<Item> registry = event.getRegistry();
 		
-		registry.register(schoko_bar_normal);
-		registry.register(schoko_bar_dark);
-		registry.register(schoko_bar_light);
-		registry.register(schoko_bar_cookie);
-		registry.register(schoko_bar_nut);
-		registry.register(schoko_bar_joghurt);
-		registry.register(schoko_bar_smartie);
-		registry.register(schoko_bar_full);
-		registry.register(schoko_bar_weather);
-		registry.register(schoko_bar_colored);
-		registry.register(schoko_bar_potion);
+//		registry.register(schoko_bar_normal);
+//		registry.register(schoko_bar_dark);
+//		registry.register(schoko_bar_light);
+//		registry.register(schoko_bar_cookie);
+//		registry.register(schoko_bar_nut);
+//		registry.register(schoko_bar_joghurt);
+//		registry.register(schoko_bar_smartie);
+//		registry.register(schoko_bar_full);
+//		registry.register(schoko_bar_weather);
+//		registry.register(schoko_bar_colored);
+//		registry.register(schoko_bar_potion);
 
 		registry.register(schoko_ingot);
 		registry.register(santa_hat);
@@ -146,27 +146,27 @@ public class ModItems {
 	
 	@SubscribeEvent
 	public void registerModels(ModelRegistryEvent event){
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_normal, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_normal", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_dark, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_dark", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_light, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_light", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_cookie, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_cookie", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_nut, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_nut", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_joghurt, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_joghurt", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_smartie, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_smartie", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_full, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_full", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_weather, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_bed", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_weather, 1, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_mushroom", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_weather, 2, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_flower", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_weather, 3, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_lilypad", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_potion, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_gold", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_potion, 1, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_steve", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_potion, 2, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_lsd", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_potion, 3, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_troll", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_potion, 4, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_fish", "inventory"));
-		
-		for(int i = 0; i < EnumDyeColor.values().length; i++){
-			ModelLoader.setCustomModelResourceLocation(schoko_bar_colored, i, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_colored_" + EnumDyeColor.values()[i].getDyeColorName(), "inventory"));
-		}
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_normal, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_normal", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_dark, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_dark", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_light, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_light", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_cookie, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_cookie", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_nut, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_nut", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_joghurt, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_joghurt", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_smartie, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_smartie", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_full, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_full", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_weather, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_bed", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_weather, 1, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_mushroom", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_weather, 2, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_flower", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_weather, 3, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_lilypad", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_potion, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_gold", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_potion, 1, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_steve", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_potion, 2, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_lsd", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_potion, 3, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_troll", "inventory"));
+//		ModelLoader.setCustomModelResourceLocation(schoko_bar_potion, 4, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_fish", "inventory"));
+//		
+//		for(int i = 0; i < EnumDyeColor.values().length; i++){
+//			ModelLoader.setCustomModelResourceLocation(schoko_bar_colored, i, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_colored_" + EnumDyeColor.values()[i].getDyeColorName(), "inventory"));
+//		}
 		
 		ModelLoader.setCustomModelResourceLocation(schoko_ingot, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_ingot_normal", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(schoko_ingot, 1, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_ingot_dark", "inventory"));
@@ -187,7 +187,7 @@ public class ModItems {
 		ModelLoader.setCustomModelResourceLocation(triangle, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":triangle", "inventory"));
 
 		for(int i = 0; i < ItemChocolateBar.types.length; i++){
-			ModelLoader.setCustomModelResourceLocation(chocolate_bar, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":chocolate_bar_" + ItemChocolateBar.types[i], "inventory"));
+			ModelLoader.setCustomModelResourceLocation(chocolate_bar, i, new ModelResourceLocation(NoahsChocolate.MODID + ":chocolate_bar_" + ItemChocolateBar.types[i], "inventory"));
 		}
 	}
 	
