@@ -52,7 +52,7 @@ public class ModEventHandler {
 	
 	@SubscribeEvent
 	public void onRenderGui(RenderGameOverlayEvent.Post event) {
-		if (event.getType() == ElementType.ALL) {
+		if (event.getType() == ElementType.AIR) {
 			new GuiLSD(Minecraft.getMinecraft());
 		}
 	}

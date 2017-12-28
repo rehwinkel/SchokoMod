@@ -14,7 +14,7 @@ public class PotionLSD extends Potion {
 	private ResourceLocation texture;
 	
 	protected PotionLSD() {
-		super(false, 16711680);
+		super(true, 16711680);
 		this.setRegistryName("potion_lsd");
 		texture = new ResourceLocation(NoahsChocolate.MODID + ":textures/gui/lsd_effect.png");
 	}

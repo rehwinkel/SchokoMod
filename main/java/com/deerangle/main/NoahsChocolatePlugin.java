@@ -24,9 +24,9 @@ public class NoahsChocolatePlugin implements IModPlugin {
 	
 	@Override
 	public void registerCategories(IRecipeCategoryRegistration registry) {
-		IJeiHelpers jeiHelpers = registry.getJeiHelpers();
-		IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
-		registry.addRecipeCategories(new FurnaceFuelCategory(guiHelper));
+		//IJeiHelpers jeiHelpers = registry.getJeiHelpers();
+		//IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
+		//registry.addRecipeCategories(new FurnaceFuelCategory(guiHelper));
 	}
 	
 }
