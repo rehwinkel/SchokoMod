@@ -1,11 +1,14 @@
 package com.deerangle.item;
 
 import com.deerangle.item.bars.ItemSchokoBar;
+import com.deerangle.item.bars.ItemSchokoBarColored;
+import com.deerangle.item.bars.ItemSchokoBarWeather;
 import com.deerangle.main.NoahsChocolate;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -21,33 +24,32 @@ public class ModItems {
 
 	public static final ModItems instance = new ModItems();
 	
-//	public static Item schoko_bar_Apple;
-//	public static Item schoko_bar_Cobble;
-//	public static Item schoko_bar_Cow;
-//	public static Item schoko_bar_Creeper;
-//	public static Item schoko_bar_Christmas;
-//	public static Item schoko_bar_Fish;
-//	public static Item schoko_bar_Ender;
-//	public static Item schoko_bar_Fire;
-//	public static Item schoko_bar_Fireworks;
-//	public static Item schoko_bar_Glass;
-//	public static Item schoko_bar_Gold;
-//	public static Item schoko_bar_Halloween;
-//	public static Item schoko_bar_Illuminati;
-//	public static Item schoko_bar_Lite;
-//	public static Item schoko_bar_LSD;
-//	public static Item schoko_bar_Portal;
-//	public static Item schoko_bar_Quartz;
-//	public static Item schoko_bar_Redstone;
-//	public static Item schoko_bar_Steve;
-//	public static Item schoko_bar_Windows;
-//	public static Item schoko_bar_Rainbow;
-//	public static Item schoko_bar_Wither;
-//	public static Item schoko_bar_Colored;
-//	public static Item schoko_bar_Glowstone;
-//	public static Item schoko_bar_Book;
-//	public static Item schoko_bar_Cobweb;
-//	public static Item schoko_bar_Troll;
+//	public static Item schoko_bar_Apple; //chat
+//	public static Item schoko_bar_Cobble; //lose hunger and effect
+//	public static Item schoko_bar_Cow; //sound
+//	public static Item schoko_bar_Creeper; //explode
+//	public static Item schoko_bar_Christmas; //give item
+//	public static Item schoko_bar_Fish; //nausea
+//	public static Item schoko_bar_Ender; //tp player
+//	public static Item schoko_bar_Fire; //ignite player
+//	public static Item schoko_bar_Fireworks; //firework
+//	public static Item schoko_bar_Glass; //damage and sound
+//	public static Item schoko_bar_Gold; //golden apple
+//	public static Item schoko_bar_Halloween; //sound
+//	public static Item schoko_bar_Illuminati; //tons of effects
+//	public static Item schoko_bar_Lite; //remove diabetis
+//	public static Item schoko_bar_LSD; //lsd effect
+//	public static Item schoko_bar_Portal; //tp to nether
+//	public static Item schoko_bar_Quartz; //lose hunger and slow
+//	public static Item schoko_bar_Redstone; //effect and sound
+//	public static Item schoko_bar_Steve; //2 effects
+//	public static Item schoko_bar_Windows; //sound  and chat
+//	public static Item schoko_bar_Rainbow; //sound
+//	public static Item schoko_bar_Wither; //give item and effect by chance
+//	public static Item schoko_bar_Glowstone; //effect and sound
+//	public static Item schoko_bar_Book; //xp
+//	public static Item schoko_bar_Cobweb; //place cobweb and effect
+//	public static Item schoko_bar_Troll; //effect
 
 	public static Item schoko_bar_normal;
 	public static Item schoko_bar_dark;
@@ -57,10 +59,8 @@ public class ModItems {
 	public static Item schoko_bar_joghurt;
 	public static Item schoko_bar_smartie;
 	public static Item schoko_bar_full;
-	public static Item schoko_bar_bed;
-	public static Item schoko_bar_mushroom;
-	public static Item schoko_bar_flower;
-	public static Item schoko_bar_lilypad;
+	public static Item schoko_bar_weather;
+	public static Item schoko_bar_colored;
 	
 	public static Item schoko_ingot;
 	public static Item santa_hat;
@@ -87,10 +87,8 @@ public class ModItems {
 		schoko_bar_joghurt = new ItemSchokoBar("joghurt", 6);
 		schoko_bar_smartie = new ItemSchokoBar("smartie", 6);
 		schoko_bar_full = new ItemSchokoBar("full", 6);
-		schoko_bar_bed = new ItemSchokoBarWeather(ItemSchokoBarWeather.EnumType.DAY);
-		schoko_bar_mushroom = new ItemSchokoBarWeather(ItemSchokoBarWeather.EnumType.NIGHT);
-		schoko_bar_flower = new ItemSchokoBarWeather(ItemSchokoBarWeather.EnumType.SUN);
-		schoko_bar_lilypad = new ItemSchokoBarWeather(ItemSchokoBarWeather.EnumType.RAIN);
+		schoko_bar_weather = new ItemSchokoBarWeather();
+		schoko_bar_colored = new ItemSchokoBarColored();
 		
 		schoko_ingot = new ItemSchokoIngot();
 		santa_hat = new ItemSantaHat();
@@ -122,10 +120,8 @@ public class ModItems {
 		registry.register(schoko_bar_joghurt);
 		registry.register(schoko_bar_smartie);
 		registry.register(schoko_bar_full);
-		registry.register(schoko_bar_bed);
-		registry.register(schoko_bar_mushroom);
-		registry.register(schoko_bar_flower);
-		registry.register(schoko_bar_lilypad);
+		registry.register(schoko_bar_weather);
+		registry.register(schoko_bar_colored);
 
 		registry.register(schoko_ingot);
 		registry.register(santa_hat);
@@ -153,10 +149,13 @@ public class ModItems {
 		ModelLoader.setCustomModelResourceLocation(schoko_bar_joghurt, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_joghurt", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(schoko_bar_smartie, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_smartie", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(schoko_bar_full, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_full", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_bed, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_bed", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_mushroom, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_mushroom", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_flower, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_flower", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(schoko_bar_lilypad, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_lilypad", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(schoko_bar_weather, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_bed", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(schoko_bar_weather, 1, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_mushroom", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(schoko_bar_weather, 2, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_flower", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(schoko_bar_weather, 3, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_lilypad", "inventory"));
+		for(int i = 0; i < EnumDyeColor.values().length; i++){
+			ModelLoader.setCustomModelResourceLocation(schoko_bar_colored, i, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_bar_colored_" + EnumDyeColor.values()[i].getDyeColorName(), "inventory"));
+		}
 		
 		ModelLoader.setCustomModelResourceLocation(schoko_ingot, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_ingot_normal", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(schoko_ingot, 1, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_ingot_dark", "inventory"));

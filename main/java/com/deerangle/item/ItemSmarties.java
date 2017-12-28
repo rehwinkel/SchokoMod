@@ -1,5 +1,6 @@
 package com.deerangle.item;
 
+import com.deerangle.effect.ModPotions;
 import com.deerangle.item.bars.ItemSchokoBar;
 import com.deerangle.main.NoahsChocolate;
 
@@ -22,8 +23,7 @@ public class ItemSmarties extends ItemFood {
 	@Override
 	protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
 		if (!worldIn.isRemote) {
-			//TODO: player.addPotionEffect(new PotionEffect(NoahsChocolate.schokoPotion.id, 10 * 20, 0));
-			player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 10 * 20, 0));
+			player.addPotionEffect(new PotionEffect(ModPotions.schoko, 10 * 20, 0));
 			player.getEntityData().setInteger("Diabetis", player.getEntityData().getInteger("Diabetis") + 1);
 		}
 		super.onFoodEaten(stack, worldIn, player);

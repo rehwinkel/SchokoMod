@@ -6,6 +6,8 @@ import com.deerangle.gui.ModGuiHandler;
 import com.deerangle.item.ModItems;
 import com.deerangle.world.ModWorldGen;
 
+import mezz.jei.api.IModPlugin;
+import mezz.jei.api.JEIPlugin;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -69,4 +71,5 @@ public class NoahsChocolate {
 	public void postinit(FMLPostInitializationEvent event) {
 		
 	}
+	
 }
