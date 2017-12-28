@@ -46,12 +46,6 @@ public class ModItems {
 //	public static Item schoko_bar_Wither; //give item and effect by chance
 //	public static Item schoko_bar_Book; //xp
 //	public static Item schoko_bar_Cobweb; //place cobweb and effect
-	
-//	public static Item schoko_bar_Troll; //effect
-//	public static Item schoko_bar_Gold; //golden apple effects
-//	public static Item schoko_bar_Steve; //2 effects
-//	public static Item schoko_bar_LSD; //lsd effect
-//	public static Item schoko_bar_Fish; //effect nausea
 
 	public static Item schoko_bar_normal;
 	public static Item schoko_bar_dark;
@@ -80,6 +74,8 @@ public class ModItems {
 	public static Item thc;
 	public static Item error;
 	public static Item triangle;
+
+	private static Item chocolate_bar;
 	
 	public static void preInit(){
 		schoko_bar_normal = new ItemSchokoBar("normal");
@@ -108,6 +104,8 @@ public class ModItems {
 		thc = new Item().setUnlocalizedName("thc").setRegistryName("thc").setCreativeTab(NoahsChocolate.tab);
 		error = new Item().setUnlocalizedName("error").setRegistryName("error").setCreativeTab(NoahsChocolate.tab);
 		triangle = new Item().setUnlocalizedName("triangle").setRegistryName("triangle").setCreativeTab(NoahsChocolate.tab);
+		
+		chocolate_bar = new ItemChocolateBar();
 		
 		MinecraftForge.EVENT_BUS.register(instance);
 	}
@@ -142,6 +140,8 @@ public class ModItems {
 		registry.register(thc);
 		registry.register(error);
 		registry.register(triangle);
+
+		registry.register(chocolate_bar);
 	}
 	
 	@SubscribeEvent
@@ -185,6 +185,10 @@ public class ModItems {
 		ModelLoader.setCustomModelResourceLocation(thc, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":thc", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(error, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":error", "inventory"));
 		ModelLoader.setCustomModelResourceLocation(triangle, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":triangle", "inventory"));
+
+		for(int i = 0; i < ItemChocolateBar.types.length; i++){
+			ModelLoader.setCustomModelResourceLocation(chocolate_bar, 0, new ModelResourceLocation(NoahsChocolate.MODID + ":chocolate_bar_" + ItemChocolateBar.types[i], "inventory"));
+		}
 	}
 	
 }
