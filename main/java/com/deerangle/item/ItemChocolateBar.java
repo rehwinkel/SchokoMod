@@ -23,7 +23,7 @@ public class ItemChocolateBar extends ItemFood {
 			"colored_blue", "colored_brown", "colored_green", "colored_red", "colored_black", "bed", "mushroom",
 			"flower", "lilypad", "gold", "steve", "lsd", "troll", "fish", "quartz", "cobble", "spider", "creeper",
 			"ender", "wither", "fire", "firework", "glass", "windows", "apple", "glowstone", "redstone", "illuminati",
-			"cow", "halloween", "rainbow", "book", "portal", "christmas" };
+			"cow", "rainbow", "book", "portal", "christmas", "halloween" };
 
 	public ItemChocolateBar() {
 		super(0, false);
