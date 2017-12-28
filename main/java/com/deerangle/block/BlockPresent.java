@@ -21,7 +21,6 @@ public class BlockPresent extends Block {
 		super(Material.CLOTH);
 		this.setUnlocalizedName("present");
 		this.setRegistryName("present");
-		this.setCreativeTab(NoahsChocolate.tab);
 		this.setHardness(1F);
 	}
 
