@@ -1,0 +1,18 @@
+{
+    "windows": {
+        "category": "master",
+        "sounds": ["noahschocolate:windows"]
+    },
+	"scream": {
+        "category": "master",
+        "sounds": ["noahschocolate:scream"]
+    },
+	"santa": {
+        "category": "master",
+        "sounds": ["noahschocolate:santa"]
+    },
+	"illuminati": {
+        "category": "master",
+        "sounds": ["noahschocolate:illuminati"]
+    }
+}

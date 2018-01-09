@@ -1,11 +1,10 @@
 package com.deerangle.block;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 
 import com.deerangle.block.entity.TileEntityDistiller;
 import com.deerangle.item.ItemBlockSchoko;
 import com.deerangle.item.ModItems;
-import com.deerangle.item.bars.ItemSchokoBar;
 import com.deerangle.main.NoahsChocolate;
 
 import net.minecraft.block.Block;

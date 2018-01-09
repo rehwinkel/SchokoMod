@@ -1,7 +1,6 @@
 package com.deerangle.item;
 
-import com.deerangle.effect.ModPotions;
-import com.deerangle.item.bars.ItemSchokoBar;
+import com.deerangle.effect.ModPotions; 
 import com.deerangle.main.NoahsChocolate;
 
 import net.minecraft.entity.player.EntityPlayer;

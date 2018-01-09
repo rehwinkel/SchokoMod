@@ -20,10 +20,12 @@ item.error.name=System Error
 item.weed.name=Weed
 item.thc.name=THC-A
 item.weed_bud.name=Weed Bud
-item.triangle.name=Chocolate Triangle
+item.triangle.name=Magical Triangle
 
 info.item.weed_bud=Grows on the Weed Bush.
 info.thc=THC
+death.attack.eatGlass=%s eat too many shards
+death.attack.eatTnt=%s exploded from the inside
 
 tile.schoko_block_normal.name=Block of Normal Chocolate
 tile.schoko_block_dark.name=Block of Dark Chocolate

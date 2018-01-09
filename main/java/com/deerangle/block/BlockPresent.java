@@ -31,7 +31,7 @@ public class BlockPresent extends Block {
 		if(rand.nextFloat() < 0.01){
 			drops.add(new ItemStack(Items.DIAMOND));
 		}else{
-			drops.add(new ItemStack(Items.COAL, 3));
+			drops.add(new ItemStack(Items.COAL, 1));
 		}
 	}
 	

@@ -1,9 +1,5 @@
 package com.deerangle.item;
 
-import com.deerangle.item.bars.ItemSchokoBar;
-import com.deerangle.item.bars.ItemSchokoBarColored;
-import com.deerangle.item.bars.ItemSchokoBarPotion;
-import com.deerangle.item.bars.ItemSchokoBarWeather;
 import com.deerangle.main.NoahsChocolate;
 
 import net.minecraft.block.Block;
@@ -24,40 +20,6 @@ import net.minecraftforge.registries.IForgeRegistry;
 public class ModItems {
 
 	public static final ModItems instance = new ModItems();
-	
-
-//	public static Item schoko_bar_normal;
-//	public static Item schoko_bar_dark;
-//	public static Item schoko_bar_light;
-//	public static Item schoko_bar_cookie;
-//	public static Item schoko_bar_nut;
-//	public static Item schoko_bar_joghurt;
-//	public static Item schoko_bar_smartie;
-//	public static Item schoko_bar_full;
-//	public static Item schoko_bar_Lite; //remove diabetis
-//	public static Item schoko_bar_weather;
-//	public static Item schoko_bar_colored;
-//	public static Item schoko_bar_potion;
-//	public static Item schoko_bar_Cobble; //lose hunger and effect
-//	public static Item schoko_bar_Quartz; //lose hunger and effect
-//	public static Item schoko_bar_Spider; //place cobweb and effect
-//	public static Item schoko_bar_Creeper; //explode
-//	public static Item schoko_bar_Ender; //tp player
-//	public static Item schoko_bar_Wither; //give item and effect by chance
-//	public static Item schoko_bar_Fire; //ignite player
-//	public static Item schoko_bar_Fireworks; //firework
-//	public static Item schoko_bar_Glass; //damage and sound
-//	public static Item schoko_bar_Windows; //sound and chat
-//	public static Item schoko_bar_Apple; //chat
-//	public static Item schoko_bar_Illuminati; //effects and sound
-//	public static Item schoko_bar_Glowstone; //effect and sound
-//	public static Item schoko_bar_Redstone; //effect and sound
-//	public static Item schoko_bar_Halloween; //sound
-//	public static Item schoko_bar_Rainbow; //sound
-//	public static Item schoko_bar_Cow; //sound
-//	public static Item schoko_bar_Christmas; //give item
-//	public static Item schoko_bar_Portal; //tp to nether
-//	public static Item schoko_bar_Book; //xp
 	
 	public static Item schoko_ingot;
 	public static Item santa_hat;
