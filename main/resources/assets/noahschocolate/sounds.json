@@ -11,8 +11,16 @@
         "category": "master",
         "sounds": ["noahschocolate:santa"]
     },
-	"illuminati": {
+    "illuminati": {
         "category": "master",
         "sounds": ["noahschocolate:illuminati"]
+    },
+    "redstone": {
+        "category": "master",
+        "sounds": ["noahschocolate:dejavu"]
+    },
+    "glowstone": {
+        "category": "master",
+        "sounds": ["noahschocolate:sanic"]
     }
 }

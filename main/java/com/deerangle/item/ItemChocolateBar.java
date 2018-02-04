@@ -63,6 +63,8 @@ public class ItemChocolateBar extends ItemFood {
 	SoundEvent SOUND_SCREAM = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":scream"));
 	SoundEvent SOUND_SANTA = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":santa"));
 	SoundEvent SOUND_ILLUMINATI = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":illuminati"));
+	SoundEvent SOUND_REDSTONE = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":redstone"));
+	SoundEvent SOUND_GLOWSTONE = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":glowstone"));
 
 	public ItemChocolateBar() {
 		super(0, false);
@@ -126,100 +128,99 @@ public class ItemChocolateBar extends ItemFood {
 		return stack;
 	}
 	
-	private boolean executeEffect(int meta, ItemStack stack, World worldIn, EntityPlayer player) {
-		if (!worldIn.isRemote) {
-			applyStandardEffects(player, 0);
-			switch (types[meta]) {
+	private void executeEffect(int meta, ItemStack stack, World worldIn, EntityPlayer player) {
+		applyStandardEffects(player, 0);
+		switch (types[meta]) {
 			case "full":
 				applyStandardEffects(player, 2);
-				return false;
+				break;
 			case "lite":
 				player.getEntityData().setInteger("Diabetis", 0);
 				player.removePotionEffect(ModPotions.schoko);
-				return false;
+				break;
 			case "bed":
 				worldIn.setWorldTime(1000);
-				return true;
+				break;
 			case "mushroom":
 				worldIn.setWorldTime(18000);
-				return true;
+				break;
 			case "flower":
 				worldIn.getWorldInfo().setRainTime(0);
 				worldIn.getWorldInfo().setThunderTime(0);
 				worldIn.getWorldInfo().setRaining(false);
 				worldIn.getWorldInfo().setThundering(false);
-				return true;
+				break;
 			case "lilypad":
 				worldIn.getWorldInfo().setRainTime(0);
 				worldIn.getWorldInfo().setRaining(true);
-				return true;
+				break;
 			case "gold":
 				player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5 * 20, 1));
 				player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 120 * 20, 0));
-				return true;
+				break;
 			case "steve":
 				player.addPotionEffect(new PotionEffect(MobEffects.POISON, 10 * 20, 2));
-				return true;
+				break;
 			case "lsd":
 				player.addPotionEffect(new PotionEffect(ModPotions.lsd, 30 * 20, 0));
-				return true;
+				break;
 			case "troll":
 				player.addPotionEffect(new PotionEffect(MobEffects.POISON, 10 * 20, 2));
-				return false;
+				break;
 			case "fish":
 				player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 10 * 20, 2));
-				return false;
+				break;
 			case "quartz":
 				player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 10 * 20, 4));
 				int lvl = player.getFoodStats().getFoodLevel() - 4;
 				player.getFoodStats().setFoodLevel((lvl < 0 ? 0 : lvl));
-				return false;
+				break;
 			case "cobble":
 				player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 10 * 20, 4));
 				int lvl2 = player.getFoodStats().getFoodLevel() - 4;
 				player.getFoodStats().setFoodLevel((lvl2 < 0 ? 0 : lvl2));
-				return false;
+				break;
 			case "christmas":
 				player.inventory.addItemStackToInventory(new ItemStack(ModBlocks.present, 1 + worldIn.rand.nextInt(3)));
 				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SOUND_SANTA, SoundCategory.PLAYERS, 1, 1);
-				return true;
+				break;
 			case "fire":
 				player.setFire(5);
-				return true;
+				break;
 			case "book":
 				player.addExperience(30);
-				return true;
+				break;
 			case "portal":
 				player.setPortal(player.getPosition());
 				player.changeDimension(-1);
-				return true;
+				break;
 			case "glass":
 				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.PLAYERS, 1, 1);
 				player.attackEntityFrom(new DamageSource("eatGlass"), 4);
-				return true;
+				break;
 			case "cow":
 				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_COW_HURT, SoundCategory.PLAYERS, 1, 1);
-				return true;
+				break;
 			case "creeper":
 				worldIn.createExplosion(player, player.posX + 0.1, player.posY, player.posZ - 0.1, 3F, true);
 				player.attackEntityFrom(new DamageSource("eatTnt"), 10);
-				return true;
+				break;
 			case "wither":
 				player.addPotionEffect(new PotionEffect(MobEffects.WITHER, 10 * 20, 2));
 				if (worldIn.rand.nextFloat() < 0.03) {
 					player.addItemStackToInventory(new ItemStack(Items.SKULL, 1, 1));
 				}
-				return true;
+				break;
 			case "windows":
 				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SOUND_WINDOWS, SoundCategory.PLAYERS, 1, 1);
-				return true;
+				break;
 			case "halloween":
 				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SOUND_SCREAM, SoundCategory.PLAYERS, 1, 1);
 				ItemStack head_armor_stack = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 				if (head_armor_stack.isEmpty()){
 					player.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(Blocks.PUMPKIN));
 				}
-				return true;
+				break;
 			case "ender":
 				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ENDERMEN_TELEPORT, SoundCategory.PLAYERS, 1, 1);
 				for (int i = 0; i < 16; ++i) {
@@ -235,12 +236,12 @@ public class ItemChocolateBar extends ItemFood {
 						break;
 					}
 				}
-				return true;
+				break;
 			case "spider":
 				worldIn.setBlockState(player.getPosition(), Blocks.WEB.getDefaultState());
 				player.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 10 * 20, 4));
 				player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, 10 * 20, 4));
-				return true;
+				break;
 			case "illuminati":
 				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SOUND_ILLUMINATI, SoundCategory.PLAYERS, 1, 1);
 				player.addPotionEffect(new PotionEffect(ModPotions.schoko, 26 * 20, 100));
@@ -250,35 +251,19 @@ public class ItemChocolateBar extends ItemFood {
 				player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 26 * 20, 2));
 				player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 26 * 20, 2));
 				player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 26 * 20, 4));
-				return true;
+				break;
 			case "firework":
-				return true;
-				
+				NoahsChocolate.network.sendToAll(new FireworkExplodeMessage(player.posX, player.posY + player.eyeHeight, player.posZ));
+				break;
 			case "redstone":
-				return true;
+				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SOUND_REDSTONE, SoundCategory.PLAYERS, 10, 1);
+				player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 14 * 20, 14));
+				break;
 			case "glowstone":
-				return true;
-			case "rainbow":
-				return true;
-			}
-		} else {
-			if(types[meta].equals("firework")) {
-				NBTTagCompound fireworks = new NBTTagCompound();
-				NBTTagList explosions = new NBTTagList();
-				NBTTagCompound explosion = new NBTTagCompound();
-
-				fireworks.setByte("Flight", (byte) 1);
-				explosion.setByte("Type", (byte) 0);
-				explosion.setIntArray("Colors", new int[] { 9533525 });
-				explosions.appendTag(explosion);
-
-				fireworks.setTag("Explosions", explosions);
-				worldIn.makeFireworks(player.posX, player.posY + player.eyeHeight, player.posZ, 0, 0, 0, fireworks);
-				return true;
-			}
+				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SOUND_GLOWSTONE, SoundCategory.PLAYERS, 10, 1);
+				player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 12 * 20, 7));
+				break;
 		}
-		
-		return false;
 	}
 
 	private void applyStandardEffects(EntityPlayer player, int effect) {
@@ -287,7 +272,56 @@ public class ItemChocolateBar extends ItemFood {
 	}
 
 	private boolean canAlwaysBeEaten(int meta) {
-		return true;
+		switch (types[meta]) {
+			case "bed":
+				return true;
+			case "mushroom":
+				return true;
+			case "flower":
+				return true;
+			case "lilypad":
+				return true;
+			case "gold":
+				return true;
+			case "steve":
+				return true;
+			case "lsd":
+				return true;
+			case "christmas":
+				return true;
+			case "fire":
+				return true;
+			case "book":
+				return true;
+			case "portal":
+				return true;
+			case "glass":
+				return true;
+			case "cow":
+				return true;
+			case "creeper":
+				return true;
+			case "wither":
+				return true;
+			case "windows":
+				return true;
+			case "halloween":
+				return true;
+			case "ender":
+				return true;
+			case "spider":
+				return true;
+			case "illuminati":
+				return true;
+			case "firework":
+				return true;
+			case "redstone":
+				return true;
+			case "glowstone":
+				return true;
+		}
+		
+		return false;
 	}
 
 	private boolean isWolfFood(int meta) {
