@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "UUU",
+    "UPU",
+    "UUU"
+  ],
+  "key": {
+    "U": {
+      "item": "noahschocolate:wrap_paper_used"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    }
+  },
+  "result": {
+    "item": "noahschocolate:wrap_paper",
+	"count": 8
+  }
+}

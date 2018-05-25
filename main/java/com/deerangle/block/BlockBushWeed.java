@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.deerangle.item.ModItems;
 import com.deerangle.main.NoahsChocolate;
+import com.deerangle.main.NoahsUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEnchantmentTable;
@@ -144,8 +145,8 @@ public class BlockBushWeed extends Block implements IPlantable, IShearable {
 
 	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-		if (rand.nextFloat() < 0.1) {
-			if (worldIn.getLightFromNeighbors(pos.up()) >= 9) {
+		if (rand.nextFloat() < 0.5) {
+			if (worldIn.getLightFromNeighbors(pos.up()) >= 8) {
 				grow(worldIn, rand, pos, state);
 			}
 		}
@@ -165,11 +166,7 @@ public class BlockBushWeed extends Block implements IPlantable, IShearable {
 	public void onBlockClicked(World worldIn, BlockPos pos, EntityPlayer playerIn) {
 		if (!worldIn.isRemote) {
 			if (this.getAge(worldIn.getBlockState(pos)) > 2) {
-				double x = playerIn.getPositionVector().x;
-				double y = playerIn.getPositionVector().y + 0.5;
-				double z = playerIn.getPositionVector().z;
-				EntityItem item = new EntityItem(worldIn, x, y, z, new ItemStack(ModItems.weed_bud));
-				worldIn.spawnEntity(item);
+				NoahsUtil.givePlayerItem(playerIn, new ItemStack(ModItems.WEED_BUD));
 				this.setAge(worldIn, pos, 2);
 			}
 		}

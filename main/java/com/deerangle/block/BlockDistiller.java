@@ -28,7 +28,7 @@ import net.minecraftforge.items.ItemStackHandler;
 public class BlockDistiller extends Block {
 
 	protected BlockDistiller() {
-		super(Material.ROCK);
+		super(Material.IRON);
 		this.setUnlocalizedName("distiller");
 		this.setRegistryName("distiller");
 		this.setCreativeTab(NoahsChocolate.tab);

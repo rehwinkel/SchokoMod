@@ -32,8 +32,8 @@ import net.minecraftforge.fml.relauncher.Side;
 public class NoahsChocolate {
 	public static final String NAME = "Noah's Chocolate!";
 	public static final String MODID = "noahschocolate"; 
-	public static final String VERSION = "1.1.100";
-
+	public static final String VERSION = "1.1.x";
+	
 	@Instance(MODID)
 	public static NoahsChocolate INSTANCE = new NoahsChocolate();
 	
@@ -42,14 +42,14 @@ public class NoahsChocolate {
 	public static CreativeTabs bars = new CreativeTabs("schoko_bars") {
 		@Override
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.chocolate_bar);
+			return new ItemStack(ModItems.CHOCOLATE_BAR);
 		}
 	};
 
 	public static CreativeTabs tab = new CreativeTabs("schoko") {
 		@Override
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ModItems.schoko_ingot);
+			return new ItemStack(ModItems.SCHOKO_INGOT);
 		}
 	};
 	
@@ -70,11 +70,6 @@ public class NoahsChocolate {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		GameRegistry.registerWorldGenerator(new ModWorldGen(), 0);
-	}
-
-	@EventHandler
-	public void postinit(FMLPostInitializationEvent event) {
-		
 	}
 	
 }

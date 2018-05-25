@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "noahschocolate:mortar_and_pestle"
+    },
+    {
+      "item": "noahschocolate:ender_crumbs"
+    },
+    {
+      "item": "noahschocolate:thc"
+    }
+  ],
+  "result": {
+    "item": "noahschocolate:flavor_enhancer"
+  }
+}

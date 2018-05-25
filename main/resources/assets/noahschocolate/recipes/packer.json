@@ -1,0 +1,28 @@
+{
+  "type": "forge:ore_shaped",
+  "pattern": [
+    "I I",
+    "WSW",
+    "WCW"
+  ],
+  "key": {
+    "I": {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    },
+    "W": {
+      "type": "forge:ore_dict",
+      "ore": "plankWood"
+    },
+    "S": {
+      "item": "noahschocolate:schoko_ingot",
+      "data": 32767
+    },
+    "C": {
+      "item": "minecraft:cauldron"
+    }
+  },
+  "result": {
+    "item": "noahschocolate:packer"
+  }
+}

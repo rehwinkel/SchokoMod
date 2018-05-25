@@ -58,7 +58,7 @@ public class ItemSchokoDrink extends ItemFood {
 	@Override
 	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
 		super.onItemUseFinish(stack, worldIn, entityLiving);
-		return new ItemStack(ModItems.mug);
+		return new ItemStack(ModItems.MUG);
 	}
 	
 	@Override

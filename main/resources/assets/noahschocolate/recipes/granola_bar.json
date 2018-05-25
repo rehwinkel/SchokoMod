@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "noahschocolate:mortar_and_pestle"
+    },
+    {
+      "item": "noahschocolate:schoko_ingot",
+      "data": 0
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:reeds"
+    },
+    {
+      "item": "minecraft:egg"
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 3
+    }
+  ],
+  "result": {
+    "item": "noahschocolate:granola_bar"
+  }
+}

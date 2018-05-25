@@ -5,11 +5,13 @@
       "item": "minecraft:milk_bucket"
     },
     {
-      "item": "noahschocolate:cocoa_butter"
+      "item": "noahschocolate:cocoa_butter",
+      "data": 0
     }
   ],
   "result": {
-    "item": "noahschocolate:cocoa_butter_diluted",
-	"count": 2
+    "item": "noahschocolate:cocoa_butter",
+    "count": 2,
+    "data": 1
   }
 }

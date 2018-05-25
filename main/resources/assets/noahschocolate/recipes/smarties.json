@@ -1,16 +1,16 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "noahschocolate:schoko_ingot",
-      "data": 0
-    },
-    {
-      "item": "minecraft:dye",
-      "data": 1
+    "type": "minecraft:crafting_shapeless",
+	    "ingredients": [
+	    {
+	        "item": "noahschocolate:schoko_ingot",
+	        "data": 0
+	    },
+	    {
+		    "item": "minecraft:dye",
+		    "data": 32767
+	    }
+    ],
+    "result": {
+        "item": "noahschocolate:smarties"
     }
-  ],
-  "result": {
-    "item": "noahschocolate:smarties"
-  }
 }

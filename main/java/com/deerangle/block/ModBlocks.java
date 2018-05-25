@@ -1,8 +1,8 @@
 package com.deerangle.block;
 
-import java.util.ArrayList; 
+import java.util.ArrayList;  
 
-import com.deerangle.block.entity.TileEntityDistiller;
+import com.deerangle.block.entity.*;
 import com.deerangle.item.ItemBlockSchoko;
 import com.deerangle.item.ModItems;
 import com.deerangle.main.NoahsChocolate;
@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,16 +28,20 @@ public class ModBlocks {
 
 	public static final ModBlocks instance = new ModBlocks();
 
-	public static Block schoko_block;
-	public static Block present;
-	public static Block bush_weed;
-	public static Block distiller;
+	public static Block SCHOKO_BLOCK;
+	public static Block PRESENT;
+	public static Block BUSH_WEED;
+	public static Block DISTILLER;
+	public static Block MIXER;
+	public static Block PACKER;
 	
 	public static void preInit() {
-		schoko_block = new BlockSchoko();
-		present = new BlockPresent();
-		bush_weed = new BlockBushWeed();
-		distiller = new BlockDistiller();
+		SCHOKO_BLOCK = new BlockSchoko();
+		PRESENT = new BlockPresent();
+		BUSH_WEED = new BlockBushWeed();
+		DISTILLER = new BlockDistiller();
+		MIXER = new BlockMixer();
+		PACKER = new BlockPacker();
 		
 		MinecraftForge.EVENT_BUS.register(instance);
 	}
@@ -45,12 +50,16 @@ public class ModBlocks {
 	public void registerBlocks(RegistryEvent.Register<Block> event){
 		IForgeRegistry<Block> registry = event.getRegistry();
 
-		registerBlock(registry, schoko_block, new ItemBlockSchoko(schoko_block));
-		registerBlock(registry, present);
-		registerBlock(registry, bush_weed);
-		registerBlock(registry, distiller);
-		
-		GameRegistry.registerTileEntity(TileEntityDistiller.class, "distiller");
+		registerBlock(registry, SCHOKO_BLOCK, new ItemBlockSchoko(SCHOKO_BLOCK));
+		registerBlock(registry, PRESENT);
+		registerBlock(registry, BUSH_WEED);
+		registerBlock(registry, DISTILLER);
+		registerBlock(registry, MIXER);
+		registerBlock(registry, PACKER);
+
+		GameRegistry.registerTileEntity(TileEntityDistiller.class, new ResourceLocation(NoahsChocolate.MODID, "distiller"));
+		GameRegistry.registerTileEntity(TileEntityMixer.class, new ResourceLocation(NoahsChocolate.MODID, "mixer"));
+		GameRegistry.registerTileEntity(TileEntityPacker.class, new ResourceLocation(NoahsChocolate.MODID, "packer"));
 	}
 	
 	private ArrayList<ItemBlock> ITEM_BLOCKS = new ArrayList<ItemBlock>();
@@ -80,12 +89,14 @@ public class ModBlocks {
 	
 	@SubscribeEvent
 	public void registerModels(ModelRegistryEvent event){
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(schoko_block), 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_block_normal", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(schoko_block), 1, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_block_dark", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(schoko_block), 2, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_block_light", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(present), 0, new ModelResourceLocation(NoahsChocolate.MODID + ":present", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(bush_weed), 0, new ModelResourceLocation(NoahsChocolate.MODID + ":bush_weed", "inventory"));
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(distiller), 0, new ModelResourceLocation(NoahsChocolate.MODID + ":distiller", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(SCHOKO_BLOCK), 0, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_block_normal", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(SCHOKO_BLOCK), 1, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_block_dark", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(SCHOKO_BLOCK), 2, new ModelResourceLocation(NoahsChocolate.MODID + ":schoko_block_light", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(PRESENT), 0, new ModelResourceLocation(NoahsChocolate.MODID + ":present", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BUSH_WEED), 0, new ModelResourceLocation(NoahsChocolate.MODID + ":bush_weed", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(DISTILLER), 0, new ModelResourceLocation(NoahsChocolate.MODID + ":distiller", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(MIXER), 0, new ModelResourceLocation(NoahsChocolate.MODID + ":mixer", "inventory"));
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(PACKER), 0, new ModelResourceLocation(NoahsChocolate.MODID + ":packer", "inventory"));
 	}
 	
 }

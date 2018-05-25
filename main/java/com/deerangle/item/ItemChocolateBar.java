@@ -1,14 +1,22 @@
 package com.deerangle.item;
 
+import java.util.AbstractList;
+import java.util.ArrayList;
+
+import javax.annotation.Nullable;
+
 import org.apache.http.client.CredentialsProvider;
 
 import com.deerangle.block.ModBlocks;
 import com.deerangle.effect.ModPotions;
 import com.deerangle.main.NoahsChocolate;
+import com.deerangle.main.NoahsUtil;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.BlockPortal;
 import net.minecraft.block.BlockWeb;
+import net.minecraft.block.IGrowable;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityCreature;
@@ -28,6 +36,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemBucketMilk;
 import net.minecraft.item.ItemChorusFruit;
+import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemFirework;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -44,27 +53,31 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.gen.structure.StructureVillagePieces.Village;
+import net.minecraftforge.event.ForgeEventFactory;
 
 public class ItemChocolateBar extends ItemFood {
 
 	public static String[] types = new String[] { "normal", "dark", "light", "full", "lite", "cookie", "nut", "smartie",
 			"joghurt", "colored_white", "colored_orange", "colored_magenta", "colored_light_blue", "colored_yellow",
 			"colored_lime", "colored_pink", "colored_gray", "colored_silver", "colored_cyan", "colored_purple",
-			"colored_blue", "colored_brown", "colored_green", "colored_red", "colored_black", "bed", "mushroom",
-			"flower", "lilypad", "gold", "steve", "lsd", "troll", "fish", "quartz", "cobble", "spider", "creeper",
+			"colored_blue", "colored_brown", "colored_green", "colored_red", "colored_black", "bread", "power",
+			"flower", "slime", "gold", "steve", "lsd", "troll", "fish", "quartz", "cobble", "spider", "creeper",
 			"ender", "wither", "fire", "firework", "glass", "windows", "apple", "glowstone", "redstone", "illuminati",
-			"cow", "rainbow", "book", "portal", "christmas", "halloween" };
+			"cow", "rainbow", "book", "cloud", "christmas", "halloween" };
 
 	SoundEvent SOUND_WINDOWS = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":windows"));
 	SoundEvent SOUND_SCREAM = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":scream"));
 	SoundEvent SOUND_SANTA = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":santa"));
 	SoundEvent SOUND_ILLUMINATI = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":illuminati"));
-	SoundEvent SOUND_REDSTONE = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":redstone"));
-	SoundEvent SOUND_GLOWSTONE = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":glowstone"));
+	//SoundEvent SOUND_REDSTONE = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":redstone"));
+	//SoundEvent SOUND_GLOWSTONE = new SoundEvent(new ResourceLocation(NoahsChocolate.MODID + ":glowstone"));
+
+	public static ArrayList<String> flyingPlayers = new ArrayList<>();
 
 	public ItemChocolateBar() {
 		super(0, false);
@@ -115,22 +128,27 @@ public class ItemChocolateBar extends ItemFood {
 			EntityPlayer player = (EntityPlayer) entityLiving;
 			int meta = stack.getMetadata();
 			player.getFoodStats().addStats(new ItemFood(getHungerAmount(meta), isWolfFood(meta)), stack);
-			worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F, worldIn.rand.nextFloat() * 0.1F + 0.9F);
+			worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ,
+					SoundEvents.ENTITY_PLAYER_BURP, SoundCategory.PLAYERS, 0.5F,
+					worldIn.rand.nextFloat() * 0.1F + 0.9F);
 			executeEffect(meta, stack, worldIn, player);
 			player.addStat(StatList.getObjectUseStats(this));
 
 			if (player instanceof EntityPlayerMP) {
 				CriteriaTriggers.CONSUME_ITEM.trigger((EntityPlayerMP) player, stack);
 			}
+			stack.shrink(1);
+			NoahsUtil.givePlayerItem(player, new ItemStack(ModItems.WRAP_PAPER_USED));
 		}
-
-		stack.shrink(1);
 		return stack;
 	}
-	
+
 	private void executeEffect(int meta, ItemStack stack, World worldIn, EntityPlayer player) {
 		applyStandardEffects(player, 0);
 		switch (types[meta]) {
+			case "joghurt":
+				player.clearActivePotions();
+				break;
 			case "full":
 				applyStandardEffects(player, 2);
 				break;
@@ -138,21 +156,14 @@ public class ItemChocolateBar extends ItemFood {
 				player.getEntityData().setInteger("Diabetis", 0);
 				player.removePotionEffect(ModPotions.schoko);
 				break;
-			case "bed":
-				worldIn.setWorldTime(1000);
-				break;
-			case "mushroom":
-				worldIn.setWorldTime(18000);
+			case "power":
+				player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 15 * 20, 1));
 				break;
 			case "flower":
-				worldIn.getWorldInfo().setRainTime(0);
-				worldIn.getWorldInfo().setThunderTime(0);
-				worldIn.getWorldInfo().setRaining(false);
-				worldIn.getWorldInfo().setThundering(false);
+				applyBonemeal(new ItemStack(Items.DYE, 1, 15), worldIn, player.getPosition().down(), player, null);
 				break;
-			case "lilypad":
-				worldIn.getWorldInfo().setRainTime(0);
-				worldIn.getWorldInfo().setRaining(true);
+			case "slime":
+				player.addVelocity(0, 1.5, 0);
 				break;
 			case "gold":
 				player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 5 * 20, 1));
@@ -181,7 +192,7 @@ public class ItemChocolateBar extends ItemFood {
 				player.getFoodStats().setFoodLevel((lvl2 < 0 ? 0 : lvl2));
 				break;
 			case "christmas":
-				player.inventory.addItemStackToInventory(new ItemStack(ModBlocks.present, 1 + worldIn.rand.nextInt(3)));
+				NoahsUtil.givePlayerItem(player, new ItemStack(ModBlocks.PRESENT, 1 + worldIn.rand.nextInt(3)));
 				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SOUND_SANTA, SoundCategory.PLAYERS, 1, 1);
 				break;
 			case "fire":
@@ -190,9 +201,9 @@ public class ItemChocolateBar extends ItemFood {
 			case "book":
 				player.addExperience(30);
 				break;
-			case "portal":
-				player.setPortal(player.getPosition());
-				player.changeDimension(-1);
+			case "cloud":
+				player.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, 1200, 9));
+				flyingPlayers.add(player.getUniqueID().toString());
 				break;
 			case "glass":
 				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.BLOCK_GLASS_BREAK, SoundCategory.PLAYERS, 1, 1);
@@ -256,11 +267,11 @@ public class ItemChocolateBar extends ItemFood {
 				NoahsChocolate.network.sendToAll(new FireworkExplodeMessage(player.posX, player.posY + player.eyeHeight, player.posZ));
 				break;
 			case "redstone":
-				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SOUND_REDSTONE, SoundCategory.PLAYERS, 10, 1);
+				//worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SOUND_REDSTONE, SoundCategory.PLAYERS, 10, 1);
 				player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 14 * 20, 14));
 				break;
 			case "glowstone":
-				worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SOUND_GLOWSTONE, SoundCategory.PLAYERS, 10, 1);
+				//worldIn.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SOUND_GLOWSTONE, SoundCategory.PLAYERS, 10, 1);
 				player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 12 * 20, 7));
 				break;
 		}
@@ -273,13 +284,11 @@ public class ItemChocolateBar extends ItemFood {
 
 	private boolean canAlwaysBeEaten(int meta) {
 		switch (types[meta]) {
-			case "bed":
-				return true;
 			case "mushroom":
 				return true;
 			case "flower":
 				return true;
-			case "lilypad":
+			case "slime":
 				return true;
 			case "gold":
 				return true;
@@ -293,7 +302,7 @@ public class ItemChocolateBar extends ItemFood {
 				return true;
 			case "book":
 				return true;
-			case "portal":
+			case "cloud":
 				return true;
 			case "glass":
 				return true;
@@ -342,7 +351,7 @@ public class ItemChocolateBar extends ItemFood {
 		case "full":
 			return 6;
 		case "lite":
-			return 2;
+			return 1;
 		case "cookie":
 			return 6;
 		case "joghurt":
@@ -355,9 +364,41 @@ public class ItemChocolateBar extends ItemFood {
 			return 0;
 		case "fire":
 			return 0;
+		case "rainbow":
+			return 8;
+		case "bread":
+			return 8;
+		case "power":
+			return 8;
 		default:
 			return 4;
 		}
+	}
+
+	public boolean applyBonemeal(ItemStack stack, World worldIn, BlockPos target, EntityPlayer player, @Nullable EnumHand hand) {
+		IBlockState iblockstate = worldIn.getBlockState(target);
+
+		int hook = ForgeEventFactory.onApplyBonemeal(player, worldIn, target, iblockstate, stack, hand);
+		if (hook != 0)
+			return hook > 0;
+
+		if (iblockstate.getBlock() instanceof IGrowable) {
+			IGrowable igrowable = (IGrowable) iblockstate.getBlock();
+
+			if (igrowable.canGrow(worldIn, target, iblockstate, worldIn.isRemote)) {
+				if (!worldIn.isRemote) {
+					if (igrowable.canUseBonemeal(worldIn, worldIn.rand, target, iblockstate)) {
+						igrowable.grow(worldIn, worldIn.rand, target, iblockstate);
+					}
+
+					stack.shrink(1);
+				}
+
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 }

@@ -1,7 +1,10 @@
 package com.deerangle.block.entity;
 
 import com.deerangle.item.ModItems;
+import com.deerangle.main.ItemHandlerConfig;
+import com.deerangle.main.NoahsItemHandler;
 
+import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -17,8 +20,18 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntityDistiller extends TileEntity implements ITickable, ICapabilityProvider {
-
-	public ItemStackHandler inventory = new ItemStackHandler(3);
+	
+	private ItemHandlerConfig config = new ItemHandlerConfig() {
+		
+		@Override
+		public boolean isItemValid(int slot, ItemStack stack) {
+			if(slot == 0 && stack.getItem() == ModItems.WEED) return true;
+			if(slot == 1 && TileEntityFurnace.isItemFuel(stack)) return true;
+			return false;
+		}
+		
+	};
+	public NoahsItemHandler inventory = new NoahsItemHandler(3, config);
 
 	public int burnTime;
 	public int maxBurnTime;
@@ -76,12 +89,17 @@ public class TileEntityDistiller extends TileEntity implements ITickable, ICapab
 	}
 
 	private void burnFuel() {
-		if (!inventory.getStackInSlot(1).isEmpty() && !inventory.getStackInSlot(0).isEmpty()) {
+		ItemStack fuelStack = inventory.getStackInSlot(1);
+		if (!fuelStack.isEmpty() && !inventory.getStackInSlot(0).isEmpty()) {
 			if(processTimeTHC == 0){
 				if (burnTime <= 1) {
-					burnTime = TileEntityFurnace.getItemBurnTime(inventory.getStackInSlot(1)) + 1;
+					burnTime = TileEntityFurnace.getItemBurnTime(fuelStack) + 1;
 					maxBurnTime = burnTime;
-					inventory.extractItem(1, 1, false);
+					if(fuelStack.getItem().hasContainerItem(fuelStack)) {
+						inventory.setStackInSlot(1, fuelStack.getItem().getContainerItem(fuelStack));
+					}else {
+						inventory.extractItem(1, 1, false);
+					}
 				}
 			}
 		}
@@ -112,7 +130,7 @@ public class TileEntityDistiller extends TileEntity implements ITickable, ICapab
 	private void endProcessTHC() {
 		processedWeed = 0;
 		processTimeTHC = 0;
-		inventory.insertItem(2, new ItemStack(ModItems.thc), false);
+		inventory.insertItemForced(2, new ItemStack(ModItems.THC));
 	}
 
 	private void processWeed() {
@@ -202,11 +220,13 @@ public class TileEntityDistiller extends TileEntity implements ITickable, ICapab
 
 	private void syncFromNBT(NBTTagCompound tag) {
 		NBTTagCompound compound = (NBTTagCompound) tag.getTag("ProcessInfo");
-		processTimeWeed = compound.getInteger("ProcessWeed");
-		processTimeTHC = compound.getInteger("ProcessTHC");
-		processedWeed = compound.getInteger("Weed");
-		burnTime = compound.getInteger("Burn");
-		maxBurnTime = compound.getInteger("MaxBurn");
+		if(compound != null) {
+			processTimeWeed = compound.getInteger("ProcessWeed");
+			processTimeTHC = compound.getInteger("ProcessTHC");
+			processedWeed = compound.getInteger("Weed");
+			burnTime = compound.getInteger("Burn");
+			maxBurnTime = compound.getInteger("MaxBurn");
+		}
 	}
 
 	@Override

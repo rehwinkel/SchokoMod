@@ -38,11 +38,11 @@ public class WorldGenWeed extends WorldGenerator {
 		
 		if(worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos)){
 			BlockPos lowPos = pos.offset(EnumFacing.DOWN);
-			if(((BlockBushWeed) ModBlocks.bush_weed).canSustain(worldIn, lowPos, worldIn.getBlockState(lowPos))){
+			if(((BlockBushWeed) ModBlocks.BUSH_WEED).canSustain(worldIn, lowPos, worldIn.getBlockState(lowPos))){
 				if(b){
-					worldIn.setBlockState(pos, ModBlocks.bush_weed.getDefaultState().withProperty(BlockBushWeed.AGE, 2));
+					worldIn.setBlockState(pos, ModBlocks.BUSH_WEED.getDefaultState().withProperty(BlockBushWeed.AGE, 2));
 				}else{
-					worldIn.setBlockState(pos, ModBlocks.bush_weed.getDefaultState());
+					worldIn.setBlockState(pos, ModBlocks.BUSH_WEED.getDefaultState());
 				}
 			}
 			return true;

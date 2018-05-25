@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DD",
+    "LD"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:redstone"
+    },
+    "L": {
+      "item": "minecraft:dye",
+      "data": 4
+    }
+  },
+  "result": {
+    "item": "noahschocolate:error"
+  }
+}

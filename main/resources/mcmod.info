@@ -1,16 +1,22 @@
 [
-{
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
-  "screenshots": [],
-  "dependencies": []
-}
+  {
+    "modid":"noahschocolate",
+    "name":"Noah's Chocolate!",
+    "description":"This is Noah's Chocolate mod. It adds a total of 54 Chocolate Bars with unique effects.",
+    "version":"${version}",
+    "mcversion":"${mcversion}",
+    "url":"",
+    "updateUrl":"",
+    "authorList":[
+      "deerangle"
+    ],
+    "credits":"Ian Rehwinkel, a.k.a. deerangle, for making this Mod. Creepsy_HD and Iglipower for helping a little.",
+    "logoFile":"logo.png",
+    "screenshots":[
+
+    ],
+    "dependencies":[
+
+    ]
+  }
 ]

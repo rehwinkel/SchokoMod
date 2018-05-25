@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "particle": "noahschocolate:blocks/packer",
+        "down": "noahschocolate:blocks/planks_spruce",
+        "up": "noahschocolate:blocks/packer_top",
+        "north": "noahschocolate:blocks/packer",
+        "east": "noahschocolate:blocks/packer",
+        "south": "noahschocolate:blocks/packer",
+        "west": "noahschocolate:blocks/packer"
+    }
+}
